@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PeptideEdu</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+
+    <!-- Owl Carousel & Jquery-->
+    <link rel="stylesheet" href="assets/css/owl.carousel.css" />
+    <link rel="stylesheet" href="assets/css/owl.theme.default.css" />
+    <link rel="stylesheet" href="assets/css/owl.theme.green.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="assets/js/owl.carousel.js"></script>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="nav-bar border-bottom">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg">
+          <div class="container-fluid">
+            <a class="navbar-brand logo-text" href="/"
+              >Peptide<span>Edu</span></a
+            >
+            <button
+              class="navbar-toggler shadow-none outline-none"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul
+                class="navbar-nav mt-2 text-end pe-1 pe-md-0 ms-auto gap-1 gap-lg-4"
+              >
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="faq.html">FAQ</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Product details -->
+    <section class="product-details">
+      <div class="container">
+        <div class="section-header">
+          <h2>Product details</h2>
+          <h1>Learn more about BPC-157</h1>
+        </div>
+
+        <div class="breadcrumbs mt-2">
+          <a href="/">Home</a>
+          <i class="fa-solid fa-chevron-right"></i>
+          <a href="javascript:void(0)">Products</a>
+          <i class="fa-solid fa-chevron-right"></i>
+          <span>BCD123</span>
+        </div>
+
+        <div class="row align-items-center mt-4">
+          <div class="col-md-6 col-lg-5">
+            <div class="product-det-left">
+              <div class="owl-carousel owl-theme">
+                <div class="item">
+                  <div class="product-det-item">
+                    <video src="assets/images/video.mp4" controls muted></video>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="product-det-item">
+                    <img src="assets/images/images.jpg" alt="" />
+                  </div>
+                </div>
+
+                <div class="item">
+                  <div class="product-det-item">
+                    <img src="assets/images/peptides-2.png" alt="" />
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="product-det-item">
+                    <img src="assets/images//peptides.png" alt="" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-7">
+            <div class="product-det-right px-lg-3">
+              <div class="product-category-white">Regenerative / Healing</div>
+              <h1>BPC-157</h1>
+              <p>
+                BPC-157 is a synthetic peptide derived from a naturally
+                occurring protein found in gastric tissue.
+              </p>
+
+              <div class="product-point">
+                <div class="product-point-item">
+                  <div class="icon">
+                    <i class="fa-solid fa-flask"></i>
+                  </div>
+                  <div>
+                    <p><b>Formula:</b> NH2–CHR–COOH</p>
+                  </div>
+                </div>
+                <div class="product-point-item">
+                  <div class="icon">
+                    <img src="assets/images/molecule.png" alt="molecule" />
+                  </div>
+                  <div>
+                    <p><b>Molecular Weight:</b> 1419.55 g/mol</p>
+                  </div>
+                </div>
+                <div class="product-point-item">
+                  <div class="icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                  </div>
+                  <div>
+                    <p>
+                      <b>Purity:</b>
+                      <i
+                        class="fa-solid fa-greater-than-equal"
+                        style="font-size: 12px"
+                      ></i>
+                      99%
+                    </p>
+                  </div>
+                </div>
+                <div class="product-point-item">
+                  <div class="icon">
+                    <i class="fa-solid fa-eye"></i>
+                  </div>
+                  <div>
+                    <p><b>Appearance:</b>White to off white powder</p>
+                  </div>
+                </div>
+                <div class="product-point-item">
+                  <div class="icon">
+                    <i class="fa-solid fa-temperature-full"></i>
+                  </div>
+                  <div>
+                    <p><b>Storage:</b> Store refrigerated (2-8°C)</p>
+                  </div>
+                </div>
+              </div>
+
+              <a href="#" class="coa-btn">
+                <span></span>
+                <span>View CoA</span>
+                <i class="fa-regular fa-file-lines"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      $(".owl-carousel").owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: false,
+        responsive: {
+          0: {
+            items: 1,
+          },
+        },
+      });
+    </script>
+
+    <!-- Product Description -->
+    <section class="product-desc">
+      <div class="container">
+        <div class="product-desc-in">
+          <div class="desc-tabs">
+            <button class="active" data-id="0">Description</button>
+            <button data-id="1">Benefits</button>
+            <button data-id="2">Usage</button>
+          </div>
+
+          <div class="desc-content active" data-id="0">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Consectetur soluta corporis pariatur incidunt aspernatur explicabo
+              iure repellat facilis nostrum dolores.
+            </p>
+
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Consectetur soluta corporis pariatur incidunt aspernatur explicabo
+              iure repellat facilis nostrum dolores.
+            </p>
+          </div>
+
+          <div class="desc-content" data-id="1">
+            <p>
+              2 Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Consectetur soluta corporis pariatur incidunt aspernatur explicabo
+              iure repellat facilis nostrum dolores.
+            </p>
+
+            <p>
+              2 Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Consectetur soluta corporis pariatur incidunt aspernatur explicabo
+              iure repellat facilis nostrum dolores.
+            </p>
+          </div>
+
+          <div class="desc-content" data-id="2">
+            <p>
+              3 Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Consectetur soluta corporis pariatur incidunt aspernatur explicabo
+              iure repellat facilis nostrum dolores.
+            </p>
+
+            <p>
+              3 Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Consectetur soluta corporis pariatur incidunt aspernatur explicabo
+              iure repellat facilis nostrum dolores.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research use only -->
+    <section class="research-use">
+      <div class="container">
+        <div class="research-use-in">
+          <i class="fa-solid fa-flask"></i>
+          <div>
+            <h1>Research use only</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
+              error corporis tempora earum itaque cumque labore inventore
+              ducimus harum ipsa.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="cmn-bg">
+      <!-- Faq -->
+      <section class="faq">
+        <div class="container">
+          <div class="section-header">
+            <h2>Got Questions?</h2>
+            <h1>Frequently asked questions</h1>
+            <p>
+              Find clear answers to the most common questions about our
+              platform, services, and how everything works. This section helps
+              you quickly get the information you need.
+            </p>
+          </div>
+
+          <div class="faq-wrapper mt-4">
+            <div class="accordion accordion-flush" id="faqAccordion">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed shadow-none outline-none"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq-01"
+                  >
+                    Are peptides legal?
+                  </button>
+                </h2>
+                <div
+                  id="faq-01"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    <p>
+                      Regulation varies widely. Some peptides are approved
+                      medications, while others are investigational or
+                      restricted.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed shadow-none outline-none"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq-02"
+                  >
+                    Are peptides safe?
+                  </button>
+                </h2>
+                <div
+                  id="faq-02"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    <p>
+                      Safety depends on the specific compound, dosage, and
+                      context. Many peptides lack long-term human data.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed shadow-none outline-none"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq-03"
+                  >
+                    What is the difference between research and pharmaceutical
+                    peptides?
+                  </button>
+                </h2>
+                <div
+                  id="faq-03"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    <p>
+                      Pharmaceutical peptides are approved for medical use.
+                      Research peptides are typically investigational and not
+                      approved for general use.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="contact">
+        <div class="container">
+          <div class="section-header">
+            <h2>Get in Touch</h2>
+            <h1>Contact Us</h1>
+            <p>
+              Have questions or need assistance? Our team is here to help. Reach
+              out to us anytime, and we’ll get back to you as soon as possible.
+            </p>
+          </div>
+
+          <div class="mt-4 form-wrapper">
+            <form action="">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="input-wrapper">
+                    <label>Your name</label>
+                    <input type="text" name="name" placeholder="Your name" />
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="input-wrapper">
+                    <label>Your email</label>
+                    <input type="text" name="email" placeholder="Your email" />
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="input-wrapper">
+                    <label>Your message</label>
+                    <textarea
+                      type="text"
+                      name="message"
+                      placeholder="Your message"
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+              <button class="contact-submit-btn">
+                <span>Send</span>
+                <i class="fa-regular fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <section class="footer border-top">
+      <div class="container">
+        <p>
+          <i class="fa-regular fa-copyright"></i> 2026 peptideEdu all right
+          reserved.
+        </p>
+      </div>
+    </section>
+
+    <!-- To Top -->
+    <button class="to-top" id="to-top">
+      <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+    <script>
+      $(document).ready(function () {
+        // To Top
+        $("#to-top").click(function () {
+          window.scrollTo(0, 0);
+        });
+
+        // Product Description Tabs
+        $(".desc-tabs button").click(function () {
+          var dataId = $(this).attr("data-id");
+
+          // Remove active class from all buttons and add to clicked one
+          $(".desc-tabs button").removeClass("active");
+          $(this).addClass("active");
+
+          // Hide all desc-content and show the matching one
+          $(".desc-content").removeClass("active");
+          $(".desc-content[data-id='" + dataId + "']").addClass("active");
+        });
+      });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
