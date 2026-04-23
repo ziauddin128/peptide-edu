@@ -23,6 +23,8 @@
   --light-primary-bg: #eaf5f1;
   --light-border-color: #d4d4d4;
   --yellowish-bg: #f5f5ed;
+  --odritual-red: #cd3535;
+  --light-border-color2: #ebebeb;
 }
 
 body {
@@ -386,8 +388,9 @@ body {
 
 .product-det-item img,
 .product-det-item video {
+  height: 400px;
   width: 100%;
-  width: 100%;
+  object-fit: contain;
 }
 
 .product-category-white {
@@ -421,13 +424,15 @@ body {
 .product-point {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 }
 
 .product-point-item {
   display: flex;
   align-items: center;
   gap: 8px;
+  padding: 2px 0;
+  border-bottom: 1px solid #ccc;
 }
 
 .product-point-item .icon {
@@ -470,13 +475,197 @@ body {
   justify-content: space-between;
   gap: 5px;
   text-decoration: none;
-  max-width: 500px;
   width: 100%;
   margin-top: 20px;
 }
 
-/* Product Description */
+@media (max-width: 575px) {
+  .product-det-item img,
+  .product-det-item video {
+    height: auto;
+  }
+}
 
+/* Lab Report  */
+.lab-report {
+  padding: 50px 0 0 0;
+}
+
+.lab-report > .container > .row > div 
+{
+  margin: 10px 0;
+
+}
+
+.lab-report-left,
+.lab-report-right {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+    height: 100%;
+}
+
+.lab-report-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--light-border-color2);
+}
+
+.chemical-report-wrapper {
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--light-border-color2);
+}
+
+.chemical-report-box {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chemical-report-box .icon {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #cccccc68;
+  border-radius: 5px;
+  color: var(--primary-color);
+}
+
+.chemical-report-box h4 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-color-muted);
+  text-transform: uppercase;
+}
+
+.chemical-report-box p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.chemical-structure-img-wrapper img {
+  max-width: 300px;
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+.chemical-structure-img-wrapper h3 {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-color-muted);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.lab-report-purity {
+  padding: 10px;
+  border: 1px solid var(--primary-color);
+  background-color: var(--light-primary-bg);
+  color: var(--primary-color);
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.lab-report-purity h3 {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.lab-report-purity h2 {
+  margin: 10px 0 0 0;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.endoxin-report {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+    padding-bottom: 15px;
+  border-bottom: 1px solid var(--light-border-color2);
+}
+
+.endoxin-report h3 {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-color-muted);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.endoxin-report h2 {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+.endoxin-report img {
+  width: 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.previous-batch h1 
+{
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+    color: var(--text-color-muted);
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.prev-batch-list 
+{
+  margin-top: 10px;
+  display: flex; 
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--light-border-color2);
+}
+
+.prev-batch-list h2 
+{
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.prev-batch-list p 
+{
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+
+/* Product Description */
 .product-desc {
   padding: 50px 0 0 0;
 }
@@ -484,113 +673,61 @@ body {
 .product-desc-in {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   background-color: white;
-  padding: 30px 20px;
+  padding: 20px;
   border-radius: 10px;
 }
 
-.desc-tabs {
-  border-bottom: 1px solid #ccc;
-  display: flex;
-  gap: 20px;
-  overflow: auto;
+.product-desc-in h1 {
+  font-size: 25px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--primary-color);
 }
 
-.desc-tabs::-webkit-scrollbar {
-  display: none;
-}
-
-.desc-tabs button {
-  padding: 10px 20px;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text-color-muted);
-  border: none;
-  outline: none;
-  box-shadow: none;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-
-.desc-tabs button.active {
-  background-color: var(--primary-color);
-  color: white;
-}
-
-.desc-content {
-  padding-top: 20px;
-  display: none;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.desc-content.active {
-  display: flex;
-}
-
-.desc-content p {
+.product-desc-in p {
   font-size: 16px;
   font-weight: 400;
   color: var(--text-color-muted);
-  margin: 0;
+  margin: 10px 0 0 0;
 }
 
 /* Research use only */
 .research-use {
-  padding: 50px 0;
+  padding: 50px 0 0 0;
 }
 
 .research-use-in {
-  background-color: var(--light-primary-bg);
-  border: 1px solid #ccc;
-  padding: 30px 40px;
+  border: 1px solid var(--odritual-red);
+  background-color: #fff;
+  padding: 30px;
   border-radius: 10px;
-  display: grid;
-  grid-template-columns: 100px auto;
+}
+
+.research-use-in h2 {
+  display: flex;
   align-items: center;
-  gap: 20px;
-}
-
-.research-use-in i {
-  margin: 0 auto;
-  font-size: 60px;
-  color: var(--primary-color);
-}
-
-.research-use-in h1 {
-  font-size: 30px;
+  justify-content: center;
+  gap: 10px;
+  font-size: 20px;
   font-weight: 500;
-  color: var(--primary-color);
   margin: 0;
+  color: var(--text-color-muted);
 }
+
 .research-use-in p {
-  font-size: 16px;
+  margin: 10px 0 0 0;
+  font-size: 14px;
   font-weight: 400;
-  margin: 5px 0 0 0;
-}
-
-@media (max-width: 575px) {
-  .research-use-in {
-    padding: 30px 40px;
-    grid-template-columns: auto;
-    text-align: center;
-  }
-}
-
-@media (min-width: 576px) and (max-width: 767px) {
-  .research-use-in {
-    padding: 30px;
-  }
+  color: var(--text-color-muted);
 }
 
 /* About Us */
-.about-us 
-{
+.about-us {
   padding: 80px 0 0 0;
 }
 
 .about-us-left,
-.about-us-right 
-{
+.about-us-right {
   margin: 10px 0;
 }
 
@@ -624,16 +761,14 @@ body {
   width: 100%;
 }
 
-.about-us-left ul 
-{
+.about-us-left ul {
   margin: 0;
   padding: 0;
   padding-left: 20px;
 }
 
-.about-us-left ul li 
-{
-   font-size: 16px;
+.about-us-left ul li {
+  font-size: 16px;
   font-weight: 400;
   margin: 5px 0 0 0;
   color: var(--text-color-muted);
