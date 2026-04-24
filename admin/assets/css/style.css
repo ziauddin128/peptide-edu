@@ -10839,7 +10839,7 @@ textarea.is-invalid.tt-hint {
   }
 }
 
-.btn, .fc button, .ajax-upload-dragdrop .ajax-file-upload, .swal2-modal .swal2-buttonswrapper .swal2-styled, .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm, .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-cancel, .wizard > .actions a {
+.btn, .fc button, .ajax-upload-dragdrop .ajax-file-upload{
   display: inline-block;
   font-weight: 400;
   color: #000000;
@@ -10856,33 +10856,26 @@ textarea.is-invalid.tt-hint {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .btn, .fc button, .ajax-upload-dragdrop .ajax-file-upload, .swal2-modal .swal2-buttonswrapper .swal2-styled, .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm, .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-cancel, .wizard > .actions a {
+  .btn, .fc button, .ajax-upload-dragdrop .ajax-file-upload{
     transition: none;
   }
 }
 
-.btn:hover, .fc button:hover, .ajax-upload-dragdrop .ajax-file-upload:hover, .swal2-modal .swal2-buttonswrapper .swal2-styled:hover, .wizard > .actions a:hover {
+.btn:hover, .fc button:hover, .ajax-upload-dragdrop .ajax-file-upload:hover{
   color: #000000;
   text-decoration: none;
 }
 
-.btn:focus, .fc button:focus, .ajax-upload-dragdrop .ajax-file-upload:focus, .swal2-modal .swal2-buttonswrapper .swal2-styled:focus, .wizard > .actions a:focus, .btn.focus, .fc button.focus, .ajax-upload-dragdrop .focus.ajax-file-upload, .swal2-modal .swal2-buttonswrapper .focus.swal2-styled, .wizard > .actions a.focus {
+.btn:focus, .fc button:focus, .ajax-upload-dragdrop .ajax-file-upload:focus {
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
-.btn.disabled, .fc button.disabled, .ajax-upload-dragdrop .disabled.ajax-file-upload, .swal2-modal .swal2-buttonswrapper .disabled.swal2-styled, .wizard > .actions a.disabled, .btn:disabled, .fc button:disabled, .ajax-upload-dragdrop .ajax-file-upload:disabled, .swal2-modal .swal2-buttonswrapper .swal2-styled:disabled, .wizard > .actions a:disabled {
+.btn.disabled, .fc button.disabled, .ajax-upload-dragdrop .disabled.ajax-file-upload {
   opacity: 0.65;
 }
 
-a.btn.disabled, .ajax-upload-dragdrop a.disabled.ajax-file-upload, .swal2-modal .swal2-buttonswrapper a.disabled.swal2-styled, .wizard > .actions a.disabled,
-fieldset:disabled a.btn,
-fieldset:disabled .ajax-upload-dragdrop a.ajax-file-upload,
-.ajax-upload-dragdrop fieldset:disabled a.ajax-file-upload,
-fieldset:disabled .swal2-modal .swal2-buttonswrapper a.swal2-styled,
-.swal2-modal .swal2-buttonswrapper fieldset:disabled a.swal2-styled,
-fieldset:disabled .wizard > .actions a,
-.wizard > .actions fieldset:disabled a {
+a.btn.disabled, .ajax-upload-dragdrop a.disabled.ajax-file-upload{
   pointer-events: none;
 }
 
@@ -11443,14 +11436,14 @@ fieldset:disabled .wizard > .actions a,
   pointer-events: none;
 }
 
-.btn-lg, .btn-group-lg > .btn, .fc .btn-group-lg > button, .ajax-upload-dragdrop .btn-group-lg > .ajax-file-upload, .swal2-modal .swal2-buttonswrapper .btn-group-lg > .swal2-styled, .wizard > .actions .btn-group-lg > a {
+.btn-lg, .btn-group-lg > .btn, .fc .btn-group-lg > button, .ajax-upload-dragdrop .btn-group-lg > .ajax-file-upload{
   padding: 1rem 3rem;
   font-size: 0.875rem;
   line-height: 1.5;
   border-radius: 0.1875rem;
 }
 
-.btn-sm, .btn-group-sm > .btn, .fc .btn-group-sm > button, .ajax-upload-dragdrop .btn-group-sm > .ajax-file-upload, .swal2-modal .swal2-buttonswrapper .btn-group-sm > .swal2-styled, .wizard > .actions .btn-group-sm > a, .fc button {
+.btn-sm, .btn-group-sm > .btn, .fc .btn-group-sm > button, .ajax-upload-dragdrop .btn-group-sm > .ajax-file-upload {
   padding: 0.5rem 0.81rem;
   font-size: 0.875rem;
   line-height: 1.5;
@@ -11758,12 +11751,7 @@ input[type="button"].btn-block {
   vertical-align: middle;
 }
 
-.btn-group > .btn, .fc .fc-button-group > .btn, .fc .btn-group > button, .fc .fc-button-group > button, .ajax-upload-dragdrop .btn-group > .ajax-file-upload, .fc .ajax-upload-dragdrop .fc-button-group > .ajax-file-upload, .ajax-upload-dragdrop .fc .fc-button-group > .ajax-file-upload, .swal2-modal .swal2-buttonswrapper .btn-group > .swal2-styled, .fc .swal2-modal .swal2-buttonswrapper .fc-button-group > .swal2-styled, .swal2-modal .swal2-buttonswrapper .fc .fc-button-group > .swal2-styled, .wizard > .actions .btn-group > a, .fc .wizard > .actions .fc-button-group > a, .wizard > .actions .fc .fc-button-group > a,
-.btn-group-vertical > .btn,
-.fc .btn-group-vertical > button,
-.ajax-upload-dragdrop .btn-group-vertical > .ajax-file-upload,
-.swal2-modal .swal2-buttonswrapper .btn-group-vertical > .swal2-styled,
-.wizard > .actions .btn-group-vertical > a {
+.btn-group > .btn, .fc .fc-button-group > .btn, .fc .btn-group > button, .fc .fc-button-group > button, .ajax-upload-dragdrop .btn-group > .ajax-file-upload, .fc .ajax-upload-dragdrop .fc-button-group > .ajax-file-upload, .ajax-upload-dragdrop .fc .fc-button-group > .ajax-file-upload {
   position: relative;
   flex: 1 1 auto;
 }
@@ -26618,10 +26606,14 @@ body.avgrund-active {
   margin-bottom: 0;
 }
 
+.swal2-popup 
+{
+  padding: 0px;
+}
+
 .swal2-modal .swal2-icon,
 .swal2-modal .swal2-success-ring {
   margin-top: 0;
-  margin-bottom: 42px;
 }
 
 .swal2-modal .swal2-buttonswrapper {
@@ -29542,4 +29534,11 @@ div.tagsinput span.tag a {
   }
 }
 
-/*# sourceMappingURL=../maps/vertical-layout-light/style.css.map */
+.error-msg 
+{
+  font-size: 14px;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  color: red;
+  display: none;
+}

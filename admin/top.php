@@ -1,16 +1,28 @@
+<?php
+require "config.php";
+require "api/function.php";
+
+if (empty($_SESSION['USER_ID'])) {
+    redirect('index');
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Food Ordering Admin</title>
+  <title>PeptideEdu | Admin</title>
   <link rel="stylesheet" href="assets/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="assets/css/vendor.bundle.base.css">
   <link rel="stylesheet" href="assets/css/dataTables.bootstrap4.css">
   <link rel="stylesheet" href="assets/css/bootstrap-datepicker.min.css">
   <link rel="stylesheet" href="assets/css/bootstrap-datepicker.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body class="sidebar-light">
@@ -38,7 +50,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item">
+              <a href="logout" class="dropdown-item">
                 <i class="mdi mdi-logout text-primary"></i>
                 Logout
               </a>
@@ -58,12 +70,12 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="peptides">
               <i class="mdi mdi-view-quilt menu-icon"></i>
-              <span class="menu-title">Dashboard</span>
+              <span class="menu-title">Peptides</span>
             </a>
           </li>
-          <li class="nav-item">
+         <!--  <li class="nav-item">
             <a class="nav-link" href="form.html">
               <i class="mdi mdi-view-headline menu-icon"></i>
               <span class="menu-title">Form</span>
@@ -80,7 +92,7 @@
               <i class="mdi mdi-airplay menu-icon"></i>
               <span class="menu-title">Login</span>
             </a>
-          </li>
+          </li> -->
 
         </ul>
       </nav>
