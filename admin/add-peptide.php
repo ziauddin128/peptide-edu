@@ -215,28 +215,58 @@
                </div>
              </div>
 
-             <!-- Previous Batches -->
-             <div class="col-md-6">
+           </div>
+
+           <h3 class="text-primary mb-3">Previous Batch</h3>
+           <div class="row align-items-center prev-batches-wrapper">
+
+             <div class="col-md-4 col-lg-5">
                <div class="form-group">
-                 <label>Sterility (Usp61)</label>
-                 <input type="file" name="sterility" required class="form-control">
+                 <label>Batch</label>
+                 <input type="text" class="form-control" name="prev_batch[]" placeholder="Batch">
                </div>
              </div>
 
+             <div class="col-md-4 col-lg-5">
+               <div class="form-group">
+                 <label>Date</label>
+                 <input type="date" class="form-control" name="prev_batch_date[]">
+               </div>
+             </div>
            </div>
 
 
-           <!--   <div class="form-group">
-             <label for="exampleSelectGender">Gender</label>
-             <select class="form-control" id="exampleSelectGender">
-               <option>Male</option>
-               <option>Female</option>
-             </select>
-           </div> -->
+           <div class="prev_batch_wrapper_new"></div>
+           <div class="mt-1">
+             <button type="button" class="btn btn-secondary" onclick="addBatchRow()">
+               <i class="mdi mdi-plus menu-icon"></i>
+               Add More
+             </button>
+           </div>
 
 
+           <h3 class="text-primary my-3">Media Files</h3>
+           <div class="row">
+             <div class="col-md-10">
+               <div class="form-group">
+                 <label>Image/Video</label>
+                 <input type="file" class="form-control" name="media[]">
+               </div>
+             </div>
+           </div>
 
-           <button type="submit" class="btn btn-primary mr-2">Submit</button>
+           <div class="media_file_wrapper_new"></div>
+
+           <div class="mt-1">
+             <button type="button" class="btn btn-secondary" onclick="addMediaRow()">
+               <i class="mdi mdi-plus menu-icon"></i>
+               Add Media File
+             </button>
+           </div>
+
+           <div class="d-flex justify-content-center mt-5">
+             <button type="submit" class="btn btn-primary w-50">Submit</button>
+           </div>
          </form>
        </div>
      </div>
@@ -244,6 +274,69 @@
 
  </div>
 
+
+ <script>
+   // Previous batch er field dynamically baracci 
+   function addBatchRow() {
+     const wrapper = document.querySelector('.prev_batch_wrapper_new');
+
+     const newRow = document.createElement('div');
+     newRow.className = 'row align-items-center prev-batches-wrapper';
+     newRow.innerHTML = `
+        <div class="col-md-4 col-lg-5">
+          <div class="form-group">
+            <label>Batch</label>
+            <input type="text" required class="form-control" name="prev_batch[]" placeholder="Batch">
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-5">
+          <div class="form-group">
+            <label>Date</label>
+            <input type="date" required class="form-control" name="prev_batch_date[]">
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-2">
+          
+          <button type="button" class="btn btn-danger" onclick="removeBatchRow(this)">
+            <i class="mdi mdi-minus menu-icon"></i> Remove
+          </button>
+        </div>
+      `;
+     wrapper.appendChild(newRow);
+   }
+
+   function removeBatchRow(btn) {
+     const wrapper = btn.closest('.prev-batches-wrapper').parentElement;
+     btn.closest('.prev-batches-wrapper').remove();
+   }
+
+  //  Media file dynamically add
+  function addMediaRow() {
+     const wrapper = document.querySelector('.media_file_wrapper_new');
+
+     const newRow = document.createElement('div');
+     newRow.className = 'row align-items-center media-file-wrapper';
+     newRow.innerHTML = `
+        <div class="col-md-8 col-lg-10">
+          <div class="form-group">
+            <label>Image/Video</label>
+             <input type="file" class="form-control" name="media">
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-2">
+          <button type="button" class="btn btn-danger" onclick="removeMediaRow(this)">
+            <i class="mdi mdi-minus menu-icon"></i> Remove
+          </button>
+        </div>
+      `;
+     wrapper.appendChild(newRow);
+   }
+
+   function removeMediaRow(btn) {
+     const wrapper = btn.closest('.media-file-wrapper').parentElement;
+     btn.closest('.media-file-wrapper').remove();
+   }
+ </script>
 
  <?php
   require "footer.php";
