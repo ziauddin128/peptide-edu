@@ -32,6 +32,7 @@ require "top.php";
 
 
 <script>
+  // Get data
   function getData() {
     $.ajax({
       url: "api/get-peptide.php",
@@ -43,6 +44,50 @@ require "top.php";
   }
 
   getData();
+
+  // Delete data
+  $(document).on("click", "#delete-btn", function() {
+    let id = $(this).data("id");
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        $.ajax({
+          url: "api/delete-peptide.php",
+          type: "POST",
+          data: {
+            id
+          },
+          success: function(res) {
+            let data = JSON.parse(res);
+            if (data.success) {
+              Swal.fire({
+                title: "Success",
+                text: data.message,
+                icon: "success"
+              });
+              getData();
+            } else {
+              Swal.fire({
+                title: "Failed",
+                text: data.message,
+                icon: "error"
+              });
+            }
+          }
+        })
+      };
+    });
+
+
+  })
 </script>
 
 <?php

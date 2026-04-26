@@ -5,10 +5,10 @@ $sql = "SELECT * FROM `peptides` ORDER BY `id` DESC";
 $res = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($res) > 0) {
-    $html = "";
-    $sl = 1;
-    while ($row = mysqli_fetch_assoc($res)) {
-        $html .= '<tr id="data-row-' . $row['id'] . '">
+  $html = "";
+  $sl = 1;
+  while ($row = mysqli_fetch_assoc($res)) {
+    $html .= '<tr id="data-row-' . $row['id'] . '">
                 <td>' . $sl . '</td>
                 <td>' . $row['name1'] . '</td>
                 <td>' . $row['category1'] . '</td>
@@ -21,11 +21,12 @@ if (mysqli_num_rows($res) > 0) {
                 <td>
                   <div class="d-flex" style="gap: 5px">
                     <button class="btn btn-warning py-2">Edit</button>
-                    <button class="btn btn-danger py-2">Delete</button>
+                    <button class="btn btn-danger py-2" id="delete-btn" data-id="' . $row['id'] . '">Delete</button>
                   </div>
                 </td>
               </tr>';
-    }
+    $sl++;
+  }
 }
 
 echo $html;
