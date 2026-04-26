@@ -22,31 +22,28 @@ require "top.php";
                 <th>Actions</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>BPC-157</td>
-                <td>Regenerative</td>
-                <td>
-                  <img src="http://localhost/peptideedu/assets/images/images.jpg" style="width: 80px; height: 80px; border-radius: 0px; object-fit: contain"/>
-                </td>
-                <td>
-                  <a href="#" target="_blank" class="btn btn-primary py-2">View CoA</a>
-                </td>
-                <td>
-                  <div class="d-flex" style="gap: 5px">
-                    <button class="btn btn-warning py-2">Edit</button>
-                    <button class="btn btn-danger py-2">Delete</button>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
+            <tbody class="tableBody"></tbody>
           </table>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
+<script>
+  function getData() {
+    $.ajax({
+      url: "api/get-peptide.php",
+      type: "GET",
+      success: function(res) {
+        $(".tableBody").html(res);
+      }
+    })
+  }
+
+  getData();
+</script>
 
 <?php
 require "footer.php";

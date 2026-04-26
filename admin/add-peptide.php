@@ -6,7 +6,7 @@
    <div class="col-12 grid-margin stretch-card">
      <div class="card">
        <div class="card-body">
-         <form class="forms-sample">
+         <form id="data-form" class="forms-sample">
 
            <h3 class="text-primary mb-3">General Information</h3>
            <div class="row">
@@ -15,13 +15,13 @@
              <div class="col-md-6">
                <div class="form-group">
                  <label>Name(English)</label>
-                 <input type="text" class="form-control" name="name1" placeholder="Name">
+                 <input type="text" class="form-control" required name="name1" placeholder="Name">
                </div>
              </div>
              <div class="col-md-6">
                <div class="form-group">
                  <label>Name(Spanish)</label>
-                 <input type="text" class="form-control" name="name2" placeholder="Name">
+                 <input type="text" class="form-control" required name="name2" placeholder="Name">
                </div>
              </div>
 
@@ -29,13 +29,13 @@
              <div class="col-md-6">
                <div class="form-group">
                  <label>Category(English)</label>
-                 <input type="text" class="form-control" name="category1" placeholder="Category">
+                 <input type="text" class="form-control" required name="category1" placeholder="Category">
                </div>
              </div>
              <div class="col-md-6">
                <div class="form-group">
                  <label>Category(Spanish)</label>
-                 <input type="text" class="form-control" name="category2" placeholder="Category">
+                 <input type="text" class="form-control" required name="category2" placeholder="Category">
                </div>
              </div>
 
@@ -43,13 +43,13 @@
              <div class="col-md-6">
                <div class="form-group">
                  <label>Short Description(English)</label>
-                 <input type="text" class="form-control" name="short_desc1" placeholder="Short Description">
+                 <input type="text" class="form-control" required name="short_desc1" placeholder="Short Description">
                </div>
              </div>
              <div class="col-md-6">
                <div class="form-group">
                  <label>Short Description(Spanish)</label>
-                 <input type="text" class="form-control" name="short_desc2" placeholder="Short Description">
+                 <input type="text" class="form-control" required name="short_desc2" placeholder="Short Description">
                </div>
              </div>
 
@@ -159,7 +159,7 @@
              <div class="col-md-6">
                <div class="form-group">
                  <label>Chemical Structure</label>
-                 <input type="file" name="chemical_structure" required class="form-control">
+                 <input type="file" name="chemical_structure" class="form-control">
                </div>
              </div>
 
@@ -211,7 +211,7 @@
              <div class="col-md-6">
                <div class="form-group">
                  <label>Sterility (Usp61)</label>
-                 <input type="file" name="sterility" required class="form-control">
+                 <input type="file" name="sterility" class="form-control">
                </div>
              </div>
 
@@ -264,7 +264,7 @@
              </button>
            </div>
 
-           <div class="d-flex justify-content-center mt-5">
+           <div class="mt-5">
              <button type="submit" class="btn btn-primary w-50">Submit</button>
            </div>
          </form>
@@ -310,8 +310,8 @@
      btn.closest('.prev-batches-wrapper').remove();
    }
 
-  //  Media file dynamically add
-  function addMediaRow() {
+   //  Media file dynamically add
+   function addMediaRow() {
      const wrapper = document.querySelector('.media_file_wrapper_new');
 
      const newRow = document.createElement('div');
@@ -320,7 +320,7 @@
         <div class="col-md-8 col-lg-10">
           <div class="form-group">
             <label>Image/Video</label>
-             <input type="file" class="form-control" name="media">
+             <input type="file" required class="form-control" name="media[]">
           </div>
         </div>
         <div class="col-md-4 col-lg-2">
@@ -336,6 +336,48 @@
      const wrapper = btn.closest('.media-file-wrapper').parentElement;
      btn.closest('.media-file-wrapper').remove();
    }
+
+   //  Add Form
+   $("#data-form").submit(function(e) {
+     e.preventDefault();
+
+     let formData = new FormData(this);
+     $.ajax({
+       url: "api/add-peptide.php",
+       type: "POST",
+       data: formData,
+       processData: false,
+       contentType: false,
+       beforeSend: function() {
+         Swal.fire({
+           title: "Uploading...",
+           text: "Please wait",
+           allowOutsideClick: false,
+           didOpen: () => {
+             Swal.showLoading();
+           }
+         });
+       },
+       success: function(result) {
+         let data = JSON.parse(result);
+         if (data.success) {
+           Swal.fire({
+             title: "Success",
+             text: data.message,
+             icon: "success"
+           });
+
+           $("#data-form").trigger("reset");
+         } else {
+           Swal.fire({
+             title: "Failed",
+             text: data.message,
+             icon: "error"
+           });
+         }
+       }
+     })
+   })
  </script>
 
  <?php
