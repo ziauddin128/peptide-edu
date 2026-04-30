@@ -20,7 +20,7 @@ if (mysqli_num_rows($res) > 0) {
                 </td>
                 <td>
                   <div class="d-flex" style="gap: 5px">
-                    <button class="btn btn-warning py-2">Edit</button>
+                    <a href="edit-peptide?id=' . $row['id'] . '" class="btn btn-warning py-2">Edit</a>
                     <button class="btn btn-danger py-2" id="delete-btn" data-id="' . $row['id'] . '">Delete</button>
                   </div>
                 </td>

@@ -39,8 +39,8 @@ if (empty($_SESSION['USER_ID'])) {
 
         </ul>
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-          <a class="navbar-brand brand-logo" href="index.html"><img src="assets/images/logo.png" alt="logo" /></a>
-          <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo.png" alt="logo" /></a>
+          <a class="navbar-brand brand-logo" href="peptides"><img src="assets/images/logo.png" alt="logo" /></a>
+          <a class="navbar-brand brand-logo-mini" href="peptides"><img src="assets/images/logo.png" alt="logo" /></a>
         </div>
         <ul class="navbar-nav navbar-nav-right">
 

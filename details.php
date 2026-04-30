@@ -96,7 +96,7 @@ if (isset($_GET['id'])) {
                     <i class="fa-solid fa-eye"></i>
                   </div>
                   <div>
-                    <p><b>Appearance:</b><?= ($s_lang == "en") ? $row['appearance1'] : $row['appearance2'] ?></p>
+                    <p><b>Appearance:</b> <?= ($s_lang == "en") ? $row['appearance1'] : $row['appearance2'] ?></p>
                   </div>
                 </div>
               <?php
@@ -377,7 +377,7 @@ if (isset($_GET['id'])) {
                 </div>
                 <div>
                   <a
-                    href="admin/storage/<?= $row['sterility'] ?>">
+                    href="admin/storage/<?= $row['sterility'] ?>" target="_blank">
                     <img
                       src="admin/storage/<?= $row['sterility'] ?>"
                       alt="" />

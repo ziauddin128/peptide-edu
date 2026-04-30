@@ -78,6 +78,16 @@
                  url: "api/send-email.php",
                  type: "POST",
                  data: $("#contact-form").serializeArray(),
+                  beforeSend: function() {
+                        Swal.fire({
+                        title: "Sending...",
+                        text: "Please wait",
+                        allowOutsideClick: false,
+                        didOpen: () => {
+                            Swal.showLoading();
+                        }
+                        });
+                    },
                  success: function(result) {
                      let data = JSON.parse(result);
 
@@ -90,7 +100,7 @@
                          $("#contact-form").trigger("reset");
                      } else {
                          Swal.fire({
-                             title: "Login Failed",
+                             title: "Failed",
                              text: data.message,
                              icon: "error"
                          });

@@ -1,37 +1,79 @@
-<?php
+<?php 
+include('smtp/PHPMailerAutoload.php');
 
-$name = $_POST['name'];
-$email = $_POST['email'];
-$message = $_POST['message'];
+$name = htmlspecialchars($_POST['name']);
+$email = htmlspecialchars($_POST['email']);
+$message = htmlspecialchars($_POST['message']);
 
-$to = "test12web2000@gmail.com";
-
-$subject = "New Message from $name";
-
-$body = "
+$body = '
+<!DOCTYPE html>
 <html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .email-container {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
 <body>
-    <h3>New Contact Message</h3>
-    <p><strong>Name:</strong> $name</p>
-    <p><strong>Email:</strong> $email</p>
-    <p><strong>Message:</strong><br>$message</p>
+    <div class="email-container">
+        <p><b>NAME: </b>'.$name.'</p>
+        <p><b>EMAIL: </b>'.$email.'</p>
+        <p><b>MESSAGE: </b>'.$message.'</p>
+    </div>
 </body>
-</html>
-";
+</html>';
 
-$headers  = "MIME-Version: 1.0\r\n";
-$headers .= "Content-type: text/html; charset=UTF-8\r\n";
-$headers .= "From: $email\r\n";
-$headers .= "Reply-To: $email\r\n";
 
-if (mail($to, $subject, $body, $headers)) {
-    echo json_encode([
+const COMPANY_NAME = 'PeptideEdu';
+const COMPANY_EMAIL = 'ziauddindev2000@gmail.com';
+$email = COMPANY_EMAIL; //where message will go
+
+$companyName = COMPANY_NAME;
+$subject = "Message From ".COMPANY_NAME."";
+
+$mail = new PHPMailer(); 
+$mail->SMTPDebug  = 0;
+$mail->IsSMTP(); 
+$mail->SMTPAuth = true; 
+$mail->SMTPSecure = 'tls'; 
+$mail->Host = "smtp.gmail.com";
+$mail->Port = 587; 
+$mail->IsHTML(true);
+$mail->CharSet = 'UTF-8';
+$mail->Username = "test12web2000@gmail.com"; // Your Gmail
+$mail->Password = "olzq ecxl eaoe wnki"; // Your Gmail password
+$mail->SetFrom("test12web2000@gmail.com", $companyName); // Set from email with company name
+$mail->Subject = $subject;
+$mail->Body = $body;
+$mail->AddAddress($email); // User Gmail
+$mail->SMTPOptions = array('ssl' => array(
+    'verify_peer' => false,
+    'verify_peer_name' => false,
+    'allow_self_signed' => false
+));
+
+if ($mail->Send()) 
+{
+    $response = [
         "success" => true,
-        "message" => "Email sent successfully."
-    ]);
-} else {
-    echo json_encode([
+        "message" => "Message send successfully"
+    ];
+} else 
+{
+    //echo $mail->ErrorInfo;
+    $response = [
         "success" => false,
-        "message" => "Failed to send email. Please try again."
-    ]);
-}
+        "message" => "Message send failed!"
+    ];
+} 
+
+echo json_encode($response);
+?>
