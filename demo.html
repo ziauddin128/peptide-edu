@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OD Bio Labs – Peptide Research, Clearly Explained</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --accent: #E08A00;
+  --accent-dark: #c87800;
+  --bg: #ffffff;
+  --bg2: #f5f5f5;
+  --bg3: #efefef;
+  --text: #111111;
+  --text2: #444444;
+  --text3: #666666;
+  --border: #e0e0e0;
+  --card-bg: #ffffff;
+  --nav-bg: #ffffff;
+  --nav-border: #e8e8e8;
+  --footer-bg: #111111;
+  --footer-text: #cccccc;
+  --icon-color: var(--accent);
+  --hero-overlay: rgba(255,255,255,0.0);
+}
+[data-theme="dark"] {
+  --bg: #0d0d0d;
+  --bg2: #141414;
+  --bg3: #1a1a1a;
+  --text: #f0f0f0;
+  --text2: #cccccc;
+  --text3: #999999;
+  --border: #2a2a2a;
+  --card-bg: #1a1a1a;
+  --nav-bg: #0d0d0d;
+  --nav-border: #222222;
+  --footer-bg: #080808;
+  --footer-text: #888888;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Barlow', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+  margin: 0;
+}
+
+/* ── NAVBAR ── */
+.navbar {
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--nav-border);
+  padding: 0 0;
+  position: sticky; top: 0; z-index: 1000;
+  transition: background 0.3s, border-color 0.3s;
+}
+.navbar-brand { display: flex; align-items: center; gap: 6px; text-decoration: none; }
+.brand-od {
+  background: var(--text);
+  color: var(--bg);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  padding: 4px 8px;
+  letter-spacing: 1px;
+  transition: background 0.3s, color 0.3s;
+}
+.brand-text { line-height: 1.1; }
+.brand-text .bio { color: var(--accent); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 2px; display: block; }
+.brand-text .labs { color: var(--text); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 2px; display: block; transition: color 0.3s; }
+
+.nav-link {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  color: var(--text) !important;
+  padding: 28px 14px !important;
+  position: relative;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-link.active::after, .nav-link:hover::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 14px; right: 14px;
+  height: 2px;
+  background: var(--accent);
+}
+.nav-link.active { color: var(--text) !important; }
+.btn-explore {
+  background: var(--accent);
+  color: #fff !important;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 0;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.btn-explore:hover { background: var(--accent-dark); color: #fff !important; }
+
+/* Theme toggle */
+.theme-toggle {
+  background: none;
+  border: 1.5px solid var(--border);
+  color: var(--text);
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+  margin-left: 10px;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ── HERO ── */
+.hero {
+  background: var(--bg2);
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+}
+[data-theme="dark"] .hero { background: #0d0d0d; }
+.hero-content { position: relative; z-index: 2; padding: 80px 0; }
+.hero-eyebrow {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.hero-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: clamp(46px, 7vw, 72px);
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 10px;
+  transition: color 0.3s;
+}
+.hero-title .accent { color: var(--accent); }
+.hero-desc {
+  font-size: 15px;
+  color: var(--text2);
+  max-width: 360px;
+  line-height: 1.6;
+  margin-bottom: 34px;
+  transition: color 0.3s;
+}
+.btn-primary-od {
+  background: var(--accent);
+  color: #fff;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 0;
+  text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: background 0.2s;
+}
+.btn-primary-od:hover { background: var(--accent-dark); color: #fff; }
+.btn-outline-od {
+  background: transparent;
+  color: var(--text);
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border: 1.5px solid var(--text);
+  padding: 13px 28px;
+  border-radius: 0;
+  text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: all 0.2s;
+}
+.btn-outline-od:hover { background: var(--text); color: var(--bg); }
+[data-theme="dark"] .btn-outline-od { border-color: #555; color: var(--text2); }
+[data-theme="dark"] .btn-outline-od:hover { background: var(--text2); color: #000; }
+
+.hero-image-wrap {
+  position: absolute;
+  right: 0; top: 0;
+  width: 55%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.hero-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ── PILLARS ── */
+.pillars {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 40px 0;
+  transition: background 0.3s, border-color 0.3s;
+}
+.pillar-item { display: flex; gap: 16px; align-items: flex-start; padding: 10px 20px; border-right: 1px solid var(--border); }
+.pillar-item:last-child { border-right: none; }
+.pillar-icon { color: var(--accent); font-size: 26px; flex-shrink: 0; margin-top: 2px; }
+.pillar-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text); margin-bottom: 4px; transition: color 0.3s; }
+.pillar-desc { font-size: 13px; color: var(--text3); line-height: 1.5; transition: color 0.3s; }
+
+/* ── WHAT ARE PEPTIDES ── */
+.section-foundations {
+  padding: 90px 0;
+  background: var(--bg);
+  transition: background 0.3s;
+}
+.section-eyebrow { font-family: 'Barlow', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 3px; color: var(--accent); text-transform: uppercase; margin-bottom: 14px; }
+.section-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: clamp(32px, 5vw, 52px);
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 16px;
+  line-height: 1;
+  transition: color 0.3s;
+}
+.section-divider { width: 48px; height: 3px; background: var(--accent); margin-bottom: 22px; }
+.section-desc { font-size: 15px; color: var(--text2); line-height: 1.7; margin-bottom: 28px; max-width: 460px; transition: color 0.3s; }
+.btn-readmore {
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  border-radius: 0;
+  text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent;
+  transition: all 0.2s;
+}
+.btn-readmore:hover { background: var(--accent); color: #fff; }
+
+/* Peptide visual card */
+.peptide-visual {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  padding: 24px;
+  height: 100%;
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: background 0.3s, border-color 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.visual-badge {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  padding: 12px 16px;
+  width: fit-content;
+  transition: background 0.3s, border-color 0.3s;
+}
+.visual-badge-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text); margin-bottom: 6px; transition: color 0.3s; }
+.visual-badge ul { list-style: none; padding: 0; margin: 0; }
+.visual-badge ul li { font-size: 12px; color: var(--text3); padding: 2px 0; transition: color 0.3s; }
+.peptide-img-placeholder {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.peptide-img-placeholder img { width: 100%; height: 220px; object-fit: cover; opacity: 0.85; }
+[data-theme="dark"] .peptide-img-placeholder img { opacity: 0.7; filter: brightness(0.8) saturate(1.2); }
+
+/* ── CATEGORIES ── */
+.section-categories {
+  background: var(--bg2);
+  padding: 90px 0;
+  transition: background 0.3s;
+}
+[data-theme="dark"] .section-categories { background: #111; }
+.section-title-center { text-align: center; }
+.section-title-center .section-divider { margin: 0 auto 30px; }
+.category-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 36px 28px 28px;
+  height: 100%;
+  transition: all 0.25s;
+}
+.category-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+.category-icon { color: var(--accent); font-size: 32px; margin-bottom: 18px; }
+.category-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: 1px; text-transform: uppercase; color: var(--text); margin-bottom: 10px; transition: color 0.3s; }
+.category-desc { font-size: 13px; color: var(--text3); line-height: 1.6; margin-bottom: 22px; transition: color 0.3s; }
+.btn-learnmore {
+  color: var(--accent);
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.btn-learnmore:hover { color: var(--accent-dark); }
+
+/* ── INFO GRID ── */
+.section-info {
+  background: var(--bg);
+  padding: 80px 0;
+  transition: background 0.3s;
+}
+.info-item { display: flex; gap: 18px; align-items: flex-start; padding: 10px 0; }
+.info-icon { color: var(--accent); font-size: 26px; flex-shrink: 0; margin-top: 2px; }
+.info-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text); margin-bottom: 8px; transition: color 0.3s; }
+.info-desc { font-size: 13px; color: var(--text3); line-height: 1.6; margin-bottom: 12px; transition: color 0.3s; }
+
+/* ── FOOTER ── */
+.footer {
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  padding: 70px 0 0;
+}
+[data-theme="dark"] .footer { background: #080808; }
+.footer-brand-od {
+  background: #fff;
+  color: #000;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  padding: 4px 8px;
+  display: inline-block;
+}
+[data-theme="dark"] .footer-brand-od { background: #fff; }
+.footer-brand-bio { color: var(--accent); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 2px; }
+.footer-brand-labs { color: #fff; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 2px; }
+.footer-tagline { font-size: 13px; color: #888; margin-top: 12px; font-style: italic; }
+.footer-disclaimer { font-size: 12px; color: #666; margin-top: 10px; line-height: 1.6; }
+.footer-heading { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #fff; margin-bottom: 18px; }
+.footer-links { list-style: none; padding: 0; margin: 0; }
+.footer-links li { margin-bottom: 8px; }
+.footer-links a { color: #888; font-size: 13px; text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--accent); }
+.footer-social { display: flex; gap: 10px; margin-top: 20px; }
+.social-btn {
+  width: 34px; height: 34px;
+  border: 1px solid #444;
+  display: flex; align-items: center; justify-content: center;
+  color: #888;
+  font-size: 14px;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.social-btn:hover { border-color: var(--accent); color: var(--accent); }
+.subscribe-input-wrap { display: flex; gap: 0; }
+.subscribe-input-wrap input {
+  flex: 1;
+  background: #1e1e1e;
+  border: 1px solid #333;
+  color: #ccc;
+  font-size: 13px;
+  padding: 10px 14px;
+  outline: none;
+  border-radius: 0;
+}
+[data-theme="light"] .subscribe-input-wrap input { background: #f0f0f0; border-color: #ddd; color: #333; }
+.subscribe-input-wrap button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.subscribe-input-wrap button:hover { background: var(--accent-dark); }
+.footer-bottom {
+  border-top: 1px solid #222;
+  padding: 18px 0;
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.footer-bottom-copy { font-size: 12px; color: #555; }
+.footer-bottom-links { display: flex; gap: 20px; }
+.footer-bottom-links a { font-size: 12px; color: #555; text-decoration: none; transition: color 0.2s; }
+.footer-bottom-links a:hover { color: var(--accent); }
+
+/* Dropdown */
+.dropdown-menu {
+  background: var(--nav-bg);
+  border: 1px solid var(--border);
+  border-radius: 0;
+  padding: 8px 0;
+}
+.dropdown-item { color: var(--text); font-size: 13px; padding: 8px 20px; transition: all 0.15s; }
+.dropdown-item:hover { background: var(--accent); color: #fff; }
+
+/* Responsive */
+@media (max-width: 991px) {
+  .hero-image-wrap { display: none; }
+  .hero-content { padding: 60px 0; }
+  .pillar-item { border-right: none; border-bottom: 1px solid var(--border); }
+  .pillar-item:last-child { border-bottom: none; }
+}
+@media (max-width: 767px) {
+  .hero-title { font-size: 42px; }
+  .section-title { font-size: 32px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <div class="brand-od">OD</div>
+      <div class="brand-text">
+        <span class="bio">BIO</span>
+        <span class="labs">LABS</span>
+      </div>
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMain">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Peptides</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Therapeutic</a></li>
+            <li><a class="dropdown-item" href="#">Cosmetic</a></li>
+            <li><a class="dropdown-item" href="#">Research</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Research</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Studies</a></li>
+            <li><a class="dropdown-item" href="#">Publications</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Learn</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Guides</a></li>
+            <li><a class="dropdown-item" href="#">FAQ</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#">Safety</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        <li class="nav-item ms-lg-3">
+          <a href="#" class="btn-explore">Explore</a>
+        </li>
+      </ul>
+      <button class="theme-toggle ms-3" id="themeToggle" title="Toggle dark/light mode">
+        <i class="fa-solid fa-moon" id="themeIcon"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container position-relative" style="z-index:2;">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="hero-content">
+          <p class="hero-eyebrow">Science. Knowledge. Clarity.</p>
+          <h1 class="hero-title">Peptide Research,<br><span class="accent">Clearly Explained.</span></h1>
+          <p class="hero-desc">OD Bio Labs is an independent resource dedicated to educating and informing about peptides, their research, and their role in modern science.</p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="#" class="btn-primary-od">Explore Peptides <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#" class="btn-outline-od">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-image-wrap">
+    <img src="https://images.unsplash.com/photo-1614680376739-414d95ff43df?w=900&q=80" alt="Molecular Structure">
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="pillars">
+  <div class="container">
+    <div class="row g-0">
+      <div class="col-lg-3 col-md-6">
+        <div class="pillar-item">
+          <div class="pillar-icon"><i class="fa-solid fa-microscope"></i></div>
+          <div>
+            <div class="pillar-title">Evidence Based</div>
+            <div class="pillar-desc">Information from scientific literature and trusted sources.</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="pillar-item">
+          <div class="pillar-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <div>
+            <div class="pillar-title">Independent</div>
+            <div class="pillar-desc">We do not sell peptides or promote their use.</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="pillar-item">
+          <div class="pillar-icon"><i class="fa-solid fa-flask"></i></div>
+          <div>
+            <div class="pillar-title">Educational</div>
+            <div class="pillar-desc">Content created for knowledge and awareness.</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="pillar-item" style="border-right:none;">
+          <div class="pillar-icon"><i class="fa-solid fa-file-lines"></i></div>
+          <div>
+            <div class="pillar-title">Transparent</div>
+            <div class="pillar-desc">Clear, unbiased, and focused on scientific understanding.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT ARE PEPTIDES -->
+<section class="section-foundations">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5">
+        <div class="peptide-visual">
+          <div class="visual-badge">
+            <div class="visual-badge-title">Amino Acid Chain</div>
+            <ul>
+              <li>Sequence</li>
+              <li>Structure</li>
+              <li>Function</li>
+            </ul>
+          </div>
+          <div class="peptide-img-placeholder">
+            <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&q=80" alt="Peptide Visualization">
+          </div>
+          <div class="visual-badge">
+            <div class="visual-badge-title">Research Areas</div>
+            <ul>
+              <li>Cellular Signaling</li>
+              <li>Regeneration</li>
+              <li>Metabolism</li>
+              <li>Immune Response</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <p class="section-eyebrow">Foundations</p>
+        <h2 class="section-title">What Are Peptides?</h2>
+        <div class="section-divider"></div>
+        <p class="section-desc">Peptides are short chains of amino acids that play essential roles in biological signaling, hormone regulation, and cellular function. They are the focus of ongoing research across a wide range of scientific disciplines.</p>
+        <a href="#" class="btn-readmore">Read More <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PEPTIDE CATEGORIES -->
+<section class="section-categories">
+  <div class="container">
+    <div class="text-center mb-5">
+      <p class="section-eyebrow">Explore</p>
+      <h2 class="section-title section-title-center">Peptide Categories</h2>
+      <div class="section-divider mx-auto"></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6">
+        <div class="category-card">
+          <div class="category-icon"><i class="fa-solid fa-hexagon-nodes"></i></div>
+          <h3 class="category-title">Therapeutic Peptides</h3>
+          <p class="category-desc">Studied for their potential in hormone modulation, metabolic health, immune support, and more.</p>
+          <a href="#" class="btn-learnmore">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="category-card">
+          <div class="category-icon"><i class="fa-solid fa-pen-nib"></i></div>
+          <h3 class="category-title">Cosmetic Peptides</h3>
+          <p class="category-desc">Researched for their role in skin health, collagen support, and anti-aging applications.</p>
+          <a href="#" class="btn-learnmore">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="category-card">
+          <div class="category-icon"><i class="fa-solid fa-flask-vial"></i></div>
+          <h3 class="category-title">Research Peptides</h3>
+          <p class="category-desc">Compounds used in laboratory settings to study biological pathways, receptor activity, and disease models.</p>
+          <a href="#" class="btn-learnmore">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO GRID -->
+<section class="section-info">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-6">
+        <div class="info-item">
+          <div class="info-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <div>
+            <div class="info-title">Regulatory Awareness</div>
+            <p class="info-desc">Peptides are regulated differently depending on their classification and intended use. Laws vary by country and are subject to change.</p>
+            <a href="#" class="btn-learnmore">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="info-item">
+          <div class="info-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+          <div>
+            <div class="info-title">Safety First</div>
+            <p class="info-desc">Peptides can have potent biological effects. Understand the potential risks, purity concerns, and the importance of responsible research.</p>
+            <a href="#" class="btn-learnmore">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="info-item">
+          <div class="info-icon"><i class="fa-solid fa-book-open"></i></div>
+          <div>
+            <div class="info-title">Research &amp; Ethics</div>
+            <p class="info-desc">We encourage ethical, legal, and responsible research practices within regulated laboratory environments.</p>
+            <a href="#" class="btn-learnmore">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="info-item">
+          <div class="info-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+          <div>
+            <div class="info-title">Stay Informed</div>
+            <p class="info-desc">Science is always evolving. We provide up-to-date information as new research and regulations emerge.</p>
+            <a href="#" class="btn-learnmore">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-3 col-md-6">
+        <div class="d-flex align-items-center gap-2 mb-3">
+          <div class="footer-brand-od">OD</div>
+          <div>
+            <div class="footer-brand-bio">BIO</div>
+            <div class="footer-brand-labs">LABS</div>
+          </div>
+        </div>
+        <p class="footer-tagline">Independent. Educational. Evidence Based.</p>
+        <p class="footer-disclaimer">This website is for informational purposes only. We do not sell peptides, facilitate their acquisition, or promote their use in humans.</p>
+        <div class="footer-social">
+          <a href="#" class="social-btn"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-btn"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <div class="footer-heading">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Peptides</a></li>
+          <li><a href="#">Research</a></li>
+          <li><a href="#">Learn</a></li>
+          <li><a href="#">Safety</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="footer-heading">Popular Topics</div>
+        <ul class="footer-links">
+          <li><a href="#">What Are Peptides?</a></li>
+          <li><a href="#">Peptide Categories</a></li>
+          <li><a href="#">Research Areas</a></li>
+          <li><a href="#">Safety &amp; Risks</a></li>
+          <li><a href="#">Regulations</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="footer-heading">Subscribe</div>
+        <p style="font-size:13px;color:#888;margin-bottom:16px;">Stay updated with new research, articles, and educational content.</p>
+        <div class="subscribe-input-wrap">
+          <input type="email" placeholder="Email Address">
+          <button type="button">Subscribe</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-copy">© 2024 OD Bio Labs. All Rights Reserved.</div>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <span style="color:#333;">|</span>
+        <a href="#">Terms of Use</a>
+        <span style="color:#333;">|</span>
+        <a href="#">Disclaimer</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const html = document.documentElement;
+const btn = document.getElementById('themeToggle');
+const icon = document.getElementById('themeIcon');
+
+function applyTheme(theme) {
+  html.setAttribute('data-theme', theme);
+  localStorage.setItem('odbiolabs-theme', theme);
+  icon.className = theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+}
+
+btn.addEventListener('click', () => {
+  const current = html.getAttribute('data-theme');
+  applyTheme(current === 'dark' ? 'light' : 'dark');
+});
+
+// Load saved preference
+const saved = localStorage.getItem('odbiolabs-theme');
+if (saved) applyTheme(saved);
+</script>
+</body>
+</html>
