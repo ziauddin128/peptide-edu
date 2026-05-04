@@ -40,7 +40,8 @@ if (isset($_SESSION['lang'])) {
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
           <a class="navbar-brand" href="/">
-            <img src="assets/images/logo.png" class="logo" alt="Logo">
+            <img src="assets/images/logo.png" class="logo logo-light" alt="Logo">
+            <img src="assets/images/logo-dark.png" class="logo logo-dark" alt="Logo">
           </a>
           <div class="d-flex align-items-center gap-3">
             <button class="theme-btn outline-none shadow-none d-lg-none">

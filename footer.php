@@ -5,7 +5,8 @@
             <div class="col-md-5">
                 <div class="footer-item">
                     <a href="#">
-                        <img src="assets/images/logo.png" class="logo" alt="">
+                        <img src="assets/images/logo.png" class="logo logo-light" alt="Logo">
+                        <img src="assets/images/logo-dark.png" class="logo logo-dark" alt="Logo">
                     </a>
                     <p>Independent. Educational. Evidence Based</p>
                     <p> The website is informational purpose only. We do not sell peptides, facilitate their acquisition or promote their use in human.</p>
@@ -56,14 +57,20 @@
         });
 
         // Background Color Change for top menu on scroll
-        $(window).scroll(function() {
+        function toggleNavbar() {
             let scrollY = window.scrollY;
             if (scrollY > 0) {
                 $(".nav-bar").addClass("active");
             } else {
                 $(".nav-bar").removeClass("active");
             }
-        });
+        }
+
+        // On scroll
+        $(window).on("scroll", toggleNavbar);
+
+        // On page load
+        $(window).on("load", toggleNavbar);
     });
 
     //language session set
@@ -79,6 +86,34 @@
             }
         })
     }
+
+    // Light & Dark Mode
+    const html = document.documentElement;
+    const buttons = document.querySelectorAll('.theme-btn');
+
+    function applyTheme(theme) {
+        html.setAttribute('data-theme', theme);
+        localStorage.setItem('odbiolabs-theme', theme);
+
+        buttons.forEach(btn => {
+            const icon = btn.querySelector('i');
+            if (icon) {
+                icon.className = theme === 'dark' ?
+                    'fa-solid fa-sun' :
+                    'fa-solid fa-moon';
+            }
+        });
+    }
+
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const current = html.getAttribute('data-theme');
+            applyTheme(current === 'dark' ? 'light' : 'dark');
+        });
+    });
+
+    const saved = localStorage.getItem('odbiolabs-theme');
+    if (saved) applyTheme(saved);
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>

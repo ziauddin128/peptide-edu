@@ -77,7 +77,9 @@ require "top.php";
     <div class="row align-items-center">
       <div class="col-md-6">
         <div class="what-are-peptide-left">
-          <img src="assets/images/what-are-peptide.png" alt="What are peptide">
+          <img src="assets/images/what-are-peptide.png"
+          class="img-light" alt="What are peptide">
+           <img src="assets/images/what-are-peptide-black.png" class="img-dark" alt="What are peptide">
         </div>
       </div>
       <div class="col-md-6">
