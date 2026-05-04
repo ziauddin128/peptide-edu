@@ -42,16 +42,21 @@ if (isset($_SESSION['lang'])) {
           <a class="navbar-brand" href="/">
             <img src="assets/images/logo.png" class="logo" alt="Logo">
           </a>
-          <button
-            class="navbar-toggler shadow-none outline-none"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+          <div class="d-flex align-items-center gap-3">
+            <button class="theme-btn outline-none shadow-none d-lg-none">
+              <i class="fa-solid fa-moon"></i>
+            </button>
+            <button
+              class="navbar-toggler shadow-none outline-none"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul
               class="navbar-nav align-items-lg-center mt-2 text-end pe-1 pe-md-0 ms-auto gap-4 gap-lg-5">

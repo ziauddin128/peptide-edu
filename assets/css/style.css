@@ -19,7 +19,6 @@
   --font-bebas: "Bebas Neue", sans-serif;
   --primary-color: #ee900d;
   --text-color: #2f3134;
-
   --light-border-color: #d4d4d4;
   --light-border-color2: #ebebeb;
 
@@ -42,6 +41,12 @@ body {
   left: 0;
   width: 100%;
   z-index: 3;
+}
+
+.nav-bar.active 
+{
+  background-color: white;
+  border-bottom: 1px solid var(--light-border-color2);
 }
 
 .logo {
@@ -220,6 +225,27 @@ body {
   text-transform: uppercase;
 }
 
+.primary-outline-btn {
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  background-color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 16px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 5px;
+  text-transform: uppercase;
+  width: fit-content;
+
+  &:hover {
+    color: white;
+    background-color: var(--primary-color);
+  }
+}
+
 .secondary-btn {
   background-color: white;
   color: var(--text-color);
@@ -248,8 +274,7 @@ body {
   border-bottom: 2px solid var(--light-border-color2);
 }
 
-.featured .row>*
-{
+.featured .row > * {
   padding: 0 !important;
 }
 
@@ -290,11 +315,201 @@ body {
   }
 }
 
-@media (min-width: 576px) and (max-width: 991px)
-{
-.row > div:nth-child(even) .featured-item {
+@media (min-width: 576px) and (max-width: 991px) {
+  .row > div:nth-child(even) .featured-item {
+    border-right: none;
+  }
+}
+
+/* What are peptide */
+.what-are-peptide {
+  padding: 40px 0;
+}
+
+.what-are-peptide-left,
+.what-are-peptide-right {
+  margin: 10px 0;
+}
+
+.what-are-peptide-left img {
+  width: 100%;
+}
+
+.section-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.section-title-wrap h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.section-title-wrap h1 {
+  font-size: 50px;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin: 0;
+  font-family: var(--font-bebas);
+}
+
+.section-title-wrap .divider-line {
+  height: 3px;
+  width: 100px;
+  background-color: var(--primary-color);
+  border-radius: 5px;
+}
+
+.what-are-peptide-right p {
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 30px;
+  margin-bottom: 0;
+}
+
+/*  Explore Peptides */
+.explore-peptides {
+  border-top: 2px solid var(--light-border-color2);
+  padding: 40px 0;
+}
+
+.explore-peptides .row > div {
+  margin: 10px 0;
+}
+
+.explore-peptide-item {
+  border-top: 2px solid var(--light-border-color2);
+  padding: 30px 20px;
+  background-color: white;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: 80px auto;
+  gap: 30px;
+  border-radius: 10px;
+}
+
+.explore-peptide-item > i {
+  font-size: 70px;
+  color: var(--primary-color);
+  margin: 0 auto;
+}
+
+.explore-peptide-item h1 {
+  font-size: 24px;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin: 0;
+  font-family: var(--font-bebas);
+  letter-spacing: 1px;
+}
+
+.explore-peptide-item p {
+  font-size: 16px;
+  font-weight: 400;
+  margin: 10px 0 20px 0;
+}
+
+.explore-peptide-item a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@media (max-width: 767px) {
+  .explore-peptide-item {
+    grid-template-columns: 100%;
+  }
+
+  .explore-peptide-item > div {
+    text-align: center;
+  }
+
+  .explore-peptide-item a {
+    justify-content: center;
+  }
+}
+
+/* Awareness */
+.awareness {
+  border-top: 2px solid var(--light-border-color2);
+  padding: 40px 0;
+}
+
+.awareness .row > * {
+  padding: 0 !important;
+}
+
+.awareness-item {
+  margin: 10px 0;
+  display: flex;
+  gap: 30px;
+  padding: 20px 20px;
+  border-right: 2px solid var(--light-border-color2);
+}
+
+.row > div:last-child .awareness-item {
   border-right: none;
 }
+
+.awareness-item > i {
+  font-size: 50px;
+  color: var(--primary-color);
+}
+
+.awareness-item h1 {
+  margin: 0;
+  font-size: 22px;
+  text-transform: uppercase;
+  font-family: var(--font-bebas);
+}
+
+.awareness-item p {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 10px 0 20px 0;
+}
+
+.awareness-item a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@media (max-width: 575px) {
+  .awareness-item {
+    border-right: none;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 991px) {
+  .row > div:nth-child(even) .awareness-item {
+    border-right: none;
+  }
 }
 
 /* Library Section */
@@ -534,15 +749,87 @@ body {
 
 /* Footer */
 .footer {
+  border-top: 2px solid var(--light-border-color2);
   padding: 20px;
 }
 
-.footer p {
+.footer-item 
+{
+  margin: 10px 0;
+   border-right: 2px solid var(--light-border-color2);
+   height: 100%;
+}
+
+.row > div:last-child .footer-item {
+  border-right: none;
+}
+
+.footer-item p 
+{
+  font-size: 16px;
+  font-weight: 400;
+  margin: 10px 0;
+}
+
+.footer-item h1 
+{
+  font-size: 24px;
+  font-weight: 500;
+  font-family: var(--font-bebas);
+  margin: 0 0 10px 0;
+}
+
+.footer-item ul 
+{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-item ul li 
+{
+  margin: 10px 0;
+}
+
+.footer-item ul li a 
+{
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-color);
+  text-decoration: none;
+  text-transform: uppercase;
+  opacity: .8;
+
+  &:hover 
+  {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer-item {
+    border-right: none;
+  }
+}
+
+
+/* Copyright */
+
+.copyright-footer 
+{
+  padding: 20px 0;
+  border-top: 2px solid var(--light-border-color2);
+}
+
+.copyright-footer p 
+{
   margin: 0;
   font-size: 16px;
   font-weight: 400;
   text-align: center;
+  opacity: .8;
 }
+
 
 /* To Top */
 .to-top {
