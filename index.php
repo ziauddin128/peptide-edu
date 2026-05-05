@@ -2,6 +2,24 @@
 require "top.php";
 ?>
 
+
+<!-- Popup Info -->
+<?php
+if (!isset($_SESSION['CONFIRM_TERMS']) || $_SESSION['CONFIRM_TERMS'] != "Yes") {
+?>
+  <section class="popup-info">
+    <div class="popup-in">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <h1>Usage Warning</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, eum temporibus sapiente quas accusantium nostrum sequi! Magni quidem itaque iste.</p>
+      <button class="info-agree-btn">Agree</button>
+    </div>
+  </section>
+<?php
+}
+?>
+
+
 <!-- Hero -->
 <section class="hero">
   <div class="container">
@@ -78,8 +96,8 @@ require "top.php";
       <div class="col-md-6">
         <div class="what-are-peptide-left">
           <img src="assets/images/what-are-peptide.png"
-          class="img-light" alt="What are peptide">
-           <img src="assets/images/what-are-peptide-black.png" class="img-dark" alt="What are peptide">
+            class="img-light" alt="What are peptide">
+          <img src="assets/images/what-are-peptide-black.png" class="img-dark" alt="What are peptide">
         </div>
       </div>
       <div class="col-md-6">
@@ -157,6 +175,69 @@ require "top.php";
   </div>
 </section>
 
+<!-- Case Studies -->
+<section class="case-studies">
+  <div class="container">
+    <div class="section-title-wrap align-items-center">
+      <h2 class="title-tag">Case Studies</h2>
+      <h1>Our Case Studies</h1>
+      <div class="divider-line"></div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-sm-6">
+        <a href="#" class="case-studies-item">
+          <div class="img-wrapper">
+            <img src="assets/images/peptides.png" alt="Case Studies">
+          </div>
+          <div>
+            <h1>Does Shaking Damage Reconstituted Peptides?</h1>
+            <p>Standard vs extreme Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, libero.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-sm-6">
+        <a href="#" class="case-studies-item">
+          <div class="img-wrapper">
+            <img src="assets/images/peptides.png" alt="Case Studies">
+          </div>
+          <div>
+            <h1>Does Shaking Damage Reconstituted Peptides?</h1>
+            <p>Standard vs extreme Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, libero.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-sm-6">
+        <a href="#" class="case-studies-item">
+          <div class="img-wrapper">
+            <img src="assets/images/peptides.png" alt="Case Studies">
+          </div>
+          <div>
+            <h1>Does Shaking Damage Reconstituted Peptides?</h1>
+            <p>Standard vs extreme Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, libero.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-sm-6">
+        <a href="#" class="case-studies-item">
+          <div class="img-wrapper">
+            <img src="assets/images/peptides.png" alt="Case Studies">
+          </div>
+          <div>
+            <h1>Does Shaking Damage Reconstituted Peptides?</h1>
+            <p>Standard vs extreme Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, libero.</p>
+          </div>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
 <!-- Awareness -->
 <section class="awareness">
   <div class="container">
@@ -216,6 +297,24 @@ require "top.php";
     </div>
   </div>
 </section>
+
+<script>
+  // Info popup open & close
+  $(".info-agree-btn").click(function() {
+    $(".popup-info").fadeOut();
+
+    $.ajax({
+      url: "api/confirm-terms.php",
+      type: "POST",
+      data: {
+        terms: "Yes"
+      },
+      success: function(result) {
+        // console.log(result);
+      }
+    })
+  })
+</script>
 
 <?php
 require "footer.php";

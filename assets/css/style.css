@@ -22,6 +22,8 @@
   --light-border-color: #d4d4d4;
   --light-border-color2: #ebebeb;
 
+  --redis-color: #cd3535;
+
   --text-color-muted: #707070;
   --text-color-primary-dark: #26795e;
   --light-primary-bg: #eaf5f1;
@@ -509,7 +511,7 @@ body {
   font-size: 16px;
   font-weight: 400;
   margin: 10px 0 20px 0;
-   color: var(--text-color);
+  color: var(--text-color);
 }
 
 .explore-peptide-item a {
@@ -580,7 +582,8 @@ body {
 .awareness-item p {
   font-size: 14px;
   font-weight: 400;
-  margin: 10px 0 20px 0;  color: var(--text-color);
+  margin: 10px 0 20px 0;
+  color: var(--text-color);
 }
 
 .awareness-item a {
@@ -632,7 +635,7 @@ body {
   font-size: 16px;
   font-weight: 400;
   margin: 10px 0;
-   color: var(--text-color);
+  color: var(--text-color);
 }
 
 .footer-item h1 {
@@ -666,8 +669,7 @@ body {
   }
 }
 
-[data-theme="dark"] .footer-item ul li a:hover 
-{
+[data-theme="dark"] .footer-item ul li a:hover {
   color: var(--primary-color);
 }
 
@@ -687,11 +689,19 @@ body {
 
 .copyright-footer p {
   margin: 0;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   text-align: center;
-  opacity: 0.8;
   color: var(--text-color);
+}
+
+.copyright-footer h2 {
+  margin: 10px 0;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--text-color);
+  text-transform: uppercase;
 }
 
 /* To Top */
@@ -711,10 +721,141 @@ body {
   font-size: 20px;
   z-index: 2;
 
-  &:hover 
-  {
+  &:hover {
     background-color: var(--primary-color);
     color: white;
+  }
+}
+
+/* Popup Info */
+.popup-info {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100dvh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+  cursor: pointer;
+}
+
+.popup-in {
+  max-width: 500px;
+  width: 96%;
+  padding: 30px 15px;
+  border-radius: 10px;
+  background-color: var(--body-bg);
+  color: var(--text-color);
+  border: 2px solid var(--primary-color);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+  position: relative;
+}
+
+.popup-in > i {
+  color: var(--primary-color);
+  font-size: 50px;
+}
+
+.popup-in h1 {
+  font-family: var(--font-bebas);
+  font-size: 50px;
+  font-weight: 500;
+  margin: 10px 0 0 0;
+}
+
+.popup-in p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.popup-in button {
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 15px;
+}
+
+/*  Case Studies */
+.case-studies {
+  padding: 40px 0;
+  background-color: var(--body-bg);
+  border-top: 2px solid var(--light-border-color2);
+}
+
+.case-studies .row > div {
+  margin: 10px 0;
+}
+
+.case-studies-item {
+  border-top: 2px solid var(--light-border-color2);
+  border: 1px solid var(--light-border-color2);
+  padding: 30px 20px;
+  background-color: white;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  height: 100%;
+
+  display: flex;
+  gap: 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.case-studies-item .img-wrapper {
+  width: 80px;
+  min-width: 80px;
+  height: 80px;
+  border-radius: 5px;
+  border: 1px solid var(--light-border-color2);
+  padding: 2px;
+}
+
+.case-studies-item img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.case-studies-item h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.case-studies-item p {
+  margin: 10px 0 0 0;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+[data-theme="dark"] .case-studies-item {
+  background-color: transparent;
+  border-top: 2px solid var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+@media (max-width: 767px) {
+  .case-studies-item {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 }
 
@@ -1043,6 +1184,12 @@ body {
   margin: 0;
 }
 
+.product-det-right h4 {
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0;
+}
+
 .product-det-right > p {
   font-size: 16px;
   color: var(--text-color-muted);
@@ -1090,6 +1237,27 @@ body {
   color: var(--text-color-muted);
 }
 
+.product-formate-item {
+  background-color: white;
+  border: 1px solid var(--light-border-color2);
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.product-formate-item i {
+  font-size: 16px;
+  color: var(--primary-color);
+}
+
+.product-formate-item p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+}
+
 .coa-btn {
   padding: 14px 20px;
   border-radius: 5px;
@@ -1115,7 +1283,7 @@ body {
 
 /* Lab Report  */
 .lab-report {
-  padding: 50px 0 0 0;
+  padding: 40px 0 0 0;
 }
 
 .lab-report > .container > .row > div {
@@ -1287,7 +1455,7 @@ body {
 
 /* Product Description */
 .product-desc {
-  padding: 50px 0 0 0;
+  padding: 40px 0 0 0;
 }
 
 .product-desc-in {
@@ -1313,28 +1481,48 @@ body {
 
 /* Research use only */
 .research-use {
-  padding: 50px 0 0 0;
+  padding: 40px 0 0 0;
 }
 
 .research-use-in {
-  border: 1px solid var(--odritual-red);
-  background-color: #fff;
-  padding: 30px;
+  border: 2px solid #f1c40f;
+  background-color: #f1c40f10;
+  padding: 20px;
   border-radius: 10px;
 }
 
-.research-use-in h2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-size: 20px;
-  font-weight: 500;
-  margin: 0;
+.research-use-in p {
+  margin: 10px 0 0 0;
+  font-size: 14px;
+  font-weight: 400;
   color: var(--text-color-muted);
 }
 
-.research-use-in p {
+/* Disclaimer */
+.disclaimer {
+  padding: 40px 0;
+}
+
+.disclaimer-in {
+  border: 2px solid var(--redis-color);
+  background-color: var(--body-bg);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.disclaimer-in h1 {
+  margin: 0;
+  font-size: 24px;
+  text-align: center;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  color: var(--text-color-muted);
+}
+
+.disclaimer-in p {
   margin: 10px 0 0 0;
   font-size: 14px;
   font-weight: 400;

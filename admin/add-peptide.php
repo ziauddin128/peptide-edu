@@ -29,13 +29,21 @@
              <div class="col-md-6">
                <div class="form-group">
                  <label>Category(English)</label>
-                 <input type="text" class="form-control" required name="category1" placeholder="Category">
+                 <select required name="category1" class="form-control">
+                   <option value="">Select</option>
+                   <option value="All">All</option>
+                   <option value="Peptide Blends">Peptide Blends</option>
+                 </select>
                </div>
              </div>
              <div class="col-md-6">
                <div class="form-group">
                  <label>Category(Spanish)</label>
-                 <input type="text" class="form-control" required name="category2" placeholder="Category">
+                 <select required name="category2" class="form-control">
+                   <option value="">Select</option>
+                   <option value="All">All</option>
+                   <option value="Peptide Blends">Peptide Blends</option>
+                 </select>
                </div>
              </div>
 

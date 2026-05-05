@@ -23,128 +23,18 @@ require "top.php";
       if (mysqli_num_rows($category_res) > 0) {
       ?>
         <div class="library-category">
-          <button class="category-btn active" onclick="get_peptides('All', '<?= $category_var ?>', this)">All</button>
+          <!-- <button class="category-btn active" onclick="get_peptides('All', '<?= $category_var ?>', this)">All</button> -->
           <?php
           while ($category_row = mysqli_fetch_assoc($category_res)) {
           ?>
-            <button class="category-btn" onclick="get_peptides('<?= $category_row['category'] ?>', '<?= $category_var ?>', this)"><?= $category_row['category'] ?></button>
+            <button class="category-btn <?= ($category_row['category'] == "All" ? "active" : "") ?>" onclick="get_peptides('<?= $category_row['category'] ?>', '<?= $category_var ?>', this)"><?= $category_row['category'] ?></button>
           <?php
           }
           ?>
         </div>
 
         <div class="products-wrapper">
-
-          <!-- <div class="row">
-            <div class="col-sm-6 col-md-4 col-lg-3">
-              <div class="product-item">
-                <div class="product-img">
-                  <a href="#">
-                    <img src="https://placehold.co/200x200" alt="Peptide" />
-                  </a>
-                </div>
-                <div class="product-content">
-                  <div class="product-category">Regenerative</div>
-                  <h1>BPC-157</h1>
-                  <p>
-                    BPC-157 is a synthetic peptide derived from a naturally
-                    occurring protein found in gastric tissue.
-                  </p>
-                  <a href="#">View CoA</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-              <div class="product-item">
-                <div class="product-img">
-                  <a href="#">
-                    <img src="https://placehold.co/200x200" alt="Peptide" />
-                  </a>
-                </div>
-                <div class="product-content">
-                  <div class="product-category">Regenerative</div>
-                  <h1>BPC-157</h1>
-                  <p>
-                    BPC-157 is a synthetic peptide derived from a naturally
-                    occurring protein found in gastric tissue.
-                  </p>
-                  <a href="#">View CoA</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-              <div class="product-item">
-                <div class="product-img">
-                  <a href="#">
-                    <img src="https://placehold.co/200x200" alt="Peptide" />
-                  </a>
-                </div>
-                <div class="product-content">
-                  <div class="product-category">Regenerative</div>
-                  <h1>BPC-157</h1>
-                  <p>
-                    BPC-157 is a synthetic peptide derived from a naturally
-                    occurring protein found in gastric tissue.
-                  </p>
-                  <a href="#">View CoA</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-              <div class="product-item">
-                <div class="product-img">
-                  <a href="#">
-                    <img src="https://placehold.co/200x200" alt="Peptide" />
-                  </a>
-                </div>
-                <div class="product-content">
-                  <div class="product-category">Regenerative</div>
-                  <h1>BPC-157</h1>
-                  <p>
-                    BPC-157 is a synthetic peptide derived from a naturally
-                    occurring protein found in gastric tissue.
-                  </p>
-                  <a href="#">View CoA</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-              <div class="product-item">
-                <div class="product-img">
-                  <a href="#">
-                    <img src="https://placehold.co/200x200" alt="Peptide" />
-                  </a>
-                </div>
-                <div class="product-content">
-                  <div class="product-category">Regenerative</div>
-                  <h1>BPC-157</h1>
-                  <p>
-                    BPC-157 is a synthetic peptide derived from a naturally
-                    occurring protein found in gastric tissue.
-                  </p>
-                  <a href="#">View CoA</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-              <div class="product-item">
-                <div class="product-img">
-                  <a href="#">
-                    <img src="https://placehold.co/200x200" alt="Peptide" />
-                  </a>
-                </div>
-                <div class="product-content">
-                  <div class="product-category">Regenerative</div>
-                  <h1>BPC-157</h1>
-                  <p>
-                    BPC-157 is a synthetic peptide derived from a naturally
-                    occurring protein found in gastric tissue.
-                  </p>
-                  <a href="#">View CoA</a>
-                </div>
-              </div>
-            </div>
-          </div> -->
+       
         </div>
 
       <?php
@@ -163,19 +53,11 @@ require "top.php";
             <h2>About Us</h2>
             <h1>About Us</h1>
             <p>
-              This page provides a neutral, educational overview of
-              commonly discussed peptides. It is intended for
-              informational purposes only and does not promote, sell, or
-              recommend the use of any compound.This page provides a
-              neutral, educational overview of commonly discussed
-              peptides. It is intended for informational purposes only and
-              does not promote, sell, or recommend the use of any
-              compound.
+              OD Bio Labs is an independent educational platform dedicated to peptides and their role in modern biochemical research. This website was developed to provide clear, structured, and evidence-based information for individuals seeking to better understand how peptides are defined, studied, and interpreted within scientific and regulatory contexts.
             </p>
 
             <p>
-              Peptides discussed here may be investigational, regulated,
-              or not approved for general use depending on jurisdiction.
+              OD Bio Labs is an independent educational platform dedicated to peptides and their role in modern biochemical research. This website was developed to provide clear, structured, and evidence-based information for individuals seeking to better understand how peptides are defined, studied, and interpreted within scientific and regulatory contexts.
             </p>
 
           </div>
@@ -205,7 +87,7 @@ require "top.php";
             <h2>What Are Peptides?</h2>
             <h1>What Are Peptides?</h1>
             <p>
-              Peptides are short chains of amino acids that act as signaling molecules in the body. They can influence processes such as metabolism, tissue repair, hormone release, and inflammation.
+             Peptides are short chains of amino acids linked by peptide bonds. They are naturally occurring in the body and play essential roles in biological signaling, hormone regulation, immune response, and cellular function. Unlike full proteins, peptides are smaller and often act as signaling molecules, binding to receptors to trigger specific biological responses.
             </p>
 
             <p>

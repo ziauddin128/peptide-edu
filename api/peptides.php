@@ -14,7 +14,7 @@ if ($action == "get-peptides") {
     $category = "category2";
   }
 
-  if ($categoryVal == "All") {
+  /*  if ($categoryVal == "All") {
     $sql = "SELECT * FROM `peptides` ORDER BY `id` ASC";
     $res = $GLOBALS['conn']->prepare($sql);
     $res->execute();
@@ -23,7 +23,12 @@ if ($action == "get-peptides") {
     $res = $GLOBALS['conn']->prepare($sql);
     $res->bind_param("s", $categoryVal);
     $res->execute();
-  }
+  } */
+
+  $sql = "SELECT * FROM `peptides` WHERE `$category` = ? ORDER BY `id` ASC";
+  $res = $GLOBALS['conn']->prepare($sql);
+  $res->bind_param("s", $categoryVal);
+  $res->execute();
 
   $result = $res->get_result();
 

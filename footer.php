@@ -40,6 +40,10 @@
 <section class="copyright-footer">
     <div class="container">
         <p><i class="fa-regular fa-copyright"></i> <?= date('Y') ?> All right reserved OD Bio Labs</p>
+
+        <h2>YOU MUST BE OVER 21 YEARS OLD TO USE THIS WEBSITE.</h2>
+        <p>The assertions made here have not undergone assessment by the Food and Drug Administration. Lyophilized peptids are exclusively for in vitro research, analytical or laboratory purposes, and are not for human or animal applications of any kind. These products are to be managed only by individuals with the appropriate professional credentials. These items are not drugs, foods, or cosmetics and should not be inaccurately represented or utilized as such. Peptide Crafters is not a compounding pharmacy or chemical compounding facility as defined under 503A of the Federal Food, Drug, and Cosmetic act. Peptide Crafters is not an outsourcing facility as defined under 503B of the Federal Food, Drug, and Cosmetic act.</p>
+
     </div>
 </section>
 

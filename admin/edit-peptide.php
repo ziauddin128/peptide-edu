@@ -1,8 +1,7 @@
  <?php
   require "top.php";
 
-  if(!isset($_GET['id']) || $_GET['id'] == "")
-  {
+  if (!isset($_GET['id']) || $_GET['id'] == "") {
     redirect('peptides');
   }
 
@@ -14,16 +13,13 @@
   $res->bind_Param('i', $id);
   $res->execute();
   $result = $res->get_result();
-  if($result->num_rows > 0)
-  {
+  if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
-  }
-  else 
-  {
+  } else {
     redirect('peptides');
   }
 
-?>
+  ?>
  <div class="row p-4 p-md-0">
    <h1 class="card-title ml10">Manage Peptide</h1>
    <div class="col-12 grid-margin stretch-card">
@@ -54,13 +50,22 @@
              <div class="col-md-6">
                <div class="form-group">
                  <label>Category(English)</label>
-                 <input type="text" class="form-control" required name="category1" value="<?= $row['category1'] ?>" placeholder="Category">
+                 <select required name="category1" class="form-control">
+                   <option value="">Select</option>
+                   <option value="All" <?= ($row['category1'] == "All" ? "selected" : "") ?>>All</option>
+                   <option value="Peptide Blends" <?= ($row['category1'] == "Peptide Blends" ? "selected" : "") ?>>Peptide Blends</option>
+                 </select>
+                 
                </div>
              </div>
              <div class="col-md-6">
                <div class="form-group">
                  <label>Category(Spanish)</label>
-                 <input type="text" class="form-control" required name="category2" value="<?= $row['category2'] ?>" placeholder="Category">
+                 <select required name="category2" class="form-control">
+                   <option value="">Select</option>
+                   <option value="All" <?= ($row['category2'] == "All" ? "selected" : "") ?>>All</option>
+                   <option value="Peptide Blends" <?= ($row['category2'] == "Peptide Blends" ? "selected" : "") ?>>Peptide Blends</option>
+                 </select>
                </div>
              </div>
 
@@ -125,7 +130,7 @@
                <div class="form-group">
                  <label>Thumbnail</label>
                  <input type="file" name="thumbnail" class="form-control">
-                 
+
                  <br>
                  <input type="hidden" name="old-thumbnail" value="<?= $row['thumbnail'] ?>" class="form-control">
                  <a href="storage/<?= $row['thumbnail'] ?>" target="_blank">View Thumbnail</a>
@@ -153,14 +158,14 @@
              <div class="col-md-6">
                <div class="form-group">
                  <label>Sequence</label>
-                 <input type="text" class="form-control" name="sequence" value="<?= $row['sequence'] ?>"  placeholder="Sequence">
+                 <input type="text" class="form-control" name="sequence" value="<?= $row['sequence'] ?>" placeholder="Sequence">
                </div>
              </div>
              <!-- Formula -->
              <div class="col-md-6">
                <div class="form-group">
                  <label>Formula</label>
-                 <input type="text" class="form-control" name="formula" value="<?= $row['formula'] ?>"  placeholder="Formula">
+                 <input type="text" class="form-control" name="formula" value="<?= $row['formula'] ?>" placeholder="Formula">
                </div>
              </div>
 
@@ -168,7 +173,7 @@
              <div class="col-md-6">
                <div class="form-group">
                  <label>Mol. Weight</label>
-                 <input type="text" class="form-control" name="mole_wight" value="<?= $row['mole_wight'] ?>"  placeholder="Mol. Weight">
+                 <input type="text" class="form-control" name="mole_wight" value="<?= $row['mole_wight'] ?>" placeholder="Mol. Weight">
                </div>
              </div>
 
@@ -176,7 +181,7 @@
              <div class="col-md-6">
                <div class="form-group">
                  <label>Pubchem Id</label>
-                 <input type="text" class="form-control" name="pubchem_id" value="<?= $row['pubchem_id'] ?>"  placeholder="Pubchem Id">
+                 <input type="text" class="form-control" name="pubchem_id" value="<?= $row['pubchem_id'] ?>" placeholder="Pubchem Id">
                </div>
              </div>
 
@@ -184,7 +189,7 @@
              <div class="col-md-6">
                <div class="form-group">
                  <label>Cas Number</label>
-                 <input type="text" class="form-control" name="cas_number" value="<?= $row['cas_number'] ?>"  placeholder="Cas Number">
+                 <input type="text" class="form-control" name="cas_number" value="<?= $row['cas_number'] ?>" placeholder="Cas Number">
                </div>
              </div>
 
@@ -194,14 +199,13 @@
                  <label>Chemical Structure</label>
                  <input type="file" name="chemical_structure" class="form-control">
 
-                 <?php 
-                  if($row['chemical_structure'] !="")
-                  {
-                    ?>
+                 <?php
+                  if ($row['chemical_structure'] != "") {
+                  ?>
                    <br>
                    <input type="hidden" name="old-chemical_structure" value="<?= $row['chemical_structure'] ?>" class="form-control">
                    <a href="storage/<?= $row['chemical_structure'] ?>" target="_blank">View Chemical Stracture</a>
-                    <?php 
+                 <?php
                   }
                   ?>
                </div>
@@ -249,14 +253,13 @@
                  <label>Endotoxins (Usp85)</label>
                  <input type="file" class="form-control" name="endotoxins">
 
-                  <?php 
-                  if($row['endotoxins'] !="")
-                  {
-                    ?>
+                 <?php
+                  if ($row['endotoxins'] != "") {
+                  ?>
                    <br>
                    <input type="hidden" name="old-endotoxins" value="<?= $row['endotoxins'] ?>" class="form-control">
                    <a href="storage/<?= $row['endotoxins'] ?>" target="_blank">View Endotoxins</a>
-                    <?php 
+                 <?php
                   }
                   ?>
                </div>
@@ -268,14 +271,13 @@
                  <label>Sterility (Usp61)</label>
                  <input type="file" name="sterility" class="form-control">
 
-                   <?php 
-                  if($row['sterility'] !="")
-                  {
-                    ?>
+                 <?php
+                  if ($row['sterility'] != "") {
+                  ?>
                    <br>
                    <input type="hidden" name="old-sterility" value="<?= $row['sterility'] ?>" class="form-control">
                    <a href="storage/<?= $row['sterility'] ?>" target="_blank">View Sterility</a>
-                    <?php 
+                 <?php
                   }
                   ?>
                </div>
@@ -285,60 +287,57 @@
 
            <h3 class="text-primary mb-3">Previous Batch</h3>
 
-           <?php 
-            if (!empty($row['prev_batch']))
-            {
+           <?php
+            if (!empty($row['prev_batch'])) {
 
               $prev_batches = json_decode($row['prev_batch'], true);
-           ?>
+            ?>
 
-           <?php foreach ($prev_batches as $batch): ?>
-              <div class="row align-items-center prev-batches-wrapper">
+             <?php foreach ($prev_batches as $batch): ?>
+               <div class="row align-items-center prev-batches-wrapper">
 
-                <div class="col-md-4 col-lg-5">
-                  <div class="form-group">
-                    <label>Batch</label>
-                    <input type="text" class="form-control" name="prev_batch[]" value="<?= htmlspecialchars($batch['batch']) ?>" placeholder="Batch">
-                  </div>
-                </div>
+                 <div class="col-md-4 col-lg-5">
+                   <div class="form-group">
+                     <label>Batch</label>
+                     <input type="text" class="form-control" name="prev_batch[]" value="<?= htmlspecialchars($batch['batch']) ?>" placeholder="Batch">
+                   </div>
+                 </div>
 
-                <div class="col-md-4 col-lg-5">
-                  <div class="form-group">
-                    <label>Date</label>
-                    <input type="date" class="form-control" name="prev_batch_date[]" value="<?= $batch['date'] ?>">
-                  </div>
-                </div>
+                 <div class="col-md-4 col-lg-5">
+                   <div class="form-group">
+                     <label>Date</label>
+                     <input type="date" class="form-control" name="prev_batch_date[]" value="<?= $batch['date'] ?>">
+                   </div>
+                 </div>
 
-                <div class="col-md-4 col-lg-2">
-                  <button type="button" class="btn btn-danger" onclick="removeBatchRow(this)">
-                    <i class="mdi mdi-minus menu-icon"></i> Remove
-                  </button>
-              </div>
-              </div>
-           <?php endforeach; ?>
+                 <div class="col-md-4 col-lg-2">
+                   <button type="button" class="btn btn-danger" onclick="removeBatchRow(this)">
+                     <i class="mdi mdi-minus menu-icon"></i> Remove
+                   </button>
+                 </div>
+               </div>
+             <?php endforeach; ?>
+           <?php
+            } else {
+            ?>
+             <div class="row align-items-center prev-batches-wrapper">
+
+               <div class="col-md-4 col-lg-5">
+                 <div class="form-group">
+                   <label>Batch</label>
+                   <input type="text" class="form-control" name="prev_batch[]" placeholder="Batch">
+                 </div>
+               </div>
+
+               <div class="col-md-4 col-lg-5">
+                 <div class="form-group">
+                   <label>Date</label>
+                   <input type="date" class="form-control" name="prev_batch_date[]">
+                 </div>
+               </div>
+             </div>
            <?php
             }
-            else 
-            {
-              ?>
-              <div class="row align-items-center prev-batches-wrapper">
-
-                <div class="col-md-4 col-lg-5">
-                  <div class="form-group">
-                    <label>Batch</label>
-                    <input type="text" class="form-control" name="prev_batch[]" placeholder="Batch">
-                  </div>
-                </div>
-
-                <div class="col-md-4 col-lg-5">
-                  <div class="form-group">
-                    <label>Date</label>
-                    <input type="date" class="form-control" name="prev_batch_date[]">
-                  </div>
-                </div>
-              </div> 
-              <?php
-              }
             ?>
 
 
@@ -353,47 +352,43 @@
 
            <h3 class="text-primary my-3">Media Files</h3>
 
-            <?php 
-            if (!empty($row['media_files']))
-            {
+           <?php
+            if (!empty($row['media_files'])) {
               $media_files = json_decode($row['media_files'], true);
-             
-              foreach ($media_files as $media)
-              {  
-                ?>
-                <div class="row media-file-wrapper mb-3">
-                  <div class="col-md-8 col-lg-10">
-                    <div class="form-group">
-                      <input type="hidden" class="form-control" value="<?= $media ?>" name="old_media[]">
-                      <a href="storage/<?= $media ?>" target="_blank">View media</a>
-                    </div>
-                  </div>
 
-                  <div class="col-md-4 col-lg-2">
-                    <button type="button" class="btn btn-danger" onclick="removeMediaRow(this)">
-                      <i class="mdi mdi-minus menu-icon"></i> Remove
-                    </button>
-                  </div>
-                </div>
-                <?php 
-              }
+              foreach ($media_files as $media) {
             ?>
+               <div class="row media-file-wrapper mb-3">
+                 <div class="col-md-8 col-lg-10">
+                   <div class="form-group">
+                     <input type="hidden" class="form-control" value="<?= $media ?>" name="old_media[]">
+                     <a href="storage/<?= $media ?>" target="_blank">View media</a>
+                   </div>
+                 </div>
 
-           <?php 
-            }
-            else 
-              {
-                ?>
-                <div class="row media-file-wrapper">
-                  <div class="col-md-8 col-lg-10">
-                    <div class="form-group">
-                      <label>Image/Video</label>
-                      <input type="file" class="form-control" name="new_media[]">
-                    </div>
-                  </div>
-                </div>
-                <?php 
+                 <div class="col-md-4 col-lg-2">
+                   <button type="button" class="btn btn-danger" onclick="removeMediaRow(this)">
+                     <i class="mdi mdi-minus menu-icon"></i> Remove
+                   </button>
+                 </div>
+               </div>
+             <?php
               }
+              ?>
+
+           <?php
+            } else {
+            ?>
+             <div class="row media-file-wrapper">
+               <div class="col-md-8 col-lg-10">
+                 <div class="form-group">
+                   <label>Image/Video</label>
+                   <input type="file" class="form-control" name="new_media[]">
+                 </div>
+               </div>
+             </div>
+           <?php
+            }
             ?>
 
            <div class="media_file_wrapper_new"></div>
