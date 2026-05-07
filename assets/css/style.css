@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
@@ -8,8 +6,6 @@
   padding: 0;
   box-sizing: border-box;
   box-shadow: none;
-  /* font-family: "Poppins", sans-serif; */
-  /* font-family: "Outfit", sans-serif; */
   font-family: "Work Sans", sans-serif;
 }
 
@@ -18,6 +14,7 @@
   --body-bg: #fff;
 
   --primary-color: #ee900d;
+  --primary-dark-variant: #D98E1A;
   --text-color: #2f3134;
   --light-border-color: #d4d4d4;
   --light-border-color2: #ebebeb;
@@ -29,13 +26,13 @@
   --light-primary-bg: #eaf5f1;
 
   --yellowish-bg: #f5f5ed;
-  --odritual-red: #cd3535;
 }
 
 [data-theme="dark"] {
   --body-bg: #030609;
   --text-color: #fff;
   --text-color2: #2f3134;
+  --text-color-white: #2f3134;
 
   --dark-border-color: #030609;
   --light-border-color2: #cccccc32;
@@ -529,6 +526,19 @@ body {
   }
 }
 
+.explore-peptide-item ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.explore-peptide-item ul li {
+  font-size: 16px;
+  font-weight: 400;
+  margin: 2px 0;
+  color: var(--text-color);
+}
+
 @media (max-width: 767px) {
   .explore-peptide-item {
     grid-template-columns: 100%;
@@ -826,6 +836,10 @@ body {
   padding: 2px;
 }
 
+[data-theme="dark"] .case-studies-item .img-wrapper {
+  border: 1px solid var(--primary-color);
+}
+
 .case-studies-item img {
   height: 100%;
   width: 100%;
@@ -862,7 +876,8 @@ body {
 /* Library Section */
 
 .library-section {
-  padding: 80px 0 0 0;
+  padding: 120px 0 40px 0;
+  background-color: var(--body-bg);
 }
 
 .section-header {
@@ -898,24 +913,29 @@ body {
 .library-category {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 10px;
   margin-top: 20px;
 }
 
 .category-btn {
   background-color: white;
-  border: 1px solid var(--text-color-muted);
-  color: var(--text-color-muted);
+  border: 1px solid var(--light-border-color2);
+  color: var(--text-color);
   padding: 5px 20px;
   border-radius: 30px;
   font-size: 16px;
   font-weight: 400;
 }
 
+[data-theme="dark"] .category-btn 
+{
+  color: var(--text-color-white);
+}
+
 .category-btn.active {
-  color: var(--primary-color);
   border: 1px solid var(--primary-color);
-  background-color: var(--light-primary-bg);
+  background-color: var(--primary-dark-variant);
 }
 
 @media (max-width: 575px) {
@@ -935,9 +955,15 @@ body {
 .product-item {
   margin: 10px 0;
   background-color: white;
-  border: 1px solid var(--light-border-color);
+  border: 1px solid var(--light-border-color2);
   padding: 20px;
   border-radius: 10px;
+}
+
+[data-theme="dark"] .product-item 
+{
+  background-color: transparent;
+   border: 1px solid var(--primary-color);
 }
 
 .product-img {
@@ -960,8 +986,8 @@ body {
 
 .product-category {
   padding: 5px 10px;
-  color: var(--text-color-primary-dark);
-  background-color: var(--light-primary-bg);
+  color: var(--text-color);
+  background-color: var(--primary-dark-variant);
   width: fit-content;
   font-size: 12px;
   font-weight: 500;
@@ -969,19 +995,20 @@ body {
 }
 
 .product-content h1 {
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 24px;
   margin: 0;
+  font-family: var(--font-bebas);
+  color: var(--text-color);
 }
 
 .product-content p {
   margin: 0;
   font-size: 14px;
-  color: var(--text-color-muted);
+   color: var(--text-color);
 }
 
 .product-content a {
-  color: var(--primary-color);
+  color: var(--text-color);
   font-size: 16px;
   font-weight: 600;
   text-align: center;
@@ -989,12 +1016,14 @@ body {
   border-radius: 5px;
   text-decoration: none;
   border: 1px solid var(--primary-color);
-  background-color: var(--light-primary-bg);
+  background-color: var(--primary-color);
 }
 
 /* Faq */
 .faq {
-  padding: 80px 0 0 0;
+  padding: 40px 0;
+  border-top: 2px solid var(--light-border-color2);
+  background-color: var(--body-bg);
 }
 
 .faq-wrapper .accordion-item {
@@ -1033,12 +1062,19 @@ body {
 
 /* Contact */
 .contact {
-  padding: 80px 0;
+  padding: 40px 0;
+  border-top: 2px solid var(--light-border-color2);
+  background-color: var(--body-bg);
 }
 
 .form-wrapper {
   padding: 20px 40px;
   border-radius: 10px;
+  background-color: var(--yellowish-bg);
+}
+
+[data-theme="dark"] .form-wrapper 
+{
   background-color: white;
 }
 
@@ -1530,8 +1566,15 @@ body {
 }
 
 /* About Us */
+
 .about-us {
-  padding: 80px 0 0 0;
+  padding: 40px 0;
+  border-top: 2px solid var(--light-border-color2);
+  background-color: var(--body-bg);
+}
+
+.subpage-top-padding {
+  padding-top: 120px;
 }
 
 .about-us-left,
@@ -1564,7 +1607,7 @@ body {
   font-size: 16px;
   font-weight: 400;
   margin: 0;
-  color: var(--text-color-muted);
+  color: var(--text-color);
   max-width: 800px;
   width: 100%;
 }
@@ -1579,7 +1622,7 @@ body {
   font-size: 16px;
   font-weight: 400;
   margin: 5px 0 0 0;
-  color: var(--text-color-muted);
+  color: var(--text-color);
 }
 
 .error-msg {
@@ -1588,4 +1631,195 @@ body {
   margin: 5px 0 0 0;
   color: red;
   display: none;
+}
+
+/* How peptides work */
+.how-peptides-work {
+  padding: 40px 0;
+  background-color: var(--body-bg);
+  border-top: 2px solid var(--light-border-color2);
+}
+
+.how-peptides-work h3 {
+  margin: 25px 0 0 0;
+  font-size: 20px;
+}
+
+[data-theme="dark"] .how-peptides-work h3 {
+  color: #fff;
+}
+
+.how-peptides-work .row > * {
+  padding: 0 !important;
+}
+
+.how-peptides-work .row > div {
+  margin: 10px 0;
+}
+
+.how-peptide-work-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 20px 20px;
+  border-right: 2px solid var(--light-border-color2);
+  text-align: center;
+  height: 100%;
+}
+
+.row > div:last-child .how-peptide-work-item {
+  border-right: none;
+}
+
+.how-peptide-work-item > img {
+  width: 100px;
+}
+
+.how-peptide-work-item h1 {
+  margin: 0;
+  font-size: 24px;
+  text-transform: uppercase;
+  font-family: var(--font-bebas);
+}
+
+[data-theme="dark"] .how-peptide-work-item h1 {
+  color: var(--primary-color);
+}
+
+.how-peptide-work-item p {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 10px 0 0 0;
+  color: var(--text-color);
+}
+
+@media (max-width: 575px) {
+  .how-peptide-work-item {
+    border-right: none;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 991px) {
+  .row > div:nth-child(even) .how-peptide-work-item {
+    border-right: none;
+  }
+}
+
+/* Safety Data Sheet */
+
+.safety-data-sheet {
+  padding: 40px 0 0 0;
+}
+
+.safety-data-sheet .accordion-item {
+  margin-bottom: 15px;
+  border-radius: 5px !important;
+  overflow: hidden;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.safety-data-sheet .accordion-item:last-child {
+  margin-bottom: 0;
+}
+
+.safety-data-sheet .accordion-item button {
+  font-size: 28px;
+  padding-block: 20px;
+  letter-spacing: 1px;
+  font-family: var(--font-bebas);
+}
+
+.safety-data-sheet .accordion-button:not(.collapsed) {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+}
+
+.safety-data-sheet .accordion-button:not(.collapsed)::after {
+  filter: brightness(0) invert(1);
+}
+
+.safety-data-sheet .accordion-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.safety-data-sheet .accordion-body p {
+  margin: 0;
+}
+
+.sds-item {
+  margin-bottom: 10px;
+}
+
+.sds-title {
+  background-color: var(--light-border-color2);
+  padding: 10px;
+  border-left: 2px solid var(--primary-color);
+}
+
+.sds-title p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.sds-content {
+  padding-top: 10px;
+}
+.sds-content p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.sds-warning {
+  border: 1px solid #f1c40f;
+  background-color: #f1c40f10;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.sds-formula {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--light-border-color2);
+}
+
+.sds-formula p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.sds-content li {
+  margin: 0;
+  font-size: 14px;
+}
+
+.print-pdf-btn {
+  margin: 20px 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px !important;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 16px !important;
+  font-weight: 500;
+  width: fit-content;
+  margin: 0 auto;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  text-decoration: none;
+}
+
+@media (max-width: 575px) {
+  .safety-data-sheet .accordion-item button {
+    font-size: 24px;
+  }
 }

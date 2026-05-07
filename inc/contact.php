@@ -1,13 +1,19 @@
  <section class="contact">
      <div class="container">
-         <div class="section-header">
+        <!--  <div class="section-header">
              <h2>Get in Touch</h2>
              <h1>Contact Us</h1>
              <p>
                  Have questions or need assistance? Our team is here to help. Reach
                  out to us anytime, and we’ll get back to you as soon as possible.
              </p>
-         </div>
+         </div> -->
+
+         <div class="section-title-wrap align-items-center">
+            <h2 class="title-tag">Get in Touch</h2>
+            <h1>Contact Us</h1>
+            <div class="divider-line"></div>
+        </div>
 
          <div class="mt-4 form-wrapper">
              <form id="contact-form">

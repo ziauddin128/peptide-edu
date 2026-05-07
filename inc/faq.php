@@ -1,6 +1,6 @@
 <section class="faq">
     <div class="container">
-        <div class="section-header">
+        <!--  <div class="section-header">
             <h2>Got Questions?</h2>
             <h1>Frequently asked questions</h1>
             <p>
@@ -8,6 +8,12 @@
                 platform, services, and how everything works. This section helps
                 you quickly get the information you need.
             </p>
+        </div> -->
+
+        <div class="section-title-wrap align-items-center">
+            <h2 class="title-tag">Got Questions?</h2>
+            <h1>Frequently asked questions</h1>
+            <div class="divider-line"></div>
         </div>
 
         <div class="faq-wrapper mt-4">

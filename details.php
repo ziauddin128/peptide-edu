@@ -443,13 +443,209 @@ if (isset($_GET['id'])) {
 </section>
 
 <!-- Product Description -->
-<section class="product-desc">
+<!-- <section class="product-desc">
   <div class="container">
     <div class="product-desc-in">
       <h1>Description</h1>
 
       <?= ($s_lang == "en") ? $row['long_desc1'] : $row['long_desc2'] ?>
     </div>
+  </div>
+</section> -->
+
+<!-- Safety Data Sheet -->
+<section class="safety-data-sheet">
+  <div class="container">
+    <div class="accordion accordion-flush" id="detailsAccordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button collapsed shadow-none outline-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#faq-01">
+            Description
+          </button>
+        </h2>
+        <div
+          id="faq-01"
+          class="accordion-collapse collapse"
+          data-bs-parent="#detailsAccordion">
+          <div class="accordion-body">
+            <?= ($s_lang == "en") ? $row['long_desc1'] : $row['long_desc2'] ?>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button collapsed shadow-none outline-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#faq-02">
+            Safety Data Sheet (SDS)
+          </button>
+        </h2>
+        <div
+          id="faq-02"
+          class="accordion-collapse collapse"
+          data-bs-parent="#detailsAccordion">
+          <div class="accordion-body sds-det">
+
+            <div class="sds-item">
+              <div class="sds-title">
+                <p>Section 1: Identification</p>
+              </div>
+              <div class="sds-content">
+                <p><b>Product Use:</b> Laboratory Reagent for Research Use Only.</p>
+              </div>
+            </div>
+
+            <div class="sds-item">
+              <div class="sds-title">
+                <p>Section 2: Hazard Identification</p>
+              </div>
+              <div class="sds-content">
+                <div class="sds-warning">
+                  <p><b>Signal Word:</b> Warning</p>
+                  <p><b>Hazard Solution:</b> Hello</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="sds-item">
+              <div class="sds-title">
+                <p>Section 3: Composition/ Information on Ingredients</p>
+              </div>
+              <div class="sds-content">
+                <div class="sds-formula">
+                  <p><b>Molecular Formula:</b></p>
+                  <p>1234</p>
+                </div>
+
+                <div class="sds-formula">
+                  <p><b>Molecular Weight:</b></p>
+                  <p>1234</p>
+                </div>
+
+                <div class="sds-formula">
+                  <p><b>CAS Number:</b></p>
+                  <p>1234</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="sds-item">
+              <div class="sds-title">
+                <p>Section 4: First-Aid Measures</p>
+              </div>
+              <div class="sds-content">
+                <ul>
+                  <li><b>Inhalation:</b> Move to fresh air</li>
+                  <li><b>Skin Contact:</b> Wash off immediately with soap and plenty of water.</li>
+                  <li><b>Eye Contact:</b> Rinse thoroughly with plenty of water for at least 15 minutes.</li>
+                  <li><b>Ingestion:</b> Never give anything by mouth to an unconscious person. Rinse mouth with water.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="sds-item">
+              <div class="sds-title">
+                <p>Section 5: Fire-Fighting Measures</p>
+              </div>
+              <div class="sds-content">
+                <p>Use water spray, alcohol-resistant foam, dry chemical or carbon dioxide. War self-contained breathing apparatus for firefighting if necessary.</p>
+              </div>
+            </div>
+
+            <div class="sds-item">
+              <div class="sds-title">
+                <p>Section 6: Accidental Release Measures</p>
+              </div>
+              <div class="sds-content">
+                <p>Avoid dust formation. Avoid breathing vapors, mist or gas. Ensure adequate ventilation. Do not let product enter drains. Pick up and arrange disposal without creating dust.</p>
+              </div>
+            </div>
+
+            <div class="sds-item">
+              <div class="sds-title">
+                <p>Section 7: Handling and Storage</p>
+              </div>
+              <div class="sds-content">
+                <p><b>Handling:</b></p>
+                <p><b>Storage:</b> Keep container tightly closed in a dry well-ventilated place. Recommended storage temperature: -20°C</p>
+              </div>
+            </div>
+
+            <div class="sds-item">
+              <div class="sds-title">
+                <p>Section 8: Exposure Controls/Personal Protection</p>
+              </div>
+              <div class="sds-content">
+                <p>Ensure adequate ventilation. Wear appropriate personal protective equipment including lab coat, safety glasses, and gloves.</p>
+              </div>
+            </div>
+
+            <div class="sds-item">
+              <div class="sds-title">
+                <p>Section 9: Physical and Chemical Properties</p>
+              </div>
+              <div class="sds-content">
+                <p>From: Solid (Lyophilized and Reactivity)</p>
+              </div>
+            </div>
+
+            <div class="sds-item">
+              <div class="sds-title">
+                <p>Section 10: Stability and Reactivity</p>
+              </div>
+              <div class="sds-content">
+                <p>Stable under recommended storage conditions.</p>
+              </div>
+            </div>
+
+            <div class="sds-item">
+              <div class="sds-title">
+                <p>Section 11: Toxicological Information</p>
+              </div>
+              <div class="sds-content">
+                <p>Refer to section 2 for available hazard information.</p>
+              </div>
+            </div>
+
+            <div class="sds-item">
+              <div class="sds-title">
+                <p>Section 12-15: Ecological, Disposal Transport, Regulatory</p>
+              </div>
+              <div class="sds-content">
+                <p>No specific data available or this sections. Dispose of accordance with local regulation. Not regulated as dangerous good for transport.</p>
+              </div>
+            </div>
+
+            <div class="sds-item">
+              <div class="sds-title">
+                <p>Section 16: Other Information</p>
+              </div>
+              <div class="sds-content">
+                <p>For research Use Only. Not for use in diagnostic procedures.</p>
+              </div>
+            </div>
+
+            <div>
+              <a href="assets/images/hero-img.png" download="" class="print-pdf-btn">
+                <i class="fa-solid fa-file-pdf"></i>
+                <span>Print to PDF</span>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
   </div>
 </section>
 

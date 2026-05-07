@@ -9,6 +9,11 @@ if (isset($_SESSION['lang'])) {
 }
 
 //  $topmenu[$s_lang][0]
+
+// Active Page Name
+$activePage = basename($_SERVER['PHP_SELF']);
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -62,10 +67,13 @@ if (isset($_SESSION['lang'])) {
             <ul
               class="navbar-nav align-items-lg-center mt-2 text-end pe-1 pe-md-0 ms-auto gap-4 gap-lg-5">
               <li class="nav-item">
-                <a class="nav-link active" href="/">Home</a>
+                <a class="nav-link <?= ($activePage == "index.php") ? "active" : "" ?>" href="/">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="peptides">Peptides</a>
+                <a class="nav-link <?= ($activePage == "about.php") ? "active" : "" ?>" href="about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link <?= ($activePage == "peptides.php") ? "active" : "" ?>" href="peptides">Peptides</a>
               </li>
               <!-- <li class="nav-item">
                 <a class="nav-link explore-btn" href="peptides">Explore</a>

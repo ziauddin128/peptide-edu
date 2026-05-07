@@ -2,120 +2,56 @@
 require "top.php";
 ?>
 
-<div class="cmn-bg">
-  <!-- Library Section -->
-  <section class="library-section">
-    <div class="container">
-      <div class="section-header">
-        <h2>Educational Resource</h2>
-        <h1>Peptide education library</h1>
-        <p>
-          Explore our peptide education library for clear, reliable
-          information and simple insights to help you understand peptides
-          better.
-        </p>
+
+<!-- Library Section -->
+<section class="library-section">
+  <div class="container">
+  <!--   <div class="section-header">
+      <h2>Educational Resource</h2>
+      <h1>Peptide education library</h1>
+      <p>
+        Explore our peptide education library for clear, reliable
+        information and simple insights to help you understand peptides
+        better.
+      </p>
+    </div> -->
+
+
+    <div class="section-title-wrap align-items-center">
+      <h2 class="title-tag">Educational Resource</h2>
+      <h1>Peptide education library</h1>
+      <div class="divider-line"></div>
+    </div>
+
+    <?php
+    $category_var = 'category1';
+    $category_sql = "SELECT DISTINCT($category_var) as `category` FROM `peptides`";
+    $category_res = mysqli_query($conn, $category_sql);
+    if (mysqli_num_rows($category_res) > 0) {
+    ?>
+      <div class="library-category">
+        <!-- <button class="category-btn active" onclick="get_peptides('All', '<?= $category_var ?>', this)">All</button> -->
+        <?php
+        while ($category_row = mysqli_fetch_assoc($category_res)) {
+        ?>
+          <button class="category-btn <?= ($category_row['category'] == "All" ? "active" : "") ?>" onclick="get_peptides('<?= $category_row['category'] ?>', '<?= $category_var ?>', this)"><?= $category_row['category'] ?></button>
+        <?php
+        }
+        ?>
       </div>
 
-      <?php
-      $category_var = 'category1';
-      $category_sql = "SELECT DISTINCT($category_var) as `category` FROM `peptides`";
-      $category_res = mysqli_query($conn, $category_sql);
-      if (mysqli_num_rows($category_res) > 0) {
-      ?>
-        <div class="library-category">
-          <!-- <button class="category-btn active" onclick="get_peptides('All', '<?= $category_var ?>', this)">All</button> -->
-          <?php
-          while ($category_row = mysqli_fetch_assoc($category_res)) {
-          ?>
-            <button class="category-btn <?= ($category_row['category'] == "All" ? "active" : "") ?>" onclick="get_peptides('<?= $category_row['category'] ?>', '<?= $category_var ?>', this)"><?= $category_row['category'] ?></button>
-          <?php
-          }
-          ?>
-        </div>
+      <div class="products-wrapper">
 
-        <div class="products-wrapper">
-       
-        </div>
-
-      <?php
-      }
-      ?>
-    </div>
-  </section>
-
-  <!-- About Us -->
-  <section class="about-us">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-6">
-          <div class="about-us-left">
-
-            <h2>About Us</h2>
-            <h1>About Us</h1>
-            <p>
-              OD Bio Labs is an independent educational platform dedicated to peptides and their role in modern biochemical research. This website was developed to provide clear, structured, and evidence-based information for individuals seeking to better understand how peptides are defined, studied, and interpreted within scientific and regulatory contexts.
-            </p>
-
-            <p>
-              OD Bio Labs is an independent educational platform dedicated to peptides and their role in modern biochemical research. This website was developed to provide clear, structured, and evidence-based information for individuals seeking to better understand how peptides are defined, studied, and interpreted within scientific and regulatory contexts.
-            </p>
-
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="about-us-right">
-            <img class="img-fluid rounded" src="assets/images/dna-strand.jpg" alt="">
-          </div>
-        </div>
       </div>
-    </div>
-  </section>
 
-  <!-- About Peptide -->
-  <section class="about-us">
-    <div class="container">
-      <div class="row align-items-center">
+    <?php
+    }
+    ?>
+  </div>
+</section>
 
-        <div class="col-md-6 order-2 order-md-1">
-          <div class="about-us-right">
-            <img class="img-fluid rounded" src="assets/images/1034769_6484.jpg" alt="">
-          </div>
-        </div>
-        <div class="col-md-6 order-1 order-md-2">
-          <div class="about-us-left">
 
-            <h2>What Are Peptides?</h2>
-            <h1>What Are Peptides?</h1>
-            <p>
-             Peptides are short chains of amino acids linked by peptide bonds. They are naturally occurring in the body and play essential roles in biological signaling, hormone regulation, immune response, and cellular function. Unlike full proteins, peptides are smaller and often act as signaling molecules, binding to receptors to trigger specific biological responses.
-            </p>
 
-            <p>
-              They generally fall into three broad categories:
-            </p>
-
-            <ul>
-              <li><b>Metabolic peptides</b> (e.g., weight regulation, glucose control)</li>
-              <li><b>Healing / regenerative peptides</b> (e.g., tissue repair)</li>
-              <li><b>Hormone-modulating peptides</b> (e.g., growth hormone signaling)</li>
-            </ul>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Faq -->
-  <?php
-  require "inc/faq.php";
-  ?>
-
-  <!-- Contact -->
-  <?php
-  require "inc/contact.php";
-  ?>
-</div>
 
 <script>
   function get_peptides(categoryVal, categoryType, el) {
