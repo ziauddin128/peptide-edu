@@ -16,11 +16,9 @@
                 <div class="footer-item">
                     <h1>Quick Links</h1>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Peptides</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms Condition</a></li>
-                    </ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="about">About</a></li>
+                        <li><a href="peptides">Peptides</a></li>
                 </div>
             </div>
             <div class="col-md-3">

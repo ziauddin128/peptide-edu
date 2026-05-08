@@ -31,11 +31,11 @@ if (!isset($_SESSION['CONFIRM_TERMS']) || $_SESSION['CONFIRM_TERMS'] != "Yes") {
 
 
     <div class="hero-btn">
-      <a href="#" class="primary-btn">
+      <a href="peptides" class="primary-btn">
         <span>Explore Peptides</span>
         <i class="fa-solid fa-arrow-right"></i>
       </a>
-      <a href="#" class="secondary-btn">
+      <a href="about" class="secondary-btn">
         <span>Learn More</span>
         <i class="fa-solid fa-arrow-right"></i>
       </a>
@@ -110,7 +110,7 @@ if (!isset($_SESSION['CONFIRM_TERMS']) || $_SESSION['CONFIRM_TERMS'] != "Yes") {
 
           <p>Peptides are short chains of amino acids that play essential roles in biological signaling, hormone regulation, and cellular function. they are the focus of ongoing research across a wide range of scientific disciplines.</p>
 
-          <a href="#" class="primary-outline-btn mt-4">
+          <a href="about" class="primary-outline-btn mt-4">
             <span>Read More</span>
             <i class="fa-solid fa-arrow-right"></i>
           </a>
@@ -137,7 +137,7 @@ if (!isset($_SESSION['CONFIRM_TERMS']) || $_SESSION['CONFIRM_TERMS'] != "Yes") {
           <div>
             <h1>Therapeutic Peptides</h1>
             <p>Studied for their potentials in hormone modulation, metabolic health, immune, support and more.</p>
-            <a href="#">
+            <a href="about">
               <span>Learn More</span>
               <i class="fa-solid fa-arrow-right"></i>
             </a>
@@ -150,7 +150,7 @@ if (!isset($_SESSION['CONFIRM_TERMS']) || $_SESSION['CONFIRM_TERMS'] != "Yes") {
           <div>
             <h1>Cosmetic Peptides</h1>
             <p>Research for their role in skin health, collagen support, and anti-aging application.</p>
-            <a href="#">
+            <a href="about">
               <span>Learn More</span>
               <i class="fa-solid fa-arrow-right"></i>
             </a>
@@ -163,7 +163,7 @@ if (!isset($_SESSION['CONFIRM_TERMS']) || $_SESSION['CONFIRM_TERMS'] != "Yes") {
           <div>
             <h1>Research Peptides</h1>
             <p>Compounds used in laboratory settings to study biological pathways, receptor activity, and disease models.</p>
-            <a href="#">
+            <a href="about">
               <span>Learn More</span>
               <i class="fa-solid fa-arrow-right"></i>
             </a>
