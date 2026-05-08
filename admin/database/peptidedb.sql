@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 30, 2026 at 05:32 PM
+-- Generation Time: May 08, 2026 at 08:17 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.3.29
 
@@ -84,12 +84,28 @@ CREATE TABLE `peptides` (
 --
 
 INSERT INTO `peptides` (`id`, `name1`, `name2`, `category1`, `category2`, `short_desc1`, `short_desc2`, `long_desc1`, `long_desc2`, `appearance1`, `appearance2`, `storage1`, `storage2`, `thumbnail`, `coa`, `sequence`, `formula`, `mole_wight`, `pubchem_id`, `cas_number`, `chemical_structure`, `current_batch`, `test_date`, `purity`, `avg_weight`, `endotoxins`, `sterility`, `prev_batch`, `media_files`, `created_at`) VALUES
-(8, 'Natalie Lamb', 'Brody Keller', 'Et cupidatat digniss', 'Animi in nostrud is', 'Quia consequatur Si', 'Dolor eligendi conse', 'Sunt enim sint cons', 'Perferendis enim cor', 'Quas duis odit conse', 'Sint excepturi a vol', 'Fuga Officia cillum', 'Voluptatum deleniti ', '1777569918_50698.jpg', '1777569931_5000_foam.jpg', 'Eaque veritatis aspe', 'Sunt non nulla asper', 'Omnis eum in aliquip', 'Qui ab explicabo Et', '191', '1777569907_67a7e2d9a09bc.jpg', 'Sunt amet cillum qu', '1989-06-14', 86, 'Eum sed ad eos dele', '1777569893_50698.jpg', '1777569893_27522409a919fcd8abebcc5683a8a466.jpg', '[{\"batch\":\"1212\",\"date\":\"2026-04-22\"},{\"batch\":\"5\",\"date\":\"2026-04-21\"}]', '[\"1777218310_15510379_960_540_60fps.mp4\",\"1777569877_25660.jpg\",\"1777569877_25660.jpg\"]', '2026-04-26 09:45:10'),
-(9, 'Keane Wise', 'Pandora Lane', 'Alias cupidatat in v', 'Fugiat quia in inven', 'Sapiente necessitati', 'Natus ut laboris ad ', 'Autem eligendi amet', 'Dolorum quibusdam ni', 'Labore dolor aliquam', 'Cum magnam ipsum eli', 'Quisquam voluptas ob', 'Architecto aut ipsum', '1777218545_67a7e2d9a09bc.jpg', '1777218545_67d00cf7266d2c75571aebde_Example.svg', 'Vitae occaecat volup', 'Vel qui consectetur', 'Do est tempore aut ', 'Sequi ut aliquam dol', '944', NULL, 'Harum quod nemo et n', '1975-04-10', 82, 'Duis rerum non qui r', NULL, NULL, '[{\"batch\":\"Sint iste autem dese\",\"date\":\"2021-01-30\"}]', '[]', '2026-04-26 09:49:05'),
-(10, 'Kay Jensen', 'Jelani Collins', 'Nulla odio itaque su', 'Inventore do quia id', 'Sequi nostrud enim e', 'Fugiat iure ad numqu', 'Nulla aliquid aliqui', 'Eius tenetur in irur', 'Sit sint aspernatur ', 'Ut eveniet reprehen', 'Quidem necessitatibu', 'Consectetur iste vo', '1777218579_50698.jpg', '1777218579_1710692478.png', 'Sunt repudiandae eni', 'Irure quis illo in n', 'Dolor quia doloremqu', 'Sit ab nisi ab labor', '486', NULL, 'Est omnis placeat n', '1996-04-24', 62, 'Quo autem alias anim', NULL, NULL, '[{\"batch\":\"Dolorem beatae imped\",\"date\":\"2010-05-16\"}]', '[]', '2026-04-26 09:49:39'),
-(11, 'Hoyt Huber', 'Hammett Bryan', 'Ipsam ut quasi qui a', 'Harum sed facilis od', 'Quisquam quia blandi', 'Cupidatat nisi excep', 'Veritatis iure id es', 'Voluptas ad duis et ', 'Ut officiis lorem co', 'Nisi veniam autem i', 'Ut voluptatem Ut qu', 'Qui nulla eius in es', '1777218600_67a7e2d9a09bc.jpg', '1777218600_50698.jpg', 'Recusandae Quis exp', 'Quidem laborum sit ', 'Hic minim blanditiis', 'Impedit molestias e', '605', NULL, 'Fugit nostrum cumqu', '1984-10-12', 60, 'Pariatur Numquam eu', NULL, NULL, '[{\"batch\":\"Impedit qui harum s\",\"date\":\"2022-03-31\"}]', '[]', '2026-04-26 09:50:00'),
-(13, 'Howard York', 'Hu Terrell', 'Quo eius velit porro', 'Quia voluptatem susc', 'Voluptatem sunt lab', 'Dolorem ea enim exer', 'Assumenda aspernatur', 'Dolores iure alias v', 'Quis ut ut eligendi ', 'Est neque ullam eius', 'Non minim ut ad repr', 'Aliquip et fuga Vol', '1777391790_67a7e2d9a09bc.jpg', '1777391790_27522409a919fcd8abebcc5683a8a466.jpg', 'Autem dolor et labor', 'Corrupti sit id do', 'Delectus irure in a', 'Ut aliquam cumque qu', '801', '1777391790_50698.jpg', 'Sed ad dolore id sed', '1978-11-02', 38, 'Et at rem modi possi', '1777391790_50698.jpg', '1777391790_1710692478.png', '[{\"batch\":\"Aut labore incididun\",\"date\":\"2003-04-28\"}]', '[\"1777391790_25660.jpg\",\"1777391790_1710692478.png\",\"1777391790_15510379_960_540_60fps.mp4\"]', '2026-04-28 09:56:30'),
-(14, 'Xaviera Murray', 'Moana Chase', 'Quidem ea porro mini', 'Eum architecto delen', 'Placeat sit sunt s', 'Molestias tenetur pr', 'Sint non qui velit', 'Atque accusantium eu', 'Ipsum impedit rem n', 'Qui neque sed maiore', 'Tempora ipsam nihil ', 'Tenetur consequatur ', '1777570036_17827.jpg', '1777570036_bdabe236ae923ae75df098d582b4b609-1.jpg', 'Amet molestias sunt', 'Quia dolorem amet q', 'Repellendus Veniam', 'Vel quibusdam tempor', '753', '1777570036_25660.jpg', 'Incidunt exercitati', '2012-06-06', 34, 'Omnis molestias cons', NULL, NULL, '[{\"batch\":\"Sunt voluptatibus al\",\"date\":\"2000-10-12\"},{\"batch\":\"1212\",\"date\":\"2026-04-22\"}]', '[\"1777570036_50698.jpg\",\"1777570036_15510379_960_540_60fps.mp4\"]', '2026-04-30 11:27:16');
+(15, 'Hop Bryan', 'Stone Brock', 'All', 'All', 'Incidunt qui ipsum', 'In ipsum laboriosam', 'Laudantium repellen', 'Et nulla ab debitis ', 'Beatae totam facere ', 'Nobis deleniti volup', 'Necessitatibus quis ', 'Voluptatibus velit a', '1778002071_1034769_6484.jpg', '1778002071_dna-strand.jpg', 'Perferendis error el', 'Velit veritatis fug', 'Aliquip facilis Nam ', 'Minus itaque in itaq', '339', NULL, 'Laborum Necessitati', '2006-01-02', 54, 'Inventore natus pari', NULL, NULL, '[{\"batch\":\"Et qui ullam enim su\",\"date\":\"2013-05-14\"}]', '[]', '2026-05-05 11:27:51'),
+(16, 'Lavinia Lyons', 'Chadwick Shaw', 'Peptide Blends', 'Peptide Blends', 'Do voluptatem sunt s', 'Amet minima ea quod', 'Ipsum esse harum ra', 'Sed harum magnam vol', 'Dolorem laudantium ', 'Est autem laborum ', 'Sequi fugit minus s', 'Enim commodi nihil r', '1778002126_1034769_6484.jpg', '1778002126_molecule.png', 'Tempora velit qui an', 'Voluptas quia cumque', 'Quo assumenda qui ad', 'Ad deserunt esse vo', '300', '1778002126_molecule.png', 'Aliquam recusandae ', '1975-01-27', 80, 'Est dolor illo culpa', '1778002126_molecule.png', '1778002126_peptides.png', '[{\"batch\":\"Pariatur Ullam quae\",\"date\":\"1986-01-21\"}]', '[\"1778002126_molecule.png\",\"1778002126_hero-img.png\"]', '2026-05-05 11:28:46');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sds`
+--
+
+CREATE TABLE `sds` (
+  `id` int(11) NOT NULL,
+  `peptide_id` int(50) NOT NULL,
+  `sds_data` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`sds_data`)),
+  `pdf` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `sds`
+--
+
+INSERT INTO `sds` (`id`, `peptide_id`, `sds_data`, `pdf`) VALUES
+(2, 16, '{\"section_1\":\"<span style=\\\"margin: 0px; padding: 0px; box-shadow: none; font-family: &quot;Work Sans&quot;, sans-serif; font-weight: bolder; color: rgb(33, 37, 41);\\\">Product Use:<\\/span><span style=\\\"color: rgb(33, 37, 41); font-family: &quot;Work Sans&quot;, sans-serif;\\\">&nbsp;Laboratory Reagent for Research Use Only.<\\/span>\",\"section_2\":\"<p><b>Signal Word:<\\/b> Warning<\\/p><p><b>Hazard Solution:<\\/b> Hello<\\/p>\",\"section_3\":\"<p style=\\\"margin: 0px; padding: 0px; box-shadow: none; font-family: &quot;Work Sans&quot;, sans-serif; font-size: 14px; color: rgb(33, 37, 41);\\\"><span style=\\\"margin: 0px; padding: 0px; box-shadow: none; font-weight: bolder;\\\">Molecular Formula:&nbsp;<\\/span><span style=\\\"font-weight: initial;\\\">1234<\\/span><\\/p><p style=\\\"margin: 0px; padding: 0px; box-shadow: none; font-family: &quot;Work Sans&quot;, sans-serif; font-size: 14px; color: rgb(33, 37, 41);\\\"><span style=\\\"margin: 0px; padding: 0px; box-shadow: none; font-weight: bolder;\\\">Molecular Weight:&nbsp;<\\/span><span style=\\\"font-weight: initial;\\\">1234<\\/span><\\/p><p style=\\\"margin: 0px; padding: 0px; box-shadow: none; font-family: &quot;Work Sans&quot;, sans-serif; font-size: 14px; color: rgb(33, 37, 41);\\\"><span style=\\\"margin: 0px; padding: 0px; box-shadow: none; font-weight: bolder;\\\">CAS Number:&nbsp;<\\/span><span style=\\\"font-weight: initial;\\\">1234<\\/span><\\/p><p style=\\\"margin: 0px; padding: 0px; box-shadow: none; font-family: &quot;Work Sans&quot;, sans-serif; font-size: 14px; color: rgb(33, 37, 41);\\\"><br><\\/p>\",\"section_4\":\"<ul><li><b>Inhalation:<\\/b>&nbsp;Move to fresh air<\\/li><li><b>Skin Contact:<\\/b>&nbsp;Wash off immediately with soap and plenty of water.<\\/li><li><b>Eye Contact:<\\/b> Rinse thoroughly with plenty of water for at least 15 minutes.<\\/li><li><b>Ingestion:<\\/b> Never give anything by mouth to an unconscious person. Rinse mouth with water.<\\/li><\\/ul>\",\"section_5\":\"Use water spray, alcohol-resistant foam, dry chemical or carbon dioxide. War self-contained breathing apparatus for firefighting if necessary.\",\"section_6\":\"Avoid dust formation. Avoid breathing vapors, mist or gas. Ensure adequate ventilation. Do not let product enter drains. Pick up and arrange disposal without creating dust.\",\"section_7\":\"<p><b>Handling:<\\/b><\\/p><p><b>Storage:<\\/b>&nbsp;Keep container tightly closed in a dry well-ventilated place. Recommended storage temperature: -20°C<\\/p>\",\"section_8\":\"Ensure adequate ventilation. Wear appropriate personal protective equipment including lab coat, safety glasses, and gloves.\",\"section_9\":\"From: Solid (Lyophilized and Reactivity)\",\"section_10\":\"Stable under recommended storage conditions.\",\"section_11\":\"Refer to section 2 for available hazard information.\",\"section_12\":\"No specific data available or this sections. Dispose of accordance with local regulation. Not regulated as dangerous good for transport.\",\"section_16\":\"For research Use Only. Not for use in diagnostic procedures.\"}', '1778270116_what-are-peptide-black.png');
 
 --
 -- Indexes for dumped tables
@@ -108,6 +124,12 @@ ALTER TABLE `peptides`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `sds`
+--
+ALTER TABLE `sds`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -121,7 +143,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `peptides`
 --
 ALTER TABLE `peptides`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `sds`
+--
+ALTER TABLE `sds`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

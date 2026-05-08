@@ -14,7 +14,8 @@ if (empty($_SESSION['USER_ID'])) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>PeptideEdu | Admin</title>
+  <title>odbiolab | Admin</title>
+  <link rel="shortcut icon" href="../assets/images/logo.png" type="image/x-icon">
   <link rel="stylesheet" href="assets/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="assets/css/vendor.bundle.base.css">
   <link rel="stylesheet" href="assets/css/dataTables.bootstrap4.css">
@@ -39,8 +40,8 @@ if (empty($_SESSION['USER_ID'])) {
 
         </ul>
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-          <a class="navbar-brand brand-logo" href="peptides"><img src="assets/images/logo.png" alt="logo" /></a>
-          <a class="navbar-brand brand-logo-mini" href="peptides"><img src="assets/images/logo.png" alt="logo" /></a>
+          <a class="navbar-brand brand-logo" href="peptides"><img src="../assets/images/logo.png" alt="logo" /></a>
+          <a class="navbar-brand brand-logo-mini" href="peptides"><img src="../assets/images/logo.png" alt="logo" /></a>
         </div>
         <ul class="navbar-nav navbar-nav-right">
 

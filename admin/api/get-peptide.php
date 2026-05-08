@@ -18,6 +18,9 @@ if (mysqli_num_rows($res) > 0) {
                 <td>
                   <a href="storage/' . $row['coa'] . '" target="_blank" class="btn btn-primary py-2">View CoA</a>
                 </td>
+                 <td>
+                  <a href="sds?id=' . $row['id'] . '" class="btn btn-success py-2">SDS</a>
+                </td>
                 <td>
                   <div class="d-flex" style="gap: 5px">
                     <a href="edit-peptide?id=' . $row['id'] . '" class="btn btn-warning py-2">Edit</a>

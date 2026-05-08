@@ -13,6 +13,18 @@ if (isset($_GET['id'])) {
 } else {
   echo "<script>window.location.assign('/')</script>";
 }
+
+
+// Sds Data
+$sql2 = "SELECT * FROM `sds` WHERE `peptide_id` = ?";
+$res2 = $conn->prepare($sql2);
+$res2->bind_param('i', $id);
+$res2->execute();
+
+$result2 = $res2->get_result();
+$row2 = $result2->fetch_assoc() ?? [];
+$sds = json_decode($row2['sds_data'] ?? '{}', true) ?: [];
+
 ?>
 
 
@@ -498,7 +510,7 @@ if (isset($_GET['id'])) {
                 <p>Section 1: Identification</p>
               </div>
               <div class="sds-content">
-                <p><b>Product Use:</b> Laboratory Reagent for Research Use Only.</p>
+                <?= $sds['section_1'] ?? '' ?>
               </div>
             </div>
 
@@ -508,8 +520,7 @@ if (isset($_GET['id'])) {
               </div>
               <div class="sds-content">
                 <div class="sds-warning">
-                  <p><b>Signal Word:</b> Warning</p>
-                  <p><b>Hazard Solution:</b> Hello</p>
+                  <?= $sds['section_2'] ?? '' ?>
                 </div>
               </div>
             </div>
@@ -519,20 +530,11 @@ if (isset($_GET['id'])) {
                 <p>Section 3: Composition/ Information on Ingredients</p>
               </div>
               <div class="sds-content">
-                <div class="sds-formula">
+                <?= $sds['section_3'] ?? '' ?>
+                <!-- <div class="sds-formula">
                   <p><b>Molecular Formula:</b></p>
                   <p>1234</p>
-                </div>
-
-                <div class="sds-formula">
-                  <p><b>Molecular Weight:</b></p>
-                  <p>1234</p>
-                </div>
-
-                <div class="sds-formula">
-                  <p><b>CAS Number:</b></p>
-                  <p>1234</p>
-                </div>
+                </div>-->
               </div>
             </div>
 
@@ -541,12 +543,7 @@ if (isset($_GET['id'])) {
                 <p>Section 4: First-Aid Measures</p>
               </div>
               <div class="sds-content">
-                <ul>
-                  <li><b>Inhalation:</b> Move to fresh air</li>
-                  <li><b>Skin Contact:</b> Wash off immediately with soap and plenty of water.</li>
-                  <li><b>Eye Contact:</b> Rinse thoroughly with plenty of water for at least 15 minutes.</li>
-                  <li><b>Ingestion:</b> Never give anything by mouth to an unconscious person. Rinse mouth with water.</li>
-                </ul>
+                <?= $sds['section_4'] ?? '' ?>
               </div>
             </div>
 
@@ -555,7 +552,7 @@ if (isset($_GET['id'])) {
                 <p>Section 5: Fire-Fighting Measures</p>
               </div>
               <div class="sds-content">
-                <p>Use water spray, alcohol-resistant foam, dry chemical or carbon dioxide. War self-contained breathing apparatus for firefighting if necessary.</p>
+                <?= $sds['section_5'] ?? '' ?>
               </div>
             </div>
 
@@ -564,7 +561,7 @@ if (isset($_GET['id'])) {
                 <p>Section 6: Accidental Release Measures</p>
               </div>
               <div class="sds-content">
-                <p>Avoid dust formation. Avoid breathing vapors, mist or gas. Ensure adequate ventilation. Do not let product enter drains. Pick up and arrange disposal without creating dust.</p>
+                <?= $sds['section_6'] ?? '' ?>
               </div>
             </div>
 
@@ -573,8 +570,7 @@ if (isset($_GET['id'])) {
                 <p>Section 7: Handling and Storage</p>
               </div>
               <div class="sds-content">
-                <p><b>Handling:</b></p>
-                <p><b>Storage:</b> Keep container tightly closed in a dry well-ventilated place. Recommended storage temperature: -20°C</p>
+                <?= $sds['section_7'] ?? '' ?>
               </div>
             </div>
 
@@ -583,7 +579,7 @@ if (isset($_GET['id'])) {
                 <p>Section 8: Exposure Controls/Personal Protection</p>
               </div>
               <div class="sds-content">
-                <p>Ensure adequate ventilation. Wear appropriate personal protective equipment including lab coat, safety glasses, and gloves.</p>
+                <?= $sds['section_8'] ?? '' ?>
               </div>
             </div>
 
@@ -592,7 +588,7 @@ if (isset($_GET['id'])) {
                 <p>Section 9: Physical and Chemical Properties</p>
               </div>
               <div class="sds-content">
-                <p>From: Solid (Lyophilized and Reactivity)</p>
+                <?= $sds['section_9'] ?? '' ?>
               </div>
             </div>
 
@@ -601,7 +597,7 @@ if (isset($_GET['id'])) {
                 <p>Section 10: Stability and Reactivity</p>
               </div>
               <div class="sds-content">
-                <p>Stable under recommended storage conditions.</p>
+                <?= $sds['section_10'] ?? '' ?>
               </div>
             </div>
 
@@ -610,7 +606,7 @@ if (isset($_GET['id'])) {
                 <p>Section 11: Toxicological Information</p>
               </div>
               <div class="sds-content">
-                <p>Refer to section 2 for available hazard information.</p>
+                <?= $sds['section_11'] ?? '' ?>
               </div>
             </div>
 
@@ -619,7 +615,7 @@ if (isset($_GET['id'])) {
                 <p>Section 12-15: Ecological, Disposal Transport, Regulatory</p>
               </div>
               <div class="sds-content">
-                <p>No specific data available or this sections. Dispose of accordance with local regulation. Not regulated as dangerous good for transport.</p>
+                <?= $sds['section_12'] ?? '' ?>
               </div>
             </div>
 
@@ -628,16 +624,24 @@ if (isset($_GET['id'])) {
                 <p>Section 16: Other Information</p>
               </div>
               <div class="sds-content">
-                <p>For research Use Only. Not for use in diagnostic procedures.</p>
+                <?= $sds['section_16'] ?? '' ?>
               </div>
             </div>
 
-            <div>
-              <a href="assets/images/hero-img.png" download="" class="print-pdf-btn">
-                <i class="fa-solid fa-file-pdf"></i>
-                <span>Print to PDF</span>
-              </a>
-            </div>
+
+            <?php
+            if (isset($row2['pdf']) && $row2['pdf'] != "") {
+            ?>
+              <div>
+                <a href="admin/storage/<?= $row2['pdf'] ?>" target="_blank" class="print-pdf-btn">
+                  <i class="fa-solid fa-file-pdf"></i>
+                  <span>Print to PDF</span>
+                </a>
+              </div>
+            <?php
+            }
+            ?>
+
 
           </div>
         </div>

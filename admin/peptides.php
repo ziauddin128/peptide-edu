@@ -19,6 +19,7 @@ require "top.php";
                 <th>Category</th>
                 <th>Thumbnail</th>
                 <th>CoA</th>
+                <th>SDS</th>
                 <th>Actions</th>
               </tr>
             </thead>
