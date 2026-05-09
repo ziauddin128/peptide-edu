@@ -45,7 +45,7 @@ $exists = $result->num_rows > 0;
 if (!$exists) {
 
     $stmt = $conn->prepare("INSERT INTO sds (peptide_id, sds_data, pdf) VALUES (?, ?, ?)");
-    $stmt->bind_param("is", $id, $sds_json, $pdf);
+    $stmt->bind_param("iss", $id, $sds_json, $pdf);
 
     $action = "insert";
 } else {
