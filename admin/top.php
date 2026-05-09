@@ -3,7 +3,7 @@ require "config.php";
 require "api/function.php";
 
 if (empty($_SESSION['USER_ID'])) {
-    redirect('index');
+  redirect('index');
 }
 
 ?>
@@ -76,12 +76,13 @@ if (empty($_SESSION['USER_ID'])) {
               <span class="menu-title">Peptides</span>
             </a>
           </li>
-         <!--  <li class="nav-item">
-            <a class="nav-link" href="form.html">
-              <i class="mdi mdi-view-headline menu-icon"></i>
-              <span class="menu-title">Form</span>
+          <li class="nav-item">
+            <a class="nav-link" href="profile">
+              <i class="mdi mdi-account-settings menu-icon"></i>
+              <span class="menu-title">Profile</span>
             </a>
           </li>
+          <!-- 
           <li class="nav-item">
             <a class="nav-link" href="table.html">
               <i class="mdi mdi-grid-large menu-icon"></i>
