@@ -39,6 +39,7 @@
   --light-primary-bg: #eaf5f1;
 
   --yellowish-bg: #f5f5ed;
+  --dark-bg: #d6d3d36d;
 }
 
 [data-theme="dark"] {
@@ -47,6 +48,8 @@
 
   --dark-border-color: #030609;
   --light-border-color2: #cccccc32;
+
+  --dark-bg: #161616;
 }
 
 body {
@@ -1158,6 +1161,7 @@ body {
 .breadcrumbs {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 5px;
   font-size: 14px;
   font-weight: 400;
@@ -1202,8 +1206,8 @@ body {
   margin: 10px 0;
 }
 
-.product-det-left .owl-theme .owl-dots .owl-dot.active span, .product-det-left .owl-theme .owl-dots .owl-dot:hover span 
-{
+.product-det-left .owl-theme .owl-dots .owl-dot.active span,
+.product-det-left .owl-theme .owl-dots .owl-dot:hover span {
   background-color: var(--primary-color);
 }
 
@@ -1352,8 +1356,7 @@ body {
   width: 100%;
   margin-top: 20px;
 
-  &:hover 
-  {
+  &:hover {
     background-color: var(--soft-gold);
   }
 }
@@ -1423,8 +1426,7 @@ body {
   color: var(--primary-color);
 }
 
-[data-theme="dark"] .chemical-report-box .icon
-{
+[data-theme="dark"] .chemical-report-box .icon {
   border: 1px solid var(--primary-color);
 }
 
@@ -1440,7 +1442,7 @@ body {
   margin: 0;
   font-size: 16px;
   font-weight: 500;
-    color: var(--text-color);
+  color: var(--text-color);
 }
 
 .chemical-structure-img-wrapper img {
@@ -1468,11 +1470,10 @@ body {
   margin: 10px 0;
 }
 
-[data-theme="dark"] .lab-report-purity 
-{
+[data-theme="dark"] .lab-report-purity {
   background-color: transparent;
 }
- 
+
 .lab-report-purity h3 {
   display: flex;
   align-items: center;
@@ -1887,8 +1888,7 @@ body {
   box-shadow: none;
   text-decoration: none;
 
-  &:hover 
-  {
+  &:hover {
     background-color: var(--soft-gold);
   }
 }
@@ -1897,4 +1897,280 @@ body {
   .safety-data-sheet .accordion-item button {
     font-size: 24px;
   }
+}
+
+/* Reconstitution Header */
+.reconstitution-header {
+  padding: 120px 0 60px 0;
+  background-color: var(--body-bg);
+}
+
+.reconstitution-header-left h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--primary-color);
+  text-transform: uppercase;
+}
+
+.reconstitution-header-left h1 {
+  font-size: 60px;
+  font-weight: 700;
+  margin: 10px 0;
+  color: var(--text-color);
+}
+
+.reconstitution-header-left p {
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+.ascension-peptides-card {
+  border: 1px solid var(--primary-color);
+  border-radius: 16px;
+  background-color: #fbfbfb;
+  padding: 24px;
+}
+
+[data-theme="dark"] .ascension-peptides-card {
+  border: 1px solid #2a382a;
+  background-color: #181d18;
+  box-shadow:
+    inset 0 0 40px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(74, 120, 60, 0.15);
+}
+
+.ascension-peptides-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ascension-peptides-card-top-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.ascension-icon {
+  height: 40px;
+  min-width: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+}
+
+.ascension-peptides-card-top-left h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-color);
+  opacity: 0.8;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.ascension-peptides-card-top-left h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.ascension-peptides-card-top-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--light-border-color2);
+  padding: 5px 10px;
+  border-radius: 30px;
+}
+
+.ascension-peptides-card-top-right .blink-dot {
+  height: 10px;
+  width: 10px;
+  min-width: 10px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  animation: blink-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes blink-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(var(--primary-color-rgb), 0.6);
+  }
+  50% {
+    opacity: 0.4;
+    box-shadow: 0 0 0 5px rgba(var(--primary-color-rgb), 0);
+  }
+}
+
+.ascension-peptides-card-top-right p {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  text-transform: uppercase;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+.ascension-peptides-card-btm {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.ascension-peptides-card-btm-left > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ascension-peptides-card-btm-left h3 {
+  font-size: 60px;
+  font-weight: 500;
+  margin: 0;
+  font-family: var(--font-bebas);
+  color: var(--text-color);
+}
+
+.ascension-peptides-card-btm-left h4 {
+  margin: 10px 0 0 0;
+  font-size: 30px;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.ascension-peptides-card-btm-left h5 {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+.ascension-peptides-card-btm-left p {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+.ascension-discount-code {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border: 1px dashed var(--primary-color);
+  padding: 10px;
+  border-radius: 10px;
+  width: 300px;
+  cursor: pointer;
+}
+
+.ascension-discount-code h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--primary-color);
+}
+
+.ascension-discount-code h2 {
+  font-size: 24px;
+  font-weight: 500;
+  font-family: var(--font-bebas);
+  margin: 2px 0 0 0;
+  letter-spacing: 2px;
+  color: var(--primary-color);
+}
+
+.ascension-discount-copy {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--primary-color);
+}
+
+.ascension-discount-copy span {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.reconstitution-header-right-btm {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.reconstitution-header-right-btm > div {
+  background-color: var(--dark-bg);
+  padding: 10px 10px 10px 20px;
+  border-left: 3px solid var(--primary-color);
+}
+
+.reconstitution-header-right-btm > div > p {
+  font-size: 12px;
+  font-weight: 400;
+  margin: 0;
+  text-transform: uppercase;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+.reconstitution-header-right-btm > div > h5 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 5px 0 0 0;
+  color: var(--text-color);
+  text-transform: uppercase;
+}
+
+@media (max-width: 575px) {
+  .ascension-peptides-card-btm {
+    flex-wrap: wrap;
+  }
+
+  .ascension-discount-code {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .reconstitution-header-left h1 {
+    font-size: 40px;
+  }
+  .reconstitution-header-left p {
+    font-size: 16px;
+  }
+  .ascension-peptides-card-top-left h4 {
+    font-size: 12px;
+  }
+  .ascension-peptides-card-top-left h3 {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 991px) {
+  .reconstitution-header-right {
+    margin-top: 20px;
+  }
+}
+
+
+/* Safety Disclaimer */
+.safety-disclaimer 
+{
+  border-top: 2px solid var(--light-border-color2);
+  padding: 40px 0;
+  background-color: var(--body-bg);
 }
