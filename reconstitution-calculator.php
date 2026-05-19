@@ -94,20 +94,108 @@ require "top.php";
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            <div><i class="fa-solid fa-jar"></i>
+                            <div>
+                                <i class="fa-solid fa-jar"></i>
                                 <span>BAC Water Comparison</span>
+
+                                <div class="compare-tag">
+                                    Compare
+                                </div>
                             </div>
+
                         </button>
                     </h2>
                     <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                            <strong>This is the first item’s accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It’s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                            <p>See how different BAC water volumes affect your concentration and draw volume.</p>
+
+                            <div class="table-responsive">
+                                <table class="table  comparison-table">
+                                    <tr>
+                                        <th>BAC Water</th>
+                                        <th>Concentration</th>
+                                        <th>Draw Volume</th>
+                                        <th>U-100 · 1 mL Units</th>
+                                    </tr>
+                                    <tr>
+                                        <td>1.0 mL</td>
+                                        <td>5.00 mg/mL</td>
+                                        <td>0.050 mL</td>
+                                        <td><span class="text-primary-color">5.0 IU</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            2.0 mL
+                                            <span class="text-primary-color small">CURRENT</span>
+                                        </td>
+                                        <td>2.50 mg/mL</td>
+                                        <td>0.100 mL</td>
+                                        <td><span class="text-primary-color">5.0 IU</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3.0 mL</td>
+                                        <td>1.67 mg/mL</td>
+                                        <td>0.150 mL</td>
+                                        <td><span class="text-primary-color">5.0 IU</span></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                            <div>
+                                <i class="fa-solid fa-dollar-sign"></i>
+                                <span>Cost & Cycle Planner</span>
+
+                                <div class="compare-tag">
+                                    New
+                                </div>
+                            </div>
+
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="cost-cycle-input-wrapper">
+                                        <h4>Vial Cost ($)</h4>
+                                        <div class="cost-cycle-input-era">
+                                            <i class="fa-solid fa-dollar-sign top-left-position"></i>
+                                            <input type="text" name="" id="" style="padding-left: 30px;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="cost-cycle-input-wrapper">
+                                        <h4>Cycle Length</h4>
+                                        <div class="cost-cycle-input-era">
+                                            <span class="top-right-position">Weeks</span>
+                                            <input type="text" name="" id="" style="padding-right: 65px;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="cost-cycle-input-wrapper">
+                                        <h4>Doses / Day</h4>
+                                        <div class="cost-cycle-input-era">
+                                            <input type="text" name="" id="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
 
     </div>
 </section>
