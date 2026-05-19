@@ -2166,11 +2166,119 @@ body {
   }
 }
 
-
 /* Safety Disclaimer */
-.safety-disclaimer 
-{
+.safety-disclaimer {
   border-top: 2px solid var(--light-border-color2);
   padding: 40px 0;
   background-color: var(--body-bg);
+}
+
+.safety-disclaimer-in {
+  padding: 25px 30px;
+  border-radius: 10px;
+  border-left: 3px solid var(--redis-color);
+  display: flex;
+  gap: 15px;
+  background-color: var(--dark-bg);
+}
+
+.safety-disclaimer-in i {
+  font-size: 25px;
+  color: var(--redis-color);
+}
+
+.safety-disclaimer-in h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--redis-color);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.safety-disclaimer-in p {
+  font-size: 16px;
+  font-weight: 400;
+  margin: 10px 0 0 0;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+/* How to use */
+.how-to-use {
+  padding: 0 0 20px 0;
+  background-color: var(--body-bg);
+}
+
+.how-to-use h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-color);
+}
+
+.how-to-use p {
+  font-size: 16px;
+  font-weight: 400;
+  margin: 10px 0 0 0;
+  color: var(--text-color);
+}
+
+.how-to-use h5 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 15px 0;
+  color: var(--text-color);
+}
+
+.how-to-use ul li,
+.how-to-use ol li {
+  margin: 5px 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-color);
+}
+
+/* Common Reconstitution Examples  */
+.common-reconstitution {
+  background-color: var(--body-bg);
+}
+
+.common-reconstitution h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  color: var(--text-color);
+}
+.common-reconstitution h4 {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .table {
+  --bs-table-bg: #212529;
+  --bs-table-color: #fff;
+  margin: 0;
+}
+
+.common-reconstitution table th {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--primary-color);
+  white-space: nowrap;
+}
+
+.common-reconstitution table td {
+  font-size: 16px;
+}
+
+/* Calculation Comparison */
+.comparison-calculator {
+  background-color: var(--body-bg);
+  padding: 40px 0;
+  border-top: 2px solid var(--light-border-color2);
+}
+
+.comparison-calculator-in .accordion-item button > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
