@@ -160,7 +160,6 @@ require "top.php";
                     </h2>
                     <div id="collapseTwo" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="cost-cycle-input-wrapper">
@@ -190,7 +189,32 @@ require "top.php";
                                 </div>
                             </div>
 
-                             
+                            <div class="cost-cycle-preview">
+                                <div class="active">
+                                    <p>Cost / Dose</p>
+                                    <h1>$2.50</h1>
+                                </div>
+                                <div>
+                                    <p>Cost / Day</p>
+                                    <h1>$2.50</h1>
+                                </div>
+                                <div>
+                                    <p>Total Doses</p>
+                                    <h1>56<span>8wk</span></h1>
+                                </div>
+                                <div>
+                                    <p>Vials Needed</p>
+                                    <h1>3<span>vials</span></h1>
+                                </div>
+                                <div>
+                                    <p>BAC Water</p>
+                                    <h1>6.0<span>mL</span></h1>
+                                </div>
+                                <div class="active">
+                                    <p>Cycle Cost</p>
+                                    <h1>$150.00</h1>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
