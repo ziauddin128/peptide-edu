@@ -218,12 +218,77 @@ require "top.php";
                         </div>
                     </div>
                 </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                            <div>
+                                <i class="fa-solid fa-dollar-sign"></i>
+                                <span>Storage & Expiration Tracker</span>
+
+                                <div class="compare-tag">
+                                    New
+                                </div>
+                            </div>
+
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="reconstitution-date-wrapper">
+                                <h4>Reconstitution Date</h4>
+                                <div class="reconstitution-date-option">
+                                    <div class="reconstitution-date-inp-wrapper">
+                                        <input type="date" name="" id="">
+                                    </div>
+                                    <div class="reconstitution-date-option-btns">
+                                        <button class="active">Today</button>
+                                        <button>3 days ago</button>
+                                        <button>7 days ago</button>
+                                        <button>14 days ago</button>
+                                        <button>21 days ago</button>
+                                    </div>
+                                </div>
+                                <div class="reconstitution-report">
+                                    <div>
+                                        <h4>Reconstituted</h4>
+                                        <h3>0 days ago</h3>
+                                    </div>
+                                    <div>
+                                        <h4>Use By</h4>
+                                        <h3>6/20/2026</h3>
+                                    </div>
+                                    <div>
+                                        <h4>Remaining</h4>
+                                        <h3>30 days</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
     </div>
 </section>
 
+
+<!-- Step Guide -->
+<section class="step-guide">
+    <div class="container">
+
+        <div class="step-guide-in">
+            <h1>Step-by-Step Guide</h1>
+
+            <div class="step-guide-wrapper">
+                <div class="stepper-track" id="track"></div>
+                <div class="step-card" id="card"></div>
+            </div>
+        </div>
+
+    </div>
+</section>
 
 <!-- Safety Disclaimer -->
 <section class="safety-disclaimer">
@@ -341,6 +406,105 @@ require "top.php";
         <p>Always use bacteriostatic water (not sterile water) for reconstitution. The 0.9% benzyl alcohol preservative in BAC water inhibits bacterial growth and allows multi-dose use from a single vial over several weeks. Sterile water contains no preservative and should only be used for single-dose applications.</p>
     </div>
 </section>
+
+<script>
+    const CHECK_SVG = `<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>`;
+
+    const steps = [
+        {
+            label: "Step 1",
+            labelClass: "",
+            title: "Sanitize",
+            desc: "Wipe the top of both the peptide vial and the Bacteriostatic Water vial with a fresh 70% isopropyl alcohol swab. Allow to air dry for 10 seconds.",
+            note: "Both vial stoppers must be clean before puncturing."
+        },
+        {
+            label: "Step 2",
+            labelClass: "blue",
+            title: "Draw BAC Water",
+            desc: "Draw exactly 2.0 mL of Bacteriostatic Water into the syringe.",
+            note: "This will create a concentration of 2.50 mg/mL."
+        },
+        {
+            label: "Step 3",
+            labelClass: "cyan",
+            title: "Inject into Vial",
+            desc: "Slowly inject 2.0 mL of BAC water into the peptide vial. Aim the stream at the glass wall, not directly on the powder.",
+            note: "Injecting against the wall prevents foaming and denaturation."
+        },
+        {
+            label: "Step 4",
+            labelClass: "amber",
+            title: "Swirl Gently",
+            desc: "Roll the vial between your palms for 30-60 seconds until the powder is fully dissolved and the solution is clear.",
+            note: "Never shake the vial — shaking can damage the peptide structure."
+        },
+        {
+            label: "Step 5",
+            labelClass: "complete",
+            title: "Draw Your Dose",
+            desc: "Draw 10.0 IU (250 mcg) on a U-100 · 1 mL syringe for each injection.",
+            note: "That's 100 µL of reconstituted solution. "
+        }
+    ];
+
+    let current = 0;
+
+    function renderTrack() {
+        const track = document.getElementById('track');
+        let html = '';
+
+        for (let i = 0; i < steps.length; i++) {
+            const isDone = i < current;
+            const isActive = i === current;
+
+            let nodeClass = 'step-node';
+            if (isDone) nodeClass += ' done';
+            if (isActive) nodeClass += ' active';
+
+            const nodeContent = isDone ? CHECK_SVG : (i + 1);
+            const connDone = i < current;
+
+            html += `<div class="step-wrap">
+      <div class="${nodeClass}">${nodeContent}</div>
+      ${i < steps.length - 1 ? `<div class="connector${connDone ? ' done' : ''}"></div>` : ''}
+    </div>`;
+        }
+
+        track.innerHTML = html;
+    }
+
+    function renderCard() {
+        const card = document.getElementById('card');
+        const s = steps[current];
+        const isLast = current === steps.length - 1;
+
+        card.innerHTML = `
+    <div class="step-label ${s.labelClass}">${s.label}</div>
+    <div class="step-title">${s.title}</div>
+    <div class="step-desc">${s.desc}</div>
+    <div class="step-note">${s.note}</div>
+    <div class="step-btn-row">
+      <button class="btn-back" ${current === 0 ? 'disabled' : ''} onclick="go(-1)">BACK</button>
+      <button class="btn-next" ${isLast ? 'disabled' : ''} onclick="go(1)">
+        NEXT <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+  `;
+    }
+
+    function render() {
+        renderTrack();
+        renderCard();
+    }
+
+    function go(dir) {
+        current = Math.max(0, Math.min(steps.length - 1, current + dir));
+        render();
+    }
+
+    render();
+</script>
 
 <?php
 require "footer.php";

@@ -34,6 +34,7 @@
   --text-color2: #1c2128;
   --light-border-color: #d4d4d4;
   --light-border-color2: #ebebeb;
+  --light-border-color3: #d4d4d4;
 
   --redis-color: #cd3535;
   --light-primary-bg: #eaf5f1;
@@ -49,6 +50,7 @@
 
   --dark-border-color: #030609;
   --light-border-color2: #cccccc32;
+  --light-border-color3: #cccccc32;
 
   --dark-bg: #161616;
 }
@@ -2344,13 +2346,17 @@ body {
 }
 
 .compare-tag {
-  color: var(--primary-color);
+  color: var(--text-color);
   font-size: 14px;
   font-weight: 600;
   padding: 4px 8px;
   border: var(--primary-color);
-  background-color: var(--off-dark-bg);
+  background-color: var(--primary-color);
   border-radius: 4px;
+}
+
+[data-theme="dark"] .compare-tag {
+  color: #1c2128;
 }
 
 .cost-cycle-input-wrapper {
@@ -2466,5 +2472,298 @@ body {
 @media (min-width: 576px) and (max-width: 991px) {
   .cost-cycle-preview {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.reconstitution-date-wrapper h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
+  color: var(--text-color);
+  opacity: 0.7;
+}
+
+.reconstitution-date-option {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.reconstitution-date-inp-wrapper {
+  border: 1px solid var(--light-border-color3);
+  border-radius: 6px;
+}
+
+.reconstitution-date-inp-wrapper input {
+  padding: 5px 10px;
+  font-size: 16px;
+  font-weight: 400;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  border-radius: 6px;
+  background-color: transparent;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.reconstitution-date-option-btns {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.reconstitution-date-option-btns button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: transparent;
+  border: 1px solid var(--light-border-color3);
+  text-transform: uppercase;
+  color: var(--text-color);
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.reconstitution-date-option-btns button.active,
+.reconstitution-date-option-btns button:hover {
+  opacity: 1;
+  background-color: var(--primary-color);
+}
+
+.reconstitution-report {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.reconstitution-report > div {
+  background-color: var(--dark-bg);
+  padding: 14px;
+  border-radius: 6px;
+  border: 1px solid var(--light-border-color3);
+}
+
+.reconstitution-report > div h4 {
+  font-size: 12px;
+  font-weight: 600;
+  margin: 0;
+  text-transform: uppercase;
+  color: var(--text-color);
+  opacity: 0.7;
+}
+
+.reconstitution-report > div h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 10px 0 0 0;
+  text-transform: uppercase;
+  color: var(--text-color);
+}
+
+/* Step Guide */
+.step-guide {
+  background-color: var(--body-bg);
+  padding-bottom: 40px;
+}
+
+.step-guide-in h1 {
+  font-size: 30px;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+  color: var(--text-color);
+}
+
+.stepper-track {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  padding: 0 4px;
+}
+
+.step-wrap {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.step-wrap:last-child {
+  flex: 0;
+}
+
+.step-node {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--dark-bg);
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  flex-shrink: 0;
+  transition:
+    background 0.3s,
+    border-color 0.3s,
+    color 0.3s;
+  position: relative;
+  z-index: 1;
+}
+
+.step-node.active {
+  background: var(--primary-color);
+  color: var(--text-color2);
+}
+
+:root {
+  --done-bg: #1e2e0a;
+  --done-border: #6fa810;
+  --done-icon: #c6f135;
+  --connector: #2e2e2e;
+  --connector-done: #6fa810;
+  --label-red: var(--redis-color);
+  --label-blue: #5b9fe8;
+  --label-cyan: #00d3f3;
+  --label-amber: #fdc700;
+  --label-complete: #bff549;
+}
+
+.step-node.done {
+  background: var(--done-bg);
+  color: var(--done-icon);
+}
+
+.step-node.done svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.connector {
+  flex: 1;
+  height: 2px;
+  background: var(--connector);
+  transition: background 0.4s;
+  margin: 0 0px;
+}
+
+.connector.done {
+  background: var(--connector-done);
+}
+
+.step-card {
+  background: var(--dark-bg);
+  border: 1px solid var(--light-border-color2);
+  border-radius: 6px;
+  padding: 32px 36px 28px;
+  min-height: 190px;
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.step-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  color: var(--label-red);
+}
+
+.step-label.blue {
+  color: var(--label-blue);
+}
+.step-label.cyan {
+  color: var(--label-cyan);
+}
+.step-label.amber {
+  color: var(--label-amber);
+}
+.step-label.complete {
+  color: var(--label-complete);
+}
+
+.step-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+.step-desc {
+  font-size: 15px;
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+.step-note {
+  font-size: 14px;
+  color: var(--text-color);
+  opacity: 0.8;
+  font-style: italic;
+  margin-bottom: 28px;
+}
+
+.step-btn-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.step-btn-row button {
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.btn-back {
+  background: #4444;
+  color: var(--text-color);
+}
+
+.btn-back:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.btn-next,
+.btn-finish {
+  background: var(--primary-color);
+  color: var(--text-color2);
+}
+
+.btn-next:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+@media (max-width: 767px) {
+  .step-card {
+    padding: 20px;
   }
 }
