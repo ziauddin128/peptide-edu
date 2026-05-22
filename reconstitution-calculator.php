@@ -85,6 +85,157 @@ require "top.php";
     </div>
 </section>
 
+<!-- Syringe Size -->
+<section class="syringe-size">
+    <div class="container">
+        <div class="syringe-size-in">
+            <div class="syringe-size-in-left">
+                <h3>Syringe</h3>
+
+                <div class="syringe-size-variant active">
+                    <svg width="56" height="14" viewBox="0 0 56 14" class="shrink-0" aria-hidden="true">
+                        <line x1="0" y1="7" x2="14" y2="7" stroke="rgba(255,255,255,0.45)" stroke-width="1"></line>
+                        <rect x="11" y="5" width="3" height="4" fill="rgba(255,255,255,0.45)"></rect>
+                        <rect x="14" y="3" width="18" height="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.45)" stroke-width="0.8" rx="0.5"></rect>
+                        <line x1="17" x2="17" y1="3" y2="6" stroke="rgba(255,255,255,0.45)" stroke-width="0.5" opacity="0.6"></line>
+                        <line x1="20" x2="20" y1="3" y2="5" stroke="rgba(255,255,255,0.45)" stroke-width="0.5" opacity="0.6"></line>
+                        <line x1="23" x2="23" y1="3" y2="6" stroke="rgba(255,255,255,0.45)" stroke-width="0.5" opacity="0.6"></line>
+                        <line x1="26" x2="26" y1="3" y2="5" stroke="rgba(255,255,255,0.45)" stroke-width="0.5" opacity="0.6"></line>
+                        <line x1="29" x2="29" y1="3" y2="6" stroke="rgba(255,255,255,0.45)" stroke-width="0.5" opacity="0.6"></line>
+                        <line x1="32" y1="7" x2="38" y2="7" stroke="rgba(255,255,255,0.45)" stroke-width="1.2"></line>
+                        <line x1="38" y1="1" x2="38" y2="13" stroke="rgba(255,255,255,0.45)" stroke-width="1.5"></line>
+                    </svg>
+                    <div>
+                        <h4>U-100 · 1 mL</h4>
+                        <p>100 UNITS = 1 ML</p>
+                    </div>
+                </div>
+
+                <div class="syringe-size-variant">
+                    <svg width="56" height="14" viewBox="0 0 56 14" class="shrink-0" aria-hidden="true">
+                        <line x1="0" y1="7" x2="14" y2="7" stroke="rgba(255,255,255,0.45)" stroke-width="1"></line>
+                        <rect x="11" y="5" width="3" height="4" fill="rgba(255,255,255,0.45)"></rect>
+                        <rect x="14" y="3" width="18" height="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.45)" stroke-width="0.8" rx="0.5"></rect>
+                        <line x1="17" x2="17" y1="3" y2="6" stroke="rgba(255,255,255,0.45)" stroke-width="0.5" opacity="0.6"></line>
+                        <line x1="20" x2="20" y1="3" y2="5" stroke="rgba(255,255,255,0.45)" stroke-width="0.5" opacity="0.6"></line>
+                        <line x1="23" x2="23" y1="3" y2="6" stroke="rgba(255,255,255,0.45)" stroke-width="0.5" opacity="0.6"></line>
+                        <line x1="26" x2="26" y1="3" y2="5" stroke="rgba(255,255,255,0.45)" stroke-width="0.5" opacity="0.6"></line>
+                        <line x1="29" x2="29" y1="3" y2="6" stroke="rgba(255,255,255,0.45)" stroke-width="0.5" opacity="0.6"></line>
+                        <line x1="32" y1="7" x2="38" y2="7" stroke="rgba(255,255,255,0.45)" stroke-width="1.2"></line>
+                        <line x1="38" y1="1" x2="38" y2="13" stroke="rgba(255,255,255,0.45)" stroke-width="1.5"></line>
+                    </svg>
+                    <div>
+                        <h4>U-100 · 1 mL</h4>
+                        <p>100 UNITS = 1 ML</p>
+                    </div>
+                </div>
+
+                <div class="syringe-size-variant">
+                    <svg width="56" height="14" viewBox="0 0 56 14" class="shrink-0" aria-hidden="true">
+                        <line x1="0" y1="7" x2="14" y2="7" stroke="rgba(255,255,255,0.45)" stroke-width="1"></line>
+                        <rect x="11" y="5" width="3" height="4" fill="rgba(255,255,255,0.45)"></rect>
+                        <rect x="14" y="3" width="18" height="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.45)" stroke-width="0.8" rx="0.5"></rect>
+                        <line x1="17" x2="17" y1="3" y2="6" stroke="rgba(255,255,255,0.45)" stroke-width="0.5" opacity="0.6"></line>
+                        <line x1="20" x2="20" y1="3" y2="5" stroke="rgba(255,255,255,0.45)" stroke-width="0.5" opacity="0.6"></line>
+                        <line x1="23" x2="23" y1="3" y2="6" stroke="rgba(255,255,255,0.45)" stroke-width="0.5" opacity="0.6"></line>
+                        <line x1="26" x2="26" y1="3" y2="5" stroke="rgba(255,255,255,0.45)" stroke-width="0.5" opacity="0.6"></line>
+                        <line x1="29" x2="29" y1="3" y2="6" stroke="rgba(255,255,255,0.45)" stroke-width="0.5" opacity="0.6"></line>
+                        <line x1="32" y1="7" x2="38" y2="7" stroke="rgba(255,255,255,0.45)" stroke-width="1.2"></line>
+                        <line x1="38" y1="1" x2="38" y2="13" stroke="rgba(255,255,255,0.45)" stroke-width="1.5"></line>
+                    </svg>
+                    <div>
+                        <h4>U-100 · 1 mL</h4>
+                        <p>100 UNITS = 1 ML</p>
+                    </div>
+                </div>
+            </div>
+
+            <p>Standard 100-unit insulin syringe. Default for SubQ peptides.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- calculation area -->
+<section class="calculation-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="calculation-are-left">
+                    <div class="calculation-item">
+                        <div class="top">
+                            <h4>Vial Size (mg)</h4>
+                            <h2>10.0</h2>
+                        </div>
+                        <div class="mid">
+                            <input type="range" step="1" min="1" max="50" name="" id="">
+                        </div>
+                        <div class="calculation-item-pre-option">
+                            <button class="active">2mg</button>
+                            <button>5mg</button>
+                            <button>10mg</button>
+                        </div>
+                    </div>
+
+                    <div class="calculation-item">
+                        <div class="top">
+                            <h4>BAC Water (mL)</h4>
+                            <h2>2.0</h2>
+                        </div>
+                        <div class="mid">
+                            <input type="range" step="1" min="1" max="50" name="" id="">
+                        </div>
+                        <div class="calculation-item-pre-option">
+                            <button class="active">1ml</button>
+                            <button>2ml</button>
+                            <button>3ml</button>
+                        </div>
+                    </div>
+
+                    <div class="calculation-item">
+                        <div class="top">
+                            <h4>Desired Dose (mg)</h4>
+                            <h2>0.50</h2>
+                        </div>
+                        <div class="mid">
+                            <input type="range" step="1" min="1" max="50" name="" id="">
+                        </div>
+                        <div class="calculation-item-pre-option">
+                            <button class="active">100mcg</button>
+                            <button>250mcg</button>
+                            <button>500mcg</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="calculation-are-right"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.querySelectorAll('.calculation-item .mid input[type="range"]').forEach(slider => {
+        function updateFill() {
+            const min = +slider.min || 0;
+            const max = +slider.max || 100;
+            const val = +slider.value;
+            const pct = ((val - min) / (max - min)) * 100;
+            slider.style.background = `linear-gradient(
+      to right,
+      var(--primary-color) 0%,
+      var(--primary-color) ${pct}%,
+      rgba(255,255,255,0.08) ${pct}%,
+      rgba(255,255,255,0.08) 100%
+    )`;
+        }
+
+        slider.addEventListener('input', updateFill);
+        updateFill();
+    });
+</script>
+
 <!-- Calculation Comparison -->
 <section class="comparison-calculator">
     <div class="container">
@@ -273,7 +424,6 @@ require "top.php";
     </div>
 </section>
 
-
 <!-- Step Guide -->
 <section class="step-guide">
     <div class="container">
@@ -410,8 +560,7 @@ require "top.php";
 <script>
     const CHECK_SVG = `<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>`;
 
-    const steps = [
-        {
+    const steps = [{
             label: "Step 1",
             labelClass: "",
             title: "Sanitize",
