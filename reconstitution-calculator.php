@@ -209,13 +209,79 @@ require "top.php";
                 </div>
             </div>
             <div class="col-lg-8">
-                <div class="calculation-are-right"></div>
+                <div class="calculation-are-right">
+
+                    <div class="calculation-syringe-preview">
+                        <div class="top">
+                            <div>
+                                <h5>U-100 · 1 mL Visualizer</h5>
+                                <p>100 UNITS = 1 ML</p>
+                            </div>
+                            <div class="text-end">
+                                <p>Draw to</p>
+                                <h2>10.0 IU</h2>
+                            </div>
+                        </div>
+
+                        <!-- Syringe -->
+                        <div class="syringe-wrapper">
+                            <div class="syringe-row">
+                                <!-- Left plunger -->
+                                <div class="d-flex align-items-center flex-shrink-0">
+                                    <div class="plunger-rod"></div>
+                                    <div class="plunger-knob"></div>
+                                    <div class="plunger-head"></div>
+                                </div>
+
+                                <!-- Barrel -->
+                                <div class="barrel" id="barrel">
+                                    <div class="barrel-fill" id="fill">
+                                        <div class="barrel-fill-line"></div>
+                                    </div>
+                                    <div class="ticks" id="ticks"></div>
+
+                                    <div class="barrel-labels" id="barrel-labels"></div>
+                                </div>
+
+                                <!-- Right tip + cap -->
+                                <div class="d-flex align-items-center flex-shrink-0">
+                                    <div class="tip-tube"></div>
+                                    <div class="plunger-cap"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calculation-dose-card">
+                        <div class="active">
+                            <p>Concentration</p>
+                            <h1>
+                                <span>2.50</span><span class="quantity">mg/mL</span>
+                            </h1>
+                        </div>
+                        <div>
+                            <p>Volume per Dose</p>
+                            <h1>
+                                <span>0.10</span><span class="quantity">mL</span>
+                            </h1>
+                        </div>
+                        <div>
+                            <p>Doses per Vial</p>
+                            <h1>
+                                <span>20.0</span><span class="quantity">Total</span>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
+
+
 <script>
+    // Left Side Value Increase Decrease
     document.querySelectorAll('.calculation-item .mid input[type="range"]').forEach(slider => {
         function updateFill() {
             const min = +slider.min || 0;
@@ -234,6 +300,42 @@ require "top.php";
         slider.addEventListener('input', updateFill);
         updateFill();
     });
+
+    // Syringe Value Increase Decrease JS
+    const ticksEl = document.getElementById('ticks');
+    for (let i = 0; i <= 20; i++) {
+        const d = document.createElement('div');
+        d.className = i % 2 === 0 ? 'tick-maj' : 'tick-min';
+        ticksEl.appendChild(d);
+    }
+
+    // Build labels
+    const labelsEl = document.getElementById('barrel-labels');
+    [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100].forEach((v, i) => {
+        const s = document.createElement('span');
+        s.textContent = i === 0 ? '0 IU' : i === 10 ? '100 IU' : v;
+        labelsEl.appendChild(s);
+    });
+
+    // Update function
+    const fill = document.getElementById('fill');
+    const display = document.getElementById('val-display');
+    const slider = document.getElementById('slider');
+
+    function update(v) {
+        v = Math.max(0, Math.min(100, v));
+        slider.value = v;
+        fill.style.width = v + '%';
+        display.innerHTML = v + ' <small>IU</small>';
+    }
+
+    slider.addEventListener('input', () => update(+slider.value));
+
+    function adj(delta) {
+        update(+slider.value + delta);
+    }
+
+    update(10);
 </script>
 
 <!-- Calculation Comparison -->

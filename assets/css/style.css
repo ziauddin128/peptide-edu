@@ -2439,7 +2439,6 @@ body {
   appearance: none;
   width: 10px;
   height: 20px;
-  /* border-radius: 50%; */
   background: var(--primary-color);
   box-shadow: 0 0 6px rgba(245, 166, 35, 0.5);
   cursor: pointer;
@@ -2519,6 +2518,214 @@ body {
   background-color: var(--primary-color);
   opacity: 1;
   color: var(--text-color2);
+}
+
+.calculation-syringe-preview {
+  background-color: var(--dark-bg);
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.calculation-syringe-preview .top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.calculation-syringe-preview .top h5 {
+  color: var(--text-color);
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.calculation-syringe-preview .top p {
+  margin: 5px 0 0 0;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-color);
+  opacity: 0.7;
+  text-transform: uppercase;
+}
+
+.calculation-syringe-preview .top h2 {
+  font-size: 40px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--primary-color);
+}
+
+.syringe-wrapper 
+{
+  padding: 50px 30px;
+}
+
+.syringe-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.plunger-rod {
+  width: 36px;
+  height: 2px;
+  background: #666;
+  flex-shrink: 0;
+}
+
+.plunger-knob {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #555;
+  border: 1.5px solid #888;
+  flex-shrink: 0;
+  margin-left: -2px;
+}
+
+.plunger-head {
+  width: 0px;
+  height: 70px;
+  background: #222;
+  border: 1.5px solid #444;
+  border-right: none;
+  border-radius: 3px 0 0 3px;
+  flex-shrink: 0;
+  margin-left: -1px;
+}
+
+.barrel {
+  flex: 1;
+  height: 70px;
+  background: var(--barrel-bg);
+  border: 1.5px solid var(--barrel-border);
+  border-left: none;
+  position: relative;
+  /* overflow: hidden; */
+}
+
+.barrel-fill {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  background: var(--fill-color);
+  transition: width 0.35s ease;
+}
+
+/* .barrel-fill-line {
+  position: absolute;
+  right: 0; 
+  top: 0; 
+  bottom: 0;
+  width: 3px;
+  background: var(--fill-line);
+}
+ */
+.ticks {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 2;
+}
+.tick-maj {
+  width: 1.5px;
+  height: 18px;
+  background: rgba(255,255,255,0.22);
+}
+
+.tick-min {
+  width: 1px;
+  height: 10px;
+  background: rgba(255,255,255,0.1);
+}
+
+.barrel-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 10px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.32);
+  position: absolute;
+  top: 90%;
+  left: 0;
+  width: 100%;
+}
+
+.tip-tube {
+  width: 80px;
+  height: 14px;
+  background: var(--barrel-bg);
+  border: 1.5px solid var(--barrel-border);
+  border-left: none;
+  flex-shrink: 0;
+}
+.plunger-cap {
+  width: 15px;
+  height: 50px;
+  background: #222;
+  border: 1.5px solid #444;
+  border-radius: 30px;
+  flex-shrink: 0;
+}
+
+ 
+ 
+
+ 
+
+:root {
+  --primary-color: #f5a623;
+  --barrel-bg: #1c1e1a;
+  --barrel-border: #3a3d35;
+  --fill-color: #4a5c1e;
+  --fill-line: #b8f048;
+  --plunger-bg: #222;
+  --plunger-border: #444;
+}
+
+.calculation-dose-card {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.calculation-dose-card div {
+  background-color: var(--dark-bg);
+  padding: 20px;
+  border-left: 4px solid var(--light-border-color2);
+}
+
+.calculation-dose-card div.active {
+  border-left: 4px solid var(--primary-color);
+}
+
+.calculation-dose-card div p {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-color);
+  opacity: 0.7;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.calculation-dose-card div h1 {
+  font-size: 35px;
+  font-weight: 600;
+  margin: 5px 0 0 0;
+  color: var(--text-color);
+}
+
+.calculation-dose-card div h1 span.quantity {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-color);
+  opacity: 0.7;
+  text-transform: uppercase;
 }
 
 /* Calculation Comparison */
