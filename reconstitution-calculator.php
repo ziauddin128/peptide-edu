@@ -76,7 +76,7 @@ require "top.php";
                         </div>
                         <div>
                             <p>Syringe</p>
-                            <h5>U-100 · 1 mL</h5>
+                            <h5>U-100 · <span class="active-syringe-size">1</span> mL</h5>
                         </div>
                     </div>
                 </div>
@@ -91,7 +91,6 @@ require "top.php";
         <div class="syringe-size-in">
             <div class="syringe-size-in-left">
                 <h3>Syringe</h3>
-
                 <div class="syringe-size-variant active">
                     <svg width="56" height="14" viewBox="0 0 56 14" class="shrink-0" aria-hidden="true">
                         <line x1="0" y1="7" x2="14" y2="7" stroke="rgba(255,255,255,0.45)" stroke-width="1"></line>
@@ -125,8 +124,8 @@ require "top.php";
                         <line x1="38" y1="1" x2="38" y2="13" stroke="rgba(255,255,255,0.45)" stroke-width="1.5"></line>
                     </svg>
                     <div>
-                        <h4>U-100 · 1 mL</h4>
-                        <p>100 UNITS = 1 ML</p>
+                        <h4>U-100 · <sup>1</sup>&frasl;<sub>2</sub> mL</h4>
+                        <p>50 UNITS = 0.5 ML</p>
                     </div>
                 </div>
 
@@ -144,13 +143,13 @@ require "top.php";
                         <line x1="38" y1="1" x2="38" y2="13" stroke="rgba(255,255,255,0.45)" stroke-width="1.5"></line>
                     </svg>
                     <div>
-                        <h4>U-100 · 1 mL</h4>
-                        <p>100 UNITS = 1 ML</p>
+                        <h4>U-100 · <sup>1</sup>&frasl;<sub>3</sub> mL</h4>
+                        <p>30 UNITS = 0.3 ML</p>
                     </div>
                 </div>
             </div>
 
-            <p>Standard 100-unit insulin syringe. Default for SubQ peptides.</p>
+            <p class="syringe-size-desc">Standard 100-unit insulin syringe. Default for SubQ peptides.</p>
         </div>
     </div>
 </section>
@@ -170,8 +169,8 @@ require "top.php";
                             <input type="range" step="1" min="1" max="50">
                         </div>
                         <div class="calculation-item-pre-option">
-                            <button class="active">2mg</button>
-                            <button>5mg</button>
+                            <button >2mg</button>
+                            <button class="active">5mg</button>
                             <button>10mg</button>
                         </div>
                     </div>
@@ -185,8 +184,8 @@ require "top.php";
                             <input type="range" step="0.5" min="0.5" max="10">
                         </div>
                         <div class="calculation-item-pre-option">
-                            <button class="active">1ml</button>
-                            <button>2ml</button>
+                            <button >1ml</button>
+                            <button class="active">2ml</button>
                             <button>3ml</button>
                         </div>
                     </div>
@@ -197,11 +196,11 @@ require "top.php";
                             <h2>0.50</h2>
                         </div>
                         <div class="mid">
-                            <input type="range" step="0.05" min="0.05" max="15">
+                            <input type="range" step="0.05" min="0.05" max="5">
                         </div>
                         <div class="calculation-item-pre-option">
-                            <button class="active">100mcg</button>
-                            <button>250mcg</button>
+                            <button >100mcg</button>
+                            <button class="active">250mcg</button>
                             <button>500mcg</button>
                         </div>
                     </div>
