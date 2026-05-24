@@ -2334,7 +2334,7 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-  border: 1px solid var(--light-border-color2);
+  border: 1px solid var(--light-border-color3);
 
   &:hover {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -2344,6 +2344,15 @@ body {
 .syringe-size-variant.active {
   border: 1px solid var(--primary-color);
   background-color: #f5a6230a;
+}
+
+.syringe-size-variant svg * {
+  stroke: var(--text-color);
+}
+
+.syringe-size-variant.active svg * 
+{
+  stroke: var(--primary-color);
 }
 
 .syringe-size-variant div {
@@ -2624,6 +2633,13 @@ body {
   bottom: 0;
   background: var(--fill-color);
   transition: width 0.35s ease;
+}
+
+.barrel-fill {
+    background: #4a5c1e; /* your default olive green */
+}
+.barrel-fill-line {
+    background: var(--primary-color); /* your default line color */
 }
 
 /* .barrel-fill-line {

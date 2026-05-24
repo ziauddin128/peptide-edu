@@ -155,7 +155,6 @@ require "top.php";
     </div>
 </section>
 
-
 <!-- calculation area -->
 <section class="calculation-area">
     <div class="container">
@@ -168,7 +167,7 @@ require "top.php";
                             <h2>10.0</h2>
                         </div>
                         <div class="mid">
-                            <input type="range" step="1" min="1" max="50" name="" id="">
+                            <input type="range" step="1" min="1" max="50">
                         </div>
                         <div class="calculation-item-pre-option">
                             <button class="active">2mg</button>
@@ -183,7 +182,7 @@ require "top.php";
                             <h2>2.0</h2>
                         </div>
                         <div class="mid">
-                            <input type="range" step="1" min="1" max="50" name="" id="">
+                            <input type="range" step="0.5" min="0.5" max="10">
                         </div>
                         <div class="calculation-item-pre-option">
                             <button class="active">1ml</button>
@@ -198,7 +197,7 @@ require "top.php";
                             <h2>0.50</h2>
                         </div>
                         <div class="mid">
-                            <input type="range" step="1" min="1" max="50" name="" id="">
+                            <input type="range" step="0.05" min="0.05" max="15">
                         </div>
                         <div class="calculation-item-pre-option">
                             <button class="active">100mcg</button>
@@ -220,6 +219,7 @@ require "top.php";
                             <div class="text-end">
                                 <p>Draw to</p>
                                 <h2>10.0 IU</h2>
+                                <small class="syringe-overflow-warning" style="display:none; color:#ef4444; font-size:11px; letter-spacing:.08em;"></small> 
                             </div>
                         </div>
 
@@ -256,19 +256,19 @@ require "top.php";
                         <div class="active">
                             <p>Concentration</p>
                             <h1>
-                                <span>2.50</span><span class="quantity">mg/mL</span>
+                                <span>2.50</span><span class="quantity"> mg/mL</span>
                             </h1>
                         </div>
                         <div>
                             <p>Volume per Dose</p>
                             <h1>
-                                <span>0.10</span><span class="quantity">mL</span>
+                                <span>0.10</span><span class="quantity"> mL</span>
                             </h1>
                         </div>
                         <div>
                             <p>Doses per Vial</p>
                             <h1>
-                                <span>20.0</span><span class="quantity">Total</span>
+                                <span>20.0</span><span class="quantity"> Total</span>
                             </h1>
                         </div>
                     </div>
@@ -278,65 +278,6 @@ require "top.php";
     </div>
 </section>
 
-
-
-<script>
-    // Left Side Value Increase Decrease
-    document.querySelectorAll('.calculation-item .mid input[type="range"]').forEach(slider => {
-        function updateFill() {
-            const min = +slider.min || 0;
-            const max = +slider.max || 100;
-            const val = +slider.value;
-            const pct = ((val - min) / (max - min)) * 100;
-            slider.style.background = `linear-gradient(
-      to right,
-      var(--primary-color) 0%,
-      var(--primary-color) ${pct}%,
-      rgba(255,255,255,0.08) ${pct}%,
-      rgba(255,255,255,0.08) 100%
-    )`;
-        }
-
-        slider.addEventListener('input', updateFill);
-        updateFill();
-    });
-
-    // Syringe Value Increase Decrease JS
-    const ticksEl = document.getElementById('ticks');
-    for (let i = 0; i <= 20; i++) {
-        const d = document.createElement('div');
-        d.className = i % 2 === 0 ? 'tick-maj' : 'tick-min';
-        ticksEl.appendChild(d);
-    }
-
-    // Build labels
-    const labelsEl = document.getElementById('barrel-labels');
-    [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100].forEach((v, i) => {
-        const s = document.createElement('span');
-        s.textContent = i === 0 ? '0 IU' : i === 10 ? '100 IU' : v;
-        labelsEl.appendChild(s);
-    });
-
-    // Update function
-    const fill = document.getElementById('fill');
-    const display = document.getElementById('val-display');
-    const slider = document.getElementById('slider');
-
-    function update(v) {
-        v = Math.max(0, Math.min(100, v));
-        slider.value = v;
-        fill.style.width = v + '%';
-        display.innerHTML = v + ' <small>IU</small>';
-    }
-
-    slider.addEventListener('input', () => update(+slider.value));
-
-    function adj(delta) {
-        update(+slider.value + delta);
-    }
-
-    update(10);
-</script>
 
 <!-- Calculation Comparison -->
 <section class="comparison-calculator">
@@ -757,6 +698,8 @@ require "top.php";
     render();
 </script>
 
+
+<script src="assets/js/reconstitution-calculator.js"></script>
 <?php
 require "footer.php";
 ?>
