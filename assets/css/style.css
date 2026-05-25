@@ -2350,8 +2350,7 @@ body {
   stroke: var(--text-color);
 }
 
-.syringe-size-variant.active svg * 
-{
+.syringe-size-variant.active svg * {
   stroke: var(--primary-color);
 }
 
@@ -2383,6 +2382,219 @@ body {
 
 .syringe-size-variant.active div p {
   color: var(--primary-color);
+}
+
+/* Specific Dose */
+.specific-dose {
+  background-color: var(--body-bg);
+  padding: 0 0 20px 0;
+}
+
+.specific-dose-in {
+  border: 1px solid var(--light-border-color2);
+  background-color: var(--dark-bg);
+  border-radius: 5px;
+  padding: 15px;
+
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.specific-dose-left {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.specific-dose-left h4 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--text-color);
+  opacity: 0.8;
+  margin: 0;
+}
+
+.specific-dose-left h4 p {
+  margin: 0;
+  font-size: 10px;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+.specific-dose-predefined-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: auto;
+}
+
+.specific-dose-predefined-btn::-webkit-scrollbar {
+  display: none;
+}
+
+.specific-dose-predefined-btn button {
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid var(--light-border-color3);
+  background-color: transparent;
+  border-radius: 5px;
+  color: var(--text-color);
+  opacity: 0.7;
+  cursor: pointer;
+  white-space: nowrap;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.specific-dose-toggle {
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid var(--light-border-color3);
+  background-color: transparent;
+  border-radius: 5px;
+  color: var(--text-color);
+  opacity: 0.7;
+  cursor: pointer;
+
+  &:hover {
+    border: 1px dashed var(--primary-color);
+    color: var(--primary-color);
+    opacity: 1;
+  }
+}
+
+.specific-dose-filter-clear-btn {
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 500;
+  background-color: transparent;
+  color: var(--text-color);
+  cursor: pointer;
+  border: none;
+  text-transform: uppercase;
+
+  &:hover {
+    color: var(--primary-color);
+  }
+}
+
+#specificDoseExample.accordion {
+  --bs-accordion-bg: transparent !important;
+  --bs-accordion-border-color: var(--light-border-color2) !important;
+}
+
+#specificDoseExample.accordion .accordion-item {
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-top: none;
+}
+
+.more-dose-wrapper {
+  background-color: var(--body-bg);
+}
+
+.dose-search input {
+  width: 100%;
+  height: 35px;
+  border: 1px solid var(--light-border-color3);
+  background-color: transparent;
+  padding: 5px 10px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-color);
+  border-radius: 3px;
+  box-shadow: none;
+  outline: none;
+}
+
+.dose-search input:focus {
+  outline: 1px solid var(--primary-color);
+}
+
+.more-dose-item-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.more-dose-item {
+  display: grid;
+  grid-template-columns: 120px auto;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--light-border-color2);
+}
+
+.more-dose-item:last-child {
+  border-bottom: none;
+}
+
+.more-dose-item h5 {
+  font-size: 10px;
+  font-weight: 600;
+  margin: 0;
+  text-transform: uppercase;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+.more-dose-item-btns {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.more-dose-item-btns button {
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid var(--light-border-color3);
+  background-color: transparent;
+  border-radius: 5px;
+  color: var(--text-color);
+  opacity: 0.7;
+  cursor: pointer;
+  white-space: nowrap;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.more-dose-item-btns button span {
+  font-size: 10px;
+  font-weight: 400;
+}
+
+@media (max-width: 767px) {
+  .specific-dose-left {
+    width: 100%;
+  }
+
+  .specific-dose-in {
+    flex-wrap: wrap;
+  }
+
+  .more-dose-item {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .more-dose-item-btns {
+    flex-wrap: wrap;
+  }
 }
 
 /* calculation area */
@@ -2636,10 +2848,10 @@ body {
 }
 
 .barrel-fill {
-    background: #4a5c1e; /* your default olive green */
+  background: #4a5c1e; /* your default olive green */
 }
 .barrel-fill-line {
-    background: var(--primary-color); /* your default line color */
+  background: var(--primary-color); /* your default line color */
 }
 
 /* .barrel-fill-line {
@@ -2744,6 +2956,16 @@ body {
   color: var(--text-color);
   opacity: 0.7;
   text-transform: uppercase;
+}
+
+@media (max-width: 575px) {
+  .calculation-dose-card {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .syringe-wrapper {
+    padding: 50px 0px;
+  }
 }
 
 /* Calculation Comparison */

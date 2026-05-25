@@ -154,6 +154,175 @@ require "top.php";
     </div>
 </section>
 
+<!-- Specific Dose -->
+<section class="specific-dose">
+    <div class="container">
+        <div class="specific-dose-in">
+            <div class="specific-dose-left">
+                <div>
+                    <h4>Shortcut — <p><i>optional</i></p>
+                    </h4>
+                </div>
+                <div class="specific-dose-predefined-btn">
+                    <button>BPC-157</button>
+                    <button>TB-500</button>
+                    <button>CJC-1295 (No DAC)</button>
+                    <button>Ipamorelin</button>
+                    <button>Retatrutide</button>
+
+                    <button class="specific-dose-toggle" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">+15 more</button>
+                </div>
+            </div>
+            <button class="specific-dose-filter-clear-btn">Clear</button>
+        </div>
+
+        <!-- More Specific Dose -->
+        <div class="accordion" id="specificDoseExample">
+            <div class="accordion-item">
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#specificDoseExample">
+                    <div class="accordion-body">
+
+                        <div class="more-dose-wrapper">
+                            <div class="dose-search">
+                                <input type="text" placeholder="Search Peptides" name="" id="">
+                            </div>
+
+                            <div class="more-dose-item-list">
+                                <div class="more-dose-item">
+                                    <h5>Healing</h5>
+                                    <div class="more-dose-item-btns">
+                                        <button>
+                                            BPC-157 <span>5mg</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="more-dose-item">
+                                    <h5>Growth Hormone</h5>
+                                    <div class="more-dose-item-btns">
+                                        <button>
+                                            CJC-1295 (No DAC) <span>5mg</span>
+                                        </button>
+                                        <button>
+                                            Ipamorelin <span>5mg</span>
+                                        </button>
+                                        <button>
+                                            Tesamorelin <span>5mg</span>
+                                        </button>
+                                        <button>
+                                            Sermorelin <span>5mg</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="more-dose-item">
+                                    <h5>Copper Peptides</h5>
+                                    <div class="more-dose-item-btns">
+                                        <button>
+                                            GHK-Cu <span>50mg</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="more-dose-item">
+                                    <h5>Melanocortin</h5>
+                                    <div class="more-dose-item-btns">
+                                        <button>
+                                            PT-141 <span>10mg</span>
+                                        </button>
+                                        <button>
+                                            Melanotan II <span>10mg</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="more-dose-item">
+                                    <h5>Mitochondrial</h5>
+                                    <div class="more-dose-item-btns">
+                                        <button>
+                                            MOTS-c <span>10mg</span>
+                                        </button>
+                                        <button>
+                                            SS-31 <span>10mg</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="more-dose-item">
+                                    <h5>Nootropic</h5>
+                                    <div class="more-dose-item-btns">
+                                        <button>
+                                            Semax <span>10mg</span>
+                                        </button>
+                                        <button>
+                                            Selank <span>10mg</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="more-dose-item">
+                                    <h5>Metabolic</h5>
+                                    <div class="more-dose-item-btns">
+                                        <button>
+                                            AOD-960 <span>45mg</span>
+                                        </button>
+                                        <button>
+                                            5-Amino-1MQ <span>10mg</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="more-dose-item">
+                                    <h5>Longevity</h5>
+                                    <div class="more-dose-item-btns">
+                                        <button>
+                                            Epithalon <span>45mg</span>
+                                        </button>
+                                        <button>
+                                            FOXO4-DRI <span>10mg</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="more-dose-item">
+                                    <h5>Immune</h5>
+                                    <div class="more-dose-item-btns">
+                                        <button>
+                                            Thymosin Alpha - 1 <span>10mg</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="more-dose-item">
+                                    <h5>Reproductive</h5>
+                                    <div class="more-dose-item-btns">
+                                        <button>
+                                            Kisspeptin <span>10mg</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="more-dose-item">
+                                    <h5>GLP-1</h5>
+                                    <div class="more-dose-item-btns">
+                                        <button>
+                                            Retatrutide <span>10mg</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
 <!-- calculation area -->
 <section class="calculation-area">
     <div class="container">
@@ -169,7 +338,7 @@ require "top.php";
                             <input type="range" step="1" min="1" max="50">
                         </div>
                         <div class="calculation-item-pre-option">
-                            <button >2mg</button>
+                            <button>2mg</button>
                             <button class="active">5mg</button>
                             <button>10mg</button>
                         </div>
@@ -184,7 +353,7 @@ require "top.php";
                             <input type="range" step="0.5" min="0.5" max="10">
                         </div>
                         <div class="calculation-item-pre-option">
-                            <button >1ml</button>
+                            <button>1ml</button>
                             <button class="active">2ml</button>
                             <button>3ml</button>
                         </div>
@@ -199,7 +368,7 @@ require "top.php";
                             <input type="range" step="0.05" min="0.05" max="5">
                         </div>
                         <div class="calculation-item-pre-option">
-                            <button >100mcg</button>
+                            <button>100mcg</button>
                             <button class="active">250mcg</button>
                             <button>500mcg</button>
                         </div>
@@ -218,7 +387,7 @@ require "top.php";
                             <div class="text-end">
                                 <p>Draw to</p>
                                 <h2>10.0 IU</h2>
-                                <small class="syringe-overflow-warning" style="display:none; color:#ef4444; font-size:11px; letter-spacing:.08em;"></small> 
+                                <small class="syringe-overflow-warning" style="display:none; color:#ef4444; font-size:11px; letter-spacing:.08em;"></small>
                             </div>
                         </div>
 
@@ -226,7 +395,7 @@ require "top.php";
                         <div class="syringe-wrapper">
                             <div class="syringe-row">
                                 <!-- Left plunger -->
-                                <div class="d-flex align-items-center flex-shrink-0">
+                                <div class="d-none d-sm-flex align-items-center flex-shrink-0">
                                     <div class="plunger-rod"></div>
                                     <div class="plunger-knob"></div>
                                     <div class="plunger-head"></div>
@@ -243,7 +412,7 @@ require "top.php";
                                 </div>
 
                                 <!-- Right tip + cap -->
-                                <div class="d-flex align-items-center flex-shrink-0">
+                                <div class="d-none d-sm-flex align-items-center flex-shrink-0">
                                     <div class="tip-tube"></div>
                                     <div class="plunger-cap"></div>
                                 </div>
@@ -276,7 +445,6 @@ require "top.php";
         </div>
     </div>
 </section>
-
 
 <!-- Calculation Comparison -->
 <section class="comparison-calculator">
