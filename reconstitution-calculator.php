@@ -164,22 +164,32 @@ require "top.php";
                     </h4>
                 </div>
                 <div class="specific-dose-predefined-btn">
-                    <button>BPC-157</button>
-                    <button>TB-500</button>
-                    <button>CJC-1295 (No DAC)</button>
-                    <button>Ipamorelin</button>
-                    <button>Retatrutide</button>
+                    <div class="specific-dose-predefined-btn-wrapper">
+                        <button data-peptide="BPC-157">BPC-157</button>
+                        <button data-peptide="TB-500">TB-500</button>
+                        <button data-peptide="CJC-1295 (No DAC)">CJC-1295 (No DAC)</button>
+                        <button data-peptide="Ipamorelin">Ipamorelin</button>
+                        <button data-peptide="Retatrutide">Retatrutide</button>
+                    </div>
 
-                    <button class="specific-dose-toggle" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">+15 more</button>
+                    <div class="specific-dose-options-bar" style="display:none;">
+                        <span class="options-bar-label">VIAL</span>
+                        <div class="specific-dose-options-btns"></div>
+                    </div>
+
+                    <button class="specific-dose-toggle" data-bs-toggle="collapse" data-bs-target="#s_collapseOne" aria-expanded="true" aria-controls="s_collapseOne">+15 more <i class="fa-solid fa-angle-down"></i></button>
                 </div>
             </div>
+
+
+
             <button class="specific-dose-filter-clear-btn">Clear</button>
         </div>
 
         <!-- More Specific Dose -->
         <div class="accordion" id="specificDoseExample">
             <div class="accordion-item">
-                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#specificDoseExample">
+                <div id="s_collapseOne" class="accordion-collapse collapse" data-bs-parent="#specificDoseExample">
                     <div class="accordion-body">
 
                         <div class="more-dose-wrapper">
@@ -191,7 +201,7 @@ require "top.php";
                                 <div class="more-dose-item">
                                     <h5>Healing</h5>
                                     <div class="more-dose-item-btns">
-                                        <button>
+                                        <button data-peptide="BPC-157">
                                             BPC-157 <span>5mg</span>
                                         </button>
                                     </div>
@@ -200,16 +210,16 @@ require "top.php";
                                 <div class="more-dose-item">
                                     <h5>Growth Hormone</h5>
                                     <div class="more-dose-item-btns">
-                                        <button>
+                                        <button data-peptide="CJC-1295 (No DAC)">
                                             CJC-1295 (No DAC) <span>5mg</span>
                                         </button>
-                                        <button>
+                                        <button data-peptide="Ipamorelin">
                                             Ipamorelin <span>5mg</span>
                                         </button>
-                                        <button>
+                                        <button data-peptide="Tesamorelin">
                                             Tesamorelin <span>5mg</span>
                                         </button>
-                                        <button>
+                                        <button data-peptide="Sermorelin">
                                             Sermorelin <span>5mg</span>
                                         </button>
                                     </div>
@@ -218,7 +228,7 @@ require "top.php";
                                 <div class="more-dose-item">
                                     <h5>Copper Peptides</h5>
                                     <div class="more-dose-item-btns">
-                                        <button>
+                                        <button data-peptide="GHK-Cu">
                                             GHK-Cu <span>50mg</span>
                                         </button>
                                     </div>
@@ -227,10 +237,10 @@ require "top.php";
                                 <div class="more-dose-item">
                                     <h5>Melanocortin</h5>
                                     <div class="more-dose-item-btns">
-                                        <button>
+                                        <button data-peptide="PT-141">
                                             PT-141 <span>10mg</span>
                                         </button>
-                                        <button>
+                                        <button data-peptide="Melanotan II">
                                             Melanotan II <span>10mg</span>
                                         </button>
                                     </div>
@@ -239,10 +249,10 @@ require "top.php";
                                 <div class="more-dose-item">
                                     <h5>Mitochondrial</h5>
                                     <div class="more-dose-item-btns">
-                                        <button>
+                                        <button data-peptide="MOTS-c">
                                             MOTS-c <span>10mg</span>
                                         </button>
-                                        <button>
+                                        <button data-peptide="SS-31">
                                             SS-31 <span>10mg</span>
                                         </button>
                                     </div>
@@ -251,10 +261,10 @@ require "top.php";
                                 <div class="more-dose-item">
                                     <h5>Nootropic</h5>
                                     <div class="more-dose-item-btns">
-                                        <button>
+                                        <button data-peptide="Semax">
                                             Semax <span>10mg</span>
                                         </button>
-                                        <button>
+                                        <button data-peptide="Selank">
                                             Selank <span>10mg</span>
                                         </button>
                                     </div>
@@ -263,10 +273,10 @@ require "top.php";
                                 <div class="more-dose-item">
                                     <h5>Metabolic</h5>
                                     <div class="more-dose-item-btns">
-                                        <button>
+                                        <button data-peptide="AOD-9604">
                                             AOD-960 <span>45mg</span>
                                         </button>
-                                        <button>
+                                        <button data-peptide="5-Amino-1MQ">
                                             5-Amino-1MQ <span>10mg</span>
                                         </button>
                                     </div>
@@ -275,10 +285,10 @@ require "top.php";
                                 <div class="more-dose-item">
                                     <h5>Longevity</h5>
                                     <div class="more-dose-item-btns">
-                                        <button>
+                                        <button data-peptide="Epithalon">
                                             Epithalon <span>45mg</span>
                                         </button>
-                                        <button>
+                                        <button data-peptide="FOXO4-DRI">
                                             FOXO4-DRI <span>10mg</span>
                                         </button>
                                     </div>
@@ -287,7 +297,7 @@ require "top.php";
                                 <div class="more-dose-item">
                                     <h5>Immune</h5>
                                     <div class="more-dose-item-btns">
-                                        <button>
+                                        <button data-peptide="Thymosin Alpha-1">
                                             Thymosin Alpha - 1 <span>10mg</span>
                                         </button>
                                     </div>
@@ -296,7 +306,7 @@ require "top.php";
                                 <div class="more-dose-item">
                                     <h5>Reproductive</h5>
                                     <div class="more-dose-item-btns">
-                                        <button>
+                                        <button data-peptide="Kisspeptin">
                                             Kisspeptin <span>10mg</span>
                                         </button>
                                     </div>
@@ -305,7 +315,7 @@ require "top.php";
                                 <div class="more-dose-item">
                                     <h5>GLP-1</h5>
                                     <div class="more-dose-item-btns">
-                                        <button>
+                                        <button data-peptide="Retatrutide">
                                             Retatrutide <span>10mg</span>
                                         </button>
                                     </div>
@@ -320,8 +330,6 @@ require "top.php";
         </div>
     </div>
 </section>
-
-
 
 <!-- calculation area -->
 <section class="calculation-area">
@@ -472,33 +480,35 @@ require "top.php";
 
                             <div class="table-responsive">
                                 <table class="table  comparison-table">
-                                    <tr>
-                                        <th>BAC Water</th>
-                                        <th>Concentration</th>
-                                        <th>Draw Volume</th>
-                                        <th>U-100 · 1 mL Units</th>
-                                    </tr>
-                                    <tr>
-                                        <td>1.0 mL</td>
-                                        <td>5.00 mg/mL</td>
-                                        <td>0.050 mL</td>
-                                        <td><span class="text-primary-color">5.0 IU</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            2.0 mL
-                                            <span class="text-primary-color small">CURRENT</span>
-                                        </td>
-                                        <td>2.50 mg/mL</td>
-                                        <td>0.100 mL</td>
-                                        <td><span class="text-primary-color">5.0 IU</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3.0 mL</td>
-                                        <td>1.67 mg/mL</td>
-                                        <td>0.150 mL</td>
-                                        <td><span class="text-primary-color">5.0 IU</span></td>
-                                    </tr>
+                                    <tbody>
+                                        <tr>
+                                            <th>BAC Water</th>
+                                            <th>Concentration</th>
+                                            <th>Draw Volume</th>
+                                            <th>U-100 · 1 mL Units</th>
+                                        </tr>
+                                        <tr>
+                                            <td>1.0 mL</td>
+                                            <td>5.00 mg/mL</td>
+                                            <td>0.050 mL</td>
+                                            <td><span class="text-primary-color">5.0 IU</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                2.0 mL
+                                                <span class="text-primary-color small">CURRENT</span>
+                                            </td>
+                                            <td>2.50 mg/mL</td>
+                                            <td>0.100 mL</td>
+                                            <td><span class="text-primary-color">5.0 IU</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>3.0 mL</td>
+                                            <td>1.67 mg/mL</td>
+                                            <td>0.150 mL</td>
+                                            <td><span class="text-primary-color">5.0 IU</span></td>
+                                        </tr>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -527,7 +537,8 @@ require "top.php";
                                         <h4>Vial Cost ($)</h4>
                                         <div class="cost-cycle-input-era">
                                             <i class="fa-solid fa-dollar-sign top-left-position"></i>
-                                            <input type="text" name="" id="" style="padding-left: 30px;">
+                                            <input type="text"
+                                            value="50" id="vialCostInput" style="padding-left: 30px;">
                                         </div>
                                     </div>
                                 </div>
@@ -536,7 +547,7 @@ require "top.php";
                                         <h4>Cycle Length</h4>
                                         <div class="cost-cycle-input-era">
                                             <span class="top-right-position">Weeks</span>
-                                            <input type="text" name="" id="" style="padding-right: 65px;">
+                                            <input type="number" value="8" id="cycleLengthInput" style="padding-right: 65px;">
                                         </div>
                                     </div>
                                 </div>
@@ -544,7 +555,8 @@ require "top.php";
                                     <div class="cost-cycle-input-wrapper">
                                         <h4>Doses / Day</h4>
                                         <div class="cost-cycle-input-era">
-                                            <input type="text" name="" id="">
+                                            <input type="number" 
+                                            value="1" id="dosesPerDayInput">
                                         </div>
                                     </div>
                                 </div>
@@ -553,27 +565,27 @@ require "top.php";
                             <div class="cost-cycle-preview">
                                 <div class="active">
                                     <p>Cost / Dose</p>
-                                    <h1>$2.50</h1>
+                                    <h1 id="displayCostPerDose">$0.00</h1>
                                 </div>
                                 <div>
                                     <p>Cost / Day</p>
-                                    <h1>$2.50</h1>
+                                   <h1 id="displayCostPerDay">$0.00</h1>
                                 </div>
                                 <div>
                                     <p>Total Doses</p>
-                                    <h1>56<span>8wk</span></h1>
+                                   <h1 id="displayTotalDoses">0<span id="displayCycleWeeksLabel">8wk</span></h1>
                                 </div>
                                 <div>
                                     <p>Vials Needed</p>
-                                    <h1>3<span>vials</span></h1>
+                                    <h1 id="displayVialsNeeded">0 <span>vials</span></h1>
                                 </div>
                                 <div>
                                     <p>BAC Water</p>
-                                    <h1>6.0<span>mL</span></h1>
+                                    <h1 id="displayTotalBacWater">0.0 <span>mL</span></h1>
                                 </div>
                                 <div class="active">
                                     <p>Cycle Cost</p>
-                                    <h1>$150.00</h1>
+                                    <h1 id="displayCycleCost">$0.00</h1>
                                 </div>
                             </div>
                         </div>
@@ -584,7 +596,7 @@ require "top.php";
                     <h2 class="accordion-header">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
                             <div>
-                                <i class="fa-solid fa-dollar-sign"></i>
+                                <i class="fa-solid fa-flask"></i>
                                 <span>Storage & Expiration Tracker</span>
 
                                 <div class="compare-tag">
@@ -600,7 +612,7 @@ require "top.php";
                                 <h4>Reconstitution Date</h4>
                                 <div class="reconstitution-date-option">
                                     <div class="reconstitution-date-inp-wrapper">
-                                        <input type="date" name="" id="">
+                                        <input type="date" id="reconstitutionDateInput">
                                     </div>
                                     <div class="reconstitution-date-option-btns">
                                         <button class="active">Today</button>
@@ -613,15 +625,15 @@ require "top.php";
                                 <div class="reconstitution-report">
                                     <div>
                                         <h4>Reconstituted</h4>
-                                        <h3>0 days ago</h3>
+                                        <h3 id="displayReconstituted">0 days ago</h3>
                                     </div>
                                     <div>
                                         <h4>Use By</h4>
-                                        <h3>6/20/2026</h3>
+                                        <h3 id="displayUseBy">6/20/2026</h3>
                                     </div>
                                     <div>
                                         <h4>Remaining</h4>
-                                        <h3>30 days</h3>
+                                        <h3 id="displayRemaining">30 days</h3>
                                     </div>
                                 </div>
                             </div>

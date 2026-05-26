@@ -179,7 +179,7 @@ const peptideDatabase = {
         ],
         defaultDoseLabel: '100mcg · 7x/wk',
     },
-    'Retatrutide_Duplicate': { 
+    'Retatrutide_Duplicate': { // Object key uniqueness adjustment if needed
         label:      'Retatrutide',
         category:   'GLP-1',
         options: [
@@ -229,10 +229,10 @@ const syringeTypes = {
 };
 
 let activeSyringe     = syringeTypes['1ml'];
-let activePeptide     = null;   
-let activeOptionIndex = 0;      
+let activePeptide     = null;   // currently selected peptide key
+let activeOptionIndex = 0;      // which option (5mg/10mg etc) is selected
 
-// Default state
+// Default state (no peptide selected)
 const DEFAULT_STATE = { vialSize: 5, bacWater: 2, desiredDose: 0.25 };
 
 // ============================================================
@@ -295,31 +295,10 @@ const ticksEl         = document.getElementById('ticks');
 const labelsEl        = document.getElementById('barrel-labels');
 
 const specificDosePredefinedBtnWrapper  = document.querySelector('.specific-dose-predefined-btn-wrapper');   
-const peptideOptionsBar  = document.querySelector('.specific-dose-options-bar');   
-const peptideOptionsWrap = document.querySelector('.specific-dose-options-btns');   
+const peptideOptionsBar  = document.querySelector('.specific-dose-options-bar');   // options row (5mg+1mL etc)
+const peptideOptionsWrap = document.querySelector('.specific-dose-options-btns');   // buttons container inside bar
 
 const comparisonTable = document.querySelector('.comparison-table');
-
- // ============================================================
-// [✨ FIXED] COST & CYCLE PLANNER DOM REFS
-// ============================================================
-const costCycleInputs = {
-    vialCost:    document.getElementById('vialCostInput'), 
-    cycleLength: document.getElementById('cycleLengthInput'),
-    dosesPerDay: document.getElementById('dosesPerDayInput')
-};
-
-const costCycleOutputs = {
-    costPerDose:     document.getElementById('displayCostPerDose'),
-    costPerDay:      document.getElementById('displayCostPerDay'),
-    totalDoses:      document.getElementById('displayTotalDoses'),
-    vialsNeeded:     document.getElementById('displayVialsNeeded'),
-    bacWater:        document.getElementById('displayTotalBacWater'),
-    cycleCost:       document.getElementById('displayCycleCost'),
-    cycleWeeksLabel: document.getElementById('displayCycleWeeksLabel')
-};
-
- 
 
 // ============================================================
 // BUILD SYRINGE TICKS & LABELS
@@ -367,6 +346,7 @@ function updateSyringe(units) {
     }
 }
 
+ 
 // ============================================================
 // DYNAMIC COMPARISON TABLE GENERATOR (UPDATED & SYNCED)
 // ============================================================
@@ -390,6 +370,8 @@ function updateComparisonTable() {
         targetVolumes.sort((a, b) => a - b);
     }
 
+    // [✨ UPDATE 1: ডাইনামিক হেডার টাইটেল জেনারেটর]
+    // "U-100 · 1 ML VISUALIZER" থেকে "VISUALIZER" সরিয়ে "Units" যুক্ত করা হচ্ছে
     const syringeHeaderTitle = activeSyringe.title ? activeSyringe.title.replace('VISUALIZER', 'Units') : 'Units';
 
     const headerRow = `
@@ -416,6 +398,7 @@ function updateComparisonTable() {
             ? `${vol.toFixed(1)} mL <br><span class="text-primary-color small">CURRENT</span>`
             : `${vol.toFixed(1)} mL`;
 
+        // [✨ UPDATE 2: কারেন্ট সিরিঞ্জের ম্যাক্স ক্যাপাসিটি অনুযায়ী ওভারফ্লো চেকিং ও কালার টগল]
         const isOverflow = res.syringeUnits > activeSyringe.maxUnits;
         const textClass = isOverflow ? 'text-overflow-color' : 'text-primary-color';
 
@@ -427,43 +410,6 @@ function updateComparisonTable() {
         `;
         tbody.appendChild(tr);
     });
-}
-
-// ============================================================
-// [✨ NEW] COST & CYCLE PLANNER CALCULATION
-// ============================================================
-function calculateCyclePlanner() {
-    // সেফটি চেক অবজেক্ট এক্সিস্টেন্স
-    if (!costCycleInputs.vialCost || !costCycleInputs.cycleLength || !costCycleInputs.dosesPerDay) return;
-
-    // কারেন্ট ইনপুট ভ্যালু রিড
-    const vialCost   = parseFloat(costCycleInputs.vialCost.value) || 0;
-    const cycleWeeks = parseInt(costCycleInputs.cycleLength.value) || 0;
-    const dosesPerDay = parseInt(costCycleInputs.dosesPerDay.value) || 0;
-
-    // মেইন অ্যাপ ক্যালকুলেশন থেকে dosesPerVial এক্সট্রাক্ট করা হচ্ছে
-    const currentCalculation = peptideCalculator({
-        peptideMg:     state.vialSize,
-        bacWaterMl:    state.bacWater,
-        desiredDoseMg: state.desiredDose,
-    });
-    const dosesPerVial = parseFloat(currentCalculation.dosesPerVial) || 0;
-
-    // ম্যাথমেটিক্যাল লজিক প্রসেসিং
-    const totalDoses   = cycleWeeks * 7 * dosesPerDay;
-    const costPerDose  = dosesPerVial > 0 ? (vialCost / dosesPerVial) : 0;
-    const costPerDay   = costPerDose * dosesPerDay;
-    const vialsNeeded  = dosesPerVial > 0 ? Math.ceil(totalDoses / dosesPerVial) : 0;
-    const totalBacWater = vialsNeeded * state.bacWater;
-    const totalCycleCost = vialsNeeded * vialCost;
-
-    // UI ডিসপ্লে ট্রিগার ও রেন্ডারিং
-    if (costCycleOutputs.costPerDose)  costCycleOutputs.costPerDose.innerHTML  = `$${costPerDose.toFixed(2)}`;
-    if (costCycleOutputs.costPerDay)   costCycleOutputs.costPerDay.innerHTML   = `$${costPerDay.toFixed(2)}`;
-    if (costCycleOutputs.totalDoses)   costCycleOutputs.totalDoses.innerHTML   = `${totalDoses}<span> ${cycleWeeks}wk</span>`;
-    if (costCycleOutputs.vialsNeeded)  costCycleOutputs.vialsNeeded.innerHTML  = `${vialsNeeded}<span> vials</span>`;
-    if (costCycleOutputs.bacWater)     costCycleOutputs.bacWater.innerHTML     = `${totalBacWater.toFixed(1)}<span> mL</span>`;
-    if (costCycleOutputs.cycleCost)    costCycleOutputs.cycleCost.innerHTML    = `$${totalCycleCost.toFixed(2)}`;
 }
 
 // ============================================================
@@ -524,6 +470,7 @@ function showPeptideOptions(peptideKey) {
     const peptide = peptideDatabase[peptideKey];
     if (!peptide || !peptideOptionsWrap) return;
 
+    // [✨ UPDATE 3: ভাঙা 'node.innerHTML' টোকেন এরর ফিক্স করা হয়েছে]
     peptideOptionsWrap.innerHTML = '';
 
     peptide.options.forEach((opt, idx) => {
@@ -542,7 +489,7 @@ function showPeptideOptions(peptideKey) {
             applyPeptideOption(peptideKey, idx);
         });
 
-        box = peptideOptionsWrap.appendChild(btn);
+        peptideOptionsWrap.appendChild(btn);
     });
 
     const optionsBar = document.querySelector('.specific-dose-options-bar');
@@ -717,7 +664,7 @@ document.querySelectorAll('.syringe-size-variant').forEach((variant, idx) => {
         document.querySelector('.syringe-size-desc').textContent   = activeSyringe.desc;
 
         buildSyringe(activeSyringe);
-        recalculate(); 
+        recalculate(); // এখানে রি-ক্যালকুলেটের মাধ্যমে টেবিল ও ওভারফ্লো ক্লাস আপডেট হবে অটোমেটিক
     });
 });
 
@@ -763,9 +710,6 @@ function recalculate() {
 
     updateSyringe(result.syringeUnits);
     updateComparisonTable(); 
-    
-    // [✨ INTEGRATION] মেইন ক্যালকুলেশন কল হবার সাথে সাইকেল প্ল্যানার রেন্ডারিং সিঙ্ক
-    calculateCyclePlanner();
 }
 
 // ============================================================
@@ -827,15 +771,6 @@ document.querySelectorAll('.calculation-item').forEach((item, idx) => {
 });
 
 // ============================================================
-// [✨ NEW] WIRE UP COST & CYCLE PLANNER INPUT LISTENERS
-// ============================================================
-Object.values(costCycleInputs).forEach(input => {
-    if (input) {
-        input.addEventListener('input', calculateCyclePlanner);
-    }
-});
-
-// ============================================================
 // COLLAPSE TOGGLE TEXT
 // ============================================================
 const collapseEl = document.getElementById('s_collapseOne');
@@ -872,298 +807,4 @@ document.querySelector('.syringe-size-desc').textContent   = activeSyringe.desc;
 
 hidePeptideOptions();
 buildSyringe(activeSyringe);
-
-// প্রথম স্ক্রিন রেন্ডারেই যেন মেইন ক্যালকুলেটর + কস্ট প্ল্যানার দুটোই সিঙ্কড ডেটা নিয়ে রান করে
 recalculate();
-
-
-// ============================================================
-// STORAGE & EXPIRATION TRACKER
-// ============================================================
-
-const reconstitutionState = {
-    reconstitutionDate: new Date(),  // Today by default
-};
-
-// DOM References
-const reconstitutionInputEl = document.getElementById('reconstitutionDateInput');
-const reconstitutionDateBtns = document.querySelectorAll('.reconstitution-date-option-btns button');
-const reconstitutionReportEls = {
-    reconstituted: document.getElementById('displayReconstituted'),
-    useBy: document.getElementById('displayUseBy'),
-    remaining: document.getElementById('displayRemaining'),
-};
-const reconstitutionReportWrapper = document.querySelector('.reconstitution-report');
-
-// ============================================================
-// CALCULATE DAYS DIFFERENCE (correct way)
-// ============================================================
-function calculateDaysDifference(dateFrom, dateTo) {
-    // dateFrom: earlier date
-    // dateTo: later date
-    // Returns: days between them (positive)
-    const from = new Date(dateFrom);
-    const to = new Date(dateTo);
-    
-    from.setHours(0, 0, 0, 0);
-    to.setHours(0, 0, 0, 0);
-    
-    const diffTime = to.getTime() - from.getTime();
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    return diffDays;
-}
-
-// ============================================================
-// FORMAT DATE (MM/DD/YYYY)
-// ============================================================
-function formatDate(date) {
-    const d = new Date(date);
-    const month = String(d.getMonth() + 1).padStart(2, '0');
-    const day = String(d.getDate()).padStart(2, '0');
-    const year = d.getFullYear();
-    return `${month}/${day}/${year}`;
-}
-
-// ============================================================
-// GET COLOR CLASS BASED ON DAYS REMAINING
-// ============================================================
-function getColorClass(daysRemaining) {
-    if (daysRemaining <= 0) {
-        return 'expired'; // Dark Red - Expired (0 or less)
-    } else if (daysRemaining <= 8) {
-        return 'critical'; // Red - Critical (1-8 days)
-    } else if (daysRemaining <= 15) {
-        return 'warning'; // Yellow - Warning (9-15 days)
-    } else {
-        return 'safe'; // Green - Safe (16+ days)
-    }
-}
-
-// ============================================================
-// UPDATE RECONSTITUTION REPORT
-// ============================================================
-function updateReconstituionReport() {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    
-    const reconstitutionDate = new Date(reconstitutionState.reconstitutionDate);
-    reconstitutionDate.setHours(0, 0, 0, 0);
-    
-    // Calculate days ago (how many days since reconstitution)
-    const daysAgo = calculateDaysDifference(reconstitutionDate, today);
-    
-    // Calculate use-by date (30 days from reconstitution)
-    const useByDate = new Date(reconstitutionDate);
-    useByDate.setDate(useByDate.getDate() + 30);
-    
-    // Calculate days remaining (from today to use-by date)
-    // If negative = expired
-    const daysRemaining = calculateDaysDifference(today, useByDate);
-    const isExpired = daysRemaining <= 0;
-    
-    // Update display values
-    if (reconstitutionReportEls.reconstituted) {
-        if (daysAgo === 0) {
-            reconstitutionReportEls.reconstituted.textContent = '0 days ago';
-        } else if (daysAgo === 1) {
-            reconstitutionReportEls.reconstituted.textContent = '1 day ago';
-        } else {
-            reconstitutionReportEls.reconstituted.textContent = `${daysAgo} days ago`;
-        }
-    }
-    
-    if (reconstitutionReportEls.useBy) {
-        reconstitutionReportEls.useBy.textContent = formatDate(useByDate);
-    }
-    
-    if (reconstitutionReportEls.remaining) {
-        if (isExpired) {
-            reconstitutionReportEls.remaining.textContent = 'Expired — discard vial';
-        } else {
-            if (daysRemaining === 1) {
-                reconstitutionReportEls.remaining.textContent = '1 day';
-            } else {
-                reconstitutionReportEls.remaining.textContent = `${daysRemaining} days`;
-            }
-        }
-    }
-    
-    // Update color class based on remaining days
-    if (reconstitutionReportWrapper) {
-        // Remove all color classes
-        reconstitutionReportWrapper.classList.remove('expired', 'critical', 'warning', 'safe');
-        
-        // Add appropriate class
-        const colorClass = getColorClass(daysRemaining);
-        reconstitutionReportWrapper.classList.add(colorClass);
-    }
-
-    
-}
-
-// ============================================================
-// SET RECONSTITUTION DATE FROM INPUT
-// ============================================================
-function setReconstituionDate(date) {
-    reconstitutionState.reconstitutionDate = new Date(date);
-    
-    // Update date input
-    if (reconstitutionInputEl) {
-        const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const day = String(date.getDate()).padStart(2, '0');
-        reconstitutionInputEl.value = `${year}-${month}-${day}`;
-    }
-    
-    // Update button states
-    updateDateButtonStates();
-    
-    // Recalculate and update display
-    updateReconstituionReport();
-}
-
-// ============================================================
-// UPDATE DATE BUTTON STATES (active indicator)
-// ============================================================
-function updateDateButtonStates() {
-    const today = new Date();
-    const selectedDate = new Date(reconstitutionState.reconstitutionDate);
-    
-    // Normalize to midnight for comparison
-    today.setHours(0, 0, 0, 0);
-    selectedDate.setHours(0, 0, 0, 0);
-    
-    reconstitutionDateBtns.forEach(btn => {
-        btn.classList.remove('active');
-        
-        const buttonText = btn.textContent.trim();
-        let buttonDate = new Date(today);
-        
-        if (buttonText === 'Today') {
-            if (selectedDate.getTime() === today.getTime()) {
-                btn.classList.add('active');
-            }
-        } else {
-            // Extract days from button text (e.g., "3 days ago" → 3)
-            const match = buttonText.match(/(\d+)/);
-            if (match) {
-                const days = parseInt(match[1]);
-                buttonDate.setDate(buttonDate.getDate() - days);
-                
-                if (selectedDate.getTime() === buttonDate.getTime()) {
-                    btn.classList.add('active');
-                }
-            }
-        }
-    });
-}
-
-// ============================================================
-// WIRE UP DATE INPUT
-// ============================================================
-if (reconstitutionInputEl) {
-    reconstitutionInputEl.addEventListener('change', () => {
-        const selectedDate = new Date(reconstitutionInputEl.value);
-        setReconstituionDate(selectedDate);
-    });
-}
-
-// ============================================================
-// WIRE UP PRESET DATE BUTTONS
-// ============================================================
-reconstitutionDateBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        const today = new Date();
-        const buttonText = btn.textContent.trim();
-        let selectedDate = new Date(today);
-        
-        if (buttonText === 'Today') {
-            selectedDate = new Date(today);
-        } else {
-            // Extract days from button text
-            const match = buttonText.match(/(\d+)/);
-            if (match) {
-                const days = parseInt(match[1]);
-                selectedDate.setDate(selectedDate.getDate() - days);
-            }
-        }
-        
-        setReconstituionDate(selectedDate);
-    });
-});
-
-// ============================================================
-// INITIALIZE RECONSTITUTION TRACKER
-// ============================================================
-function initReconstituion() {
-    const today = new Date();
-    const year = today.getFullYear();
-    const month = String(today.getMonth() + 1).padStart(2, '0');
-    const day = String(today.getDate()).padStart(2, '0');
-    
-    if (reconstitutionInputEl) {
-        reconstitutionInputEl.value = `${year}-${month}-${day}`;
-    }
-    
-    reconstitutionState.reconstitutionDate = today;
-    updateReconstituionReport();
-    updateDateButtonStates();
-}
-
-// Call on page load
-initReconstituion();
-
-// ============================================================
-// AUTO-UPDATE DAILY (every minute check if it's a new day)
-// ============================================================
-setInterval(() => {
-    const today = new Date();
-    const lastUpdate = reconstitutionState.lastCheckedDate || new Date();
-    
-    if (today.toDateString() !== lastUpdate.toDateString()) {
-        reconstitutionState.lastCheckedDate = today;
-        updateReconstituionReport();
-    }
-}, 60000); // Check every minute
-
-
-// ============================================================
-// DISCOUNT CODE COPY TO CLIPBOARD
-// ============================================================
-
-document.querySelectorAll('.ascension-discount-copy').forEach(copyBtn => {
-    copyBtn.addEventListener('click', async () => {
-        // Get the code from the corresponding h2 element
-        const codeElement = copyBtn.closest('.ascension-discount-code').querySelector('h2');
-        const codeText = codeElement.textContent.trim();
-        
-        // Copy to clipboard
-        try {
-            await navigator.clipboard.writeText(codeText);
-            
-            // Get the span inside the button
-            const spanElement = copyBtn.querySelector('span');
-            
-            // Change text to "Copied"
-            spanElement.textContent = 'Copied';
-            
-            // Add 'copied' class for visual feedback (optional)
-            copyBtn.classList.add('copied');
-            
-            // Reset after 5 seconds
-            setTimeout(() => {
-                spanElement.textContent = 'Tap To Copy';
-                copyBtn.classList.remove('copied');
-            }, 5000);
-            
-        } catch (err) {
-            const spanElement = copyBtn.querySelector('span');
-            spanElement.textContent = 'Failed to copy';
-            
-            // Reset after 5 seconds
-            setTimeout(() => {
-                spanElement.textContent = 'Tap To Copy';
-            }, 5000);
-        }
-    });
-});
