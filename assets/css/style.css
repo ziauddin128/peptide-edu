@@ -2944,7 +2944,8 @@ body {
   font-size: 10px;
   letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.32);
+  color: var(--text-color);
+  opacity: .6;
   position: absolute;
   top: 90%;
   left: 0;
