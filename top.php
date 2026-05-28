@@ -75,6 +75,9 @@ $activePage = basename($_SERVER['PHP_SELF']);
               <li class="nav-item">
                 <a class="nav-link <?= ($activePage == "peptides.php") ? "active" : "" ?>" href="peptides">Peptides</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link <?= ($activePage == "reconstitution-calculator.php") ? "active" : "" ?>" href="reconstitution-calculator">Reconstitution</a>
+              </li>
               <!-- <li class="nav-item">
                 <a class="nav-link explore-btn" href="peptides">Explore</a>
               </li> -->
