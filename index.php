@@ -3,7 +3,7 @@ require "top.php";
 ?>
 
 
-<!-- Popup Info -->
+<!-- Home Popup -->
 <?php
 if (!isset($_SESSION['CONFIRM_TERMS']) || $_SESSION['CONFIRM_TERMS'] != "Yes") {
 ?>
@@ -11,7 +11,7 @@ if (!isset($_SESSION['CONFIRM_TERMS']) || $_SESSION['CONFIRM_TERMS'] != "Yes") {
     <div class="popup-in">
       <i class="fa-solid fa-triangle-exclamation"></i>
       <h1>Usage Warning</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, eum temporibus sapiente quas accusantium nostrum sequi! Magni quidem itaque iste.</p>
+      <p>All peptide products are in powder (lyophilized) form and require reconstitution with a suitable diluent for research purposes only. Research supplies (e.g., syringes, alcohol) are not included. We adhere to all local and state laws around research only chemical sales. We are not a pharmacy, nor do we promote or provide any advice for human or animal consumption. Please review our terms and conditions carefully.</p>
       <button class="info-agree-btn">Agree</button>
     </div>
   </section>
@@ -25,9 +25,9 @@ if (!isset($_SESSION['CONFIRM_TERMS']) || $_SESSION['CONFIRM_TERMS'] != "Yes") {
   <div class="container">
 
     <h2>Science. Knowledge. Clarity</h2>
-    <h1>Peptide Research, <br> Clearly <span>Explained</span></h1>
+    <h1>Advanced Formulations, <br> <span>Precision Crafted</span></h1>
 
-    <p>OD Bio Labs is and independent resource dedicated to educating and informing about peptides, their research, and their role in modern science.</p>
+    <p>Kronos Formulations develops and manufactures high-quality formulations across the fields of nutritional supplements, research compounds, peptides, and specialty ingredients. Our focus is on precision, innovation, and uncompromising quality at every stage of development.</p>
 
 
     <div class="hero-btn">
@@ -108,9 +108,9 @@ if (!isset($_SESSION['CONFIRM_TERMS']) || $_SESSION['CONFIRM_TERMS'] != "Yes") {
             <div class="divider-line"></div>
           </div>
 
-          <p>Peptides are short chains of amino acids that play essential roles in biological signaling, hormone regulation, and cellular function. they are the focus of ongoing research across a wide range of scientific disciplines.</p>
+          <p>Peptides are short chains of amino acids, the fundamental building blocks of proteins. Ranging from 2 to roughly 50 amino acids long, they act as critical chemical messengers in the body, telling cells exactly what to do.</p>
 
-          <a href="about" class="primary-outline-btn mt-4">
+          <a href="about#interested-to-know" class="primary-outline-btn mt-4">
             <span>Read More</span>
             <i class="fa-solid fa-arrow-right"></i>
           </a>

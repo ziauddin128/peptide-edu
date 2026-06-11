@@ -16,18 +16,24 @@ require "top.php";
         <div class="about-us-left">
 
           <p>
-            OD Bio Labs is an independent educational platform dedicated to peptides and their role in modern biochemical research. This website was developed to provide clear, structured, and evidence-based information for individuals seeking to better understand how peptides are defined, studied, and interpreted within scientific and regulatory contexts.
+            Kronos Formulations is a research, development, and manufacturing company specializing in advanced chemical, nutritional, and cosmetic formulations. Our expertise spans dietary supplements, functional ingredients, cosmetic products, research-grade compounds, peptides, and custom formulation services for brands seeking innovative, high-quality solutions.
           </p>
 
           <p>
-            OD Bio Labs is an independent educational platform dedicated to peptides and their role in modern biochemical research. This website was developed to provide clear, structured, and evidence-based information for individuals seeking to better understand how peptides are defined, studied, and interpreted within scientific and regulatory contexts.
+            Driven by a commitment to scientific excellence, we work closely with clients to develop products that meet demanding standards for quality, consistency, and performance. From concept development and formulation design to manufacturing and production support, we provide comprehensive solutions tailored to each project's unique requirements.
           </p>
+
+          <p>
+            Our multidisciplinary approach combines formulation science, ingredient research, quality control, and manufacturing expertise to create products across multiple industries. Whether developing a performance supplement, a cosmetic formulation, a specialty research product, or a private-label brand, we focus on delivering reliable, scalable, and market-ready solutions.
+          </p>
+
+          <p>At Kronos Formulations, innovation is at the core of everything we do. By continuously exploring new ingredients, technologies, and formulation strategies, we help our partners bring the next generation of products to life.</p>
 
         </div>
       </div>
       <div class="col-md-6">
         <div class="about-us-right">
-          <img class="img-fluid rounded" src="assets/images/dna-strand.jpg" alt="">
+          <img class="img-fluid rounded" src="assets/images/about-us.jpg" alt="">
         </div>
       </div>
     </div>
@@ -35,7 +41,7 @@ require "top.php";
 </section>
 
 <!-- About Peptide -->
-<section class="about-us">
+<section class="about-us" id="interested-to-know">
   <div class="container">
 
     <div class="section-title-wrap align-items-center">

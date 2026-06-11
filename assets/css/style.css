@@ -7,6 +7,8 @@
   box-sizing: border-box;
   box-shadow: none;
   font-family: "Work Sans", sans-serif;
+  scroll-behavior: smooth;
+  scroll-margin-top: 100px;
 }
 
 :root {
@@ -80,7 +82,7 @@ body {
 }
 
 .logo {
-  width: 160px;
+  width: 180px;
 }
 
 .logo-dark {
@@ -352,6 +354,12 @@ body {
   }
 }
 
+@media (max-width: 575px) {
+  .hero h1 {
+    font-size: 60px;
+  }
+}
+
 /* Featured Section */
 .featured {
   padding: 20px 0;
@@ -514,6 +522,13 @@ body {
   margin: 0 auto;
 }
 
+.explore-peptide-item > div 
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .explore-peptide-item h1 {
   font-size: 24px;
   font-weight: 500;
@@ -657,6 +672,11 @@ body {
   height: 100%;
 }
 
+.footer-item:first-child
+{
+  padding-right: 10px;
+}
+
 .row > div:last-child .footer-item {
   border-right: none;
 }
@@ -786,6 +806,13 @@ body {
   gap: 10px;
   text-align: center;
   position: relative;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.popup-in::-webkit-scrollbar
+{
+  display: none;
 }
 
 .popup-in > i {

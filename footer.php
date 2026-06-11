@@ -2,26 +2,26 @@
 <section class="footer">
     <div class="container">
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <div class="footer-item">
                     <a href="#">
                         <img src="assets/images/logo.png" class="logo logo-light" alt="Logo">
                         <img src="assets/images/logo-dark.png" class="logo logo-dark" alt="Logo">
                     </a>
                     <p>Independent. Educational. Evidence Based</p>
-                    <p> The website is informational purpose only. We do not sell peptides, facilitate their acquisition or promote their use in human.</p>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="footer-item">
                     <h1>Quick Links</h1>
                     <ul>
                         <li><a href="/">Home</a></li>
                         <li><a href="about">About</a></li>
                         <li><a href="peptides">Peptides</a></li>
+                        <li><a href="reconstitution-calculator">Reconstitution Calculator</a></li>
                 </div>
             </div>
-            <div class="col-md-3">
+            <!-- <div class="col-md-3">
                 <div class="footer-item">
                     <h1>Follow Us</h1>
                     <ul>
@@ -29,7 +29,7 @@
                         <li><a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
                     </ul>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
@@ -37,10 +37,10 @@
 <!-- Copyright -->
 <section class="copyright-footer">
     <div class="container">
-        <p><i class="fa-regular fa-copyright"></i> <?= date('Y') ?> All right reserved OD Bio Labs</p>
+        <p><i class="fa-regular fa-copyright"></i> <?= date('Y') ?> All right reserved Kronos Formulationss</p>
 
         <h2>YOU MUST BE OVER 21 YEARS OLD TO USE THIS WEBSITE.</h2>
-        <p>The assertions made here have not undergone assessment by the Food and Drug Administration. Lyophilized peptids are exclusively for in vitro research, analytical or laboratory purposes, and are not for human or animal applications of any kind. These products are to be managed only by individuals with the appropriate professional credentials. These items are not drugs, foods, or cosmetics and should not be inaccurately represented or utilized as such. Peptide Crafters is not a compounding pharmacy or chemical compounding facility as defined under 503A of the Federal Food, Drug, and Cosmetic act. Peptide Crafters is not an outsourcing facility as defined under 503B of the Federal Food, Drug, and Cosmetic act.</p>
+        <p>The statements made on this website have not been evaluated by the U.S. Food and Drug Administration. Research compounds and peptides offered by Kronos Formulations are intended solely for laboratory, analytical, and scientific research purposes and are not for human or animal use. These materials should be handled only by qualified professionals with the appropriate training and facilities. Unless specifically identified otherwise, products offered by Kronos Formulations are not drugs, foods, dietary supplements, or cosmetic products and should not be represented or used as such. Kronos Formulations is not a compounding pharmacy as defined under Section 503A of the Federal Food, Drug, and Cosmetic Act, nor is it an outsourcing facility as defined under Section 503B of the Federal Food, Drug, and Cosmetic Act.</p>
 
     </div>
 </section>
