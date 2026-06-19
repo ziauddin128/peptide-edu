@@ -22,8 +22,8 @@ $activePage = basename($_SERVER['PHP_SELF']);
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PeptideEdu</title>
-  <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="shortcut icon" href="<?= DOMAIN_NAME ?>assets/images/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="<?= DOMAIN_NAME ?>assets/css/style.css" />
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
     rel="stylesheet" />
@@ -31,11 +31,11 @@ $activePage = basename($_SERVER['PHP_SELF']);
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
   <!-- Owl Carousel & Jquery-->
-  <link rel="stylesheet" href="assets/css/owl.carousel.css" />
-  <link rel="stylesheet" href="assets/css/owl.theme.default.css" />
-  <link rel="stylesheet" href="assets/css/owl.theme.green.css" />
+  <link rel="stylesheet" href="<?= DOMAIN_NAME ?>assets/css/owl.carousel.css" />
+  <link rel="stylesheet" href="<?= DOMAIN_NAME ?>assets/css/owl.theme.default.css" />
+  <link rel="stylesheet" href="<?= DOMAIN_NAME ?>assets/css/owl.theme.green.css" />
   <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-  <script src="assets/js/owl.carousel.js"></script>
+  <script src="<?= DOMAIN_NAME ?>assets/js/owl.carousel.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
@@ -45,9 +45,9 @@ $activePage = basename($_SERVER['PHP_SELF']);
     <div class="container">
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/">
-            <img src="assets/images/logo.png" class="logo logo-light" alt="Logo">
-            <img src="assets/images/logo-dark.png" class="logo logo-dark" alt="Logo">
+          <a class="navbar-brand" href="<?= DOMAIN_NAME ?>">
+            <img src="<?= DOMAIN_NAME ?>assets/images/logo.png" class="logo logo-light" alt="Logo">
+            <img src="<?= DOMAIN_NAME ?>assets/images/logo-dark.png" class="logo logo-dark" alt="Logo">
           </a>
           <div class="d-flex align-items-center gap-3">
             <button class="theme-btn outline-none shadow-none d-lg-none">
@@ -79,9 +79,6 @@ $activePage = basename($_SERVER['PHP_SELF']);
               <li class="nav-item">
                 <a class="nav-link <?= ($activePage == "reconstitution-calculator.php") ? "active" : "" ?>" href="reconstitution-calculator">Reconstitution</a>
               </li>
-              <!-- <li class="nav-item">
-                <a class="nav-link explore-btn" href="peptides">Explore</a>
-              </li> -->
               <li class="nav-item d-none d-lg-block">
                 <button class="theme-btn outline-none shadow-none">
                   <i class="fa-solid fa-sun"></i>

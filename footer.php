@@ -5,8 +5,8 @@
             <div class="col-md-6">
                 <div class="footer-item">
                     <a href="#">
-                        <img src="assets/images/logo.png" class="logo logo-light" alt="Logo">
-                        <img src="assets/images/logo-dark.png" class="logo logo-dark" alt="Logo">
+                        <img src="<?= DOMAIN_NAME ?>assets/images/logo.png" class="logo logo-light" alt="Logo">
+                        <img src="<?= DOMAIN_NAME ?>assets/images/logo-dark.png" class="logo logo-dark" alt="Logo">
                     </a>
                     <p>Independent. Educational. Evidence Based</p>
                 </div>
@@ -45,13 +45,14 @@
     </div>
 </section>
 
-
 <!-- To Top -->
 <button class="to-top" id="to-top">
     <i class="fa-solid fa-chevron-up"></i>
 </button>
 
 <script>
+    let domain_name = "<?= DOMAIN_NAME ?>";
+
     $(document).ready(function() {
         // To Top
         $("#to-top").click(function() {
@@ -78,7 +79,7 @@
     //language session set
     function change_lang(lang) {
         $.ajax({
-            url: "api/changeLanguage.php",
+            url: `${domain_name}api/changeLanguage.php`,
             type: "POST",
             data: {
                 lang
