@@ -10,15 +10,15 @@ require "top.php";
             <i class="fa-solid fa-chevron-right"></i>
             <a href="javascript:void(0)">Products</a>
             <i class="fa-solid fa-chevron-right"></i>
-            <span>Reconstitution Calculator</span>
+            <a href="reconstitution-calculator"><span>Reconstitution Calculator</span></a>
         </div>
 
         <div class="row mt-5">
             <div class="col-lg-6">
                 <div class="reconstitution-header-left">
-                    <h4>Precision Pharmacology Tools</h4>
+                    <h4>Precision Pharmacology Tool</h4>
                     <h1>Peptide Reconstitution Calculator</h1>
-                    <p>Surgical accuracy for clinical research protocols. Calculate precise volume requirements and dosage concentrations with preset profiles for 20 peptides.</p>
+                    <p>Surgical accuracy for clinical research protocols. Calculate precise volume requirements and dosage concentrations.</p>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -27,11 +27,11 @@ require "top.php";
                         <div class="ascension-peptides-card-top">
                             <div class="ascension-peptides-card-top-left">
                                 <div class="ascension-icon">
-                                    <i class="fa-solid fa-flask"></i>
+                                   <img src="assets/images/favicon.png" alt="">
                                 </div>
                                 <div>
                                     <h4>Partner Vendor</h4>
-                                    <h3>Ascension Peptides</h3>
+                                    <h3>OD Ritual</h3>
                                 </div>
                             </div>
                             <div class="ascension-peptides-card-top-right">
@@ -42,19 +42,19 @@ require "top.php";
                         <div class="ascension-peptides-card-btm">
                             <div class="ascension-peptides-card-btm-left">
                                 <div>
-                                    <h3>50</h3>
+                                    <h3>15</h3>
                                     <div>
                                         <h4>%</h4>
                                         <h5>OFF</h5>
                                     </div>
                                 </div>
-                                <p>Sitewide. Stacks with bulk pricing.</p>
+                                <p>Sitewide. Stacks with accessory bundles.</p>
                             </div>
                             <div class="ascension-peptides-card-btm-right">
                                 <div class="ascension-discount-code">
                                     <div>
                                         <h4>CODE</h4>
-                                        <h2>PEPTIDECK</h2>
+                                        <h2>KRONOS15</h2>
                                     </div>
                                     <div class="ascension-discount-copy">
                                         <i class="fa-solid fa-copy"></i>
@@ -62,7 +62,7 @@ require "top.php";
                                     </div>
                                 </div>
                                 <a href="peptides" class="primary-btn mt-3 justify-content-center">
-                                    <span>Explore Peptides</span>
+                                    <span>BUILD YOUR RITUAL</span>
                                     <i class="fa-solid fa-arrow-right"></i>
                                 </a>
                             </div>
@@ -70,10 +70,6 @@ require "top.php";
                     </div>
 
                     <div class="reconstitution-header-right-btm">
-                        <div>
-                            <p>Presets</p>
-                            <h5>20 Peptides</h5>
-                        </div>
                         <div>
                             <p>Syringe</p>
                             <h5>U-100 · <span class="active-syringe-size">1</span> mL</h5>
@@ -155,7 +151,7 @@ require "top.php";
 </section>
 
 <!-- Specific Dose -->
-<section class="specific-dose">
+<!-- <section class="specific-dose">
     <div class="container">
         <div class="specific-dose-in">
             <div class="specific-dose-left">
@@ -186,7 +182,6 @@ require "top.php";
             <button class="specific-dose-filter-clear-btn">Clear</button>
         </div>
 
-        <!-- More Specific Dose -->
         <div class="accordion" id="specificDoseExample">
             <div class="accordion-item">
                 <div id="s_collapseOne" class="accordion-collapse collapse" data-bs-parent="#specificDoseExample">
@@ -329,7 +324,7 @@ require "top.php";
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <!-- calculation area -->
 <section class="calculation-area">

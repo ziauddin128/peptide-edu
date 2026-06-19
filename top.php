@@ -22,6 +22,7 @@ $activePage = basename($_SERVER['PHP_SELF']);
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PeptideEdu</title>
+  <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="assets/css/style.css" />
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
@@ -83,7 +84,7 @@ $activePage = basename($_SERVER['PHP_SELF']);
               </li> -->
               <li class="nav-item d-none d-lg-block">
                 <button class="theme-btn outline-none shadow-none">
-                  <i class="fa-solid fa-moon"></i>
+                  <i class="fa-solid fa-sun"></i>
                 </button>
               </li>
               <li class="nav-item dropdown">

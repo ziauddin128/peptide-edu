@@ -101,8 +101,8 @@
             const icon = btn.querySelector('i');
             if (icon) {
                 icon.className = theme === 'dark' ?
-                    'fa-solid fa-sun' :
-                    'fa-solid fa-moon';
+                    'fa-solid fa-moon' :
+                    'fa-solid fa-sun';
             }
         });
     }

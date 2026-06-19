@@ -18,8 +18,7 @@ require "top.php";
 
 
     <div class="section-title-wrap align-items-center">
-      <h2 class="title-tag">Educational Resource</h2>
-      <h1>Peptide education library</h1>
+      <h1>Peptide Compounds Catalog</h1>
       <div class="divider-line"></div>
     </div>
 

@@ -14,7 +14,7 @@ if ($action == "get-peptides") {
     $category = "category2";
   }
 
-  /*  if ($categoryVal == "All") {
+   if ($categoryVal == "All") {
     $sql = "SELECT * FROM `peptides` ORDER BY `id` ASC";
     $res = $GLOBALS['conn']->prepare($sql);
     $res->execute();
@@ -23,12 +23,12 @@ if ($action == "get-peptides") {
     $res = $GLOBALS['conn']->prepare($sql);
     $res->bind_param("s", $categoryVal);
     $res->execute();
-  } */
+  }
 
-  $sql = "SELECT * FROM `peptides` WHERE `$category` = ? ORDER BY `id` ASC";
+  /* $sql = "SELECT * FROM `peptides` WHERE `$category` = ? ORDER BY `id` ASC";
   $res = $GLOBALS['conn']->prepare($sql);
   $res->bind_param("s", $categoryVal);
-  $res->execute();
+  $res->execute(); */
 
   $result = $res->get_result();
 
@@ -39,7 +39,7 @@ if ($action == "get-peptides") {
       $categoryShow = ($category == "category1") ? $row['category1'] : $row['category2'];
       $name = ($category == "category1") ? $row['name1'] : $row['name2'];
       $short_desc = ($category == "category1") ? $row['short_desc1'] : $row['short_desc2'];
-      $readMore = ($category == "category1") ? "Read More" : "Read More 2";
+      $readMore = ($category == "category1") ? "View Details" : "View Details 2";
 
       $html .= '<div class="col-sm-6 col-md-4 col-lg-3">
               <div class="product-item">

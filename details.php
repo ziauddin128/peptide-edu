@@ -40,7 +40,7 @@ $sds = json_decode($row2['sds_data'] ?? '{}', true) ?: [];
       <i class="fa-solid fa-chevron-right"></i>
       <a href="javascript:void(0)">Products</a>
       <i class="fa-solid fa-chevron-right"></i>
-      <span><?= ($s_lang == "en") ? $row['name1'] : $row['name2'] ?></span>
+      <a href="details?id=<?= $id ?>"><span><?= ($s_lang == "en") ? $row['name1'] : $row['name2'] ?></span></a>
     </div>
 
     <div class="row mt-4">
@@ -658,7 +658,7 @@ $sds = json_decode($row2['sds_data'] ?? '{}', true) ?: [];
   <div class="container">
     <div class="research-use-in">
       <p>
-        <b><i class="fa-solid fa-triangle-exclamation"></i> Product usage notice:</b> Research Chemical Use Only - This product is intended strictly for in vitro laboratory research and analytical purposes. It must not be administered to humans or animals under any circumstances. All content provided on this site is for education purposed only. This product should only be handled by licensed, qualified professionals in a controlled research setting. This product is not a drug, food, or cosmetic, and must not be misbranded, mislabeled or misused in violation or applicable laws.
+        <b><i class="fa-solid fa-triangle-exclamation"></i> Research Chemical Use Only:</b> This product is intended strictly for in vitro laboratory research and analytical purposes. All content provided on this site is for education purposed only. This product should only be handled by licensed, qualified professionals in a controlled research setting. This product is not a drug, food, or cosmetic, and must not be misbranded, mislabeled or misused in violation or applicable laws.
       </p>
     </div>
   </div>
@@ -673,11 +673,11 @@ $sds = json_decode($row2['sds_data'] ?? '{}', true) ?: [];
         <span>Disclaimer</span>
       </h1>
       <p>
-        <b>Research Use Only Disclaimer:</b> Products from Peptide Crafters are strictly for laboratory and research use by qualified professionals. They are not pharmaceuticals, dietary supplements, agricultural products, or household items, and must not be mislabeled as such. These chemicals are not intended for human or veterinary use and are exempt from Title 21, Parts 100–740 of the CFR. The information provided is educational, not evaluated by the FDA, and is not intended to diagnose, treat, cure, or prevent any health condition.
+        <b>Research Use Only Disclaimer:</b> Products from Kronos Formulations are strictly for laboratory and research use by qualified professionals. They are not pharmaceuticals, dietary supplements, agricultural products, or household items, and must not be mislabeled as such. These chemicals are not intended for human or veterinary use and are exempt from Title 21, Parts 100–740 of the CFR. The information provided is educational, not evaluated by the FDA, and is not intended to diagnose, treat, cure, or prevent any health condition.
       </p>
 
       <p>
-        <b>Intellectual Property & Patent Use Disclaimer:</b> Peptide Crafters provides this product solely for uses that fall under exemptions to patent infringement as permitted by applicable law, including but not limited to 35 U.S.C. § 271(e)(1) in the United States. It is the sole responsibility of the purchaser or user to ensure that their use of this product complies with all applicable intellectual property laws and legal exemptions. By purchasing this product, the buyer agrees to use it only within the scope of those exemptions and to indemnify and hold harmless Peptide Crafters from any claims arising from its use, including any alleged intellectual property infringement.
+        <b>Intellectual Property & Patent Use Disclaimer:</b> Kronos Formulations provides this product solely for uses that fall under exemptions to patent infringement as permitted by applicable law, including but not limited to 35 U.S.C. § 271(e)(1) in the United States. It is the sole responsibility of the purchaser or user to ensure that their use of this product complies with all applicable intellectual property laws and legal exemptions. By purchasing this product, the buyer agrees to use it only within the scope of those exemptions and to indemnify and hold harmless Kronos Formulations from any claims arising from its use, including any alleged intellectual property infringement.
       </p>
     </div>
   </div>
