@@ -1,0 +1,13 @@
+
+.error-msg {
+  font-size: 14px;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  color: red;
+  display: none;
+}
+
+.login-page 
+{
+    min-height: 100vh !important;
+}

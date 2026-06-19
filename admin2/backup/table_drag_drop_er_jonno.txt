@@ -1,0 +1,143 @@
+//===================== first page js er jonno  ================//
+
+let draggedRow;
+function drag_it(event) {
+event.dataTransfer.setData('text/plain', 'dummy');
+draggedRow = event.target.closest('tr');
+event.dataTransfer.effectAllowed = 'move';
+}
+
+function dragover(event) {
+event.preventDefault();
+const targetRow = event.target.closest('tr');
+
+if (targetRow && targetRow !== draggedRow) {
+    const rect = targetRow.getBoundingClientRect();
+    const next = event.clientY > rect.top + rect.height / 2;
+
+    const rows = Array.from(draggedRow.parentNode.children);
+    const fromIndex = rows.indexOf(draggedRow);
+    let toIndex = rows.indexOf(targetRow);
+
+    if (next && toIndex > fromIndex) {
+    toIndex--;
+    }
+
+    // Remove the dragged row
+    rows.splice(fromIndex, 1);
+
+    // Insert the dragged row at the correct position
+    rows.splice(toIndex, 0, draggedRow);
+
+    // Update the order
+    rows.forEach((row, index) => {
+    row.querySelector('td:first-child').textContent = index + 1;
+    });
+
+    // Re-append all rows in the correct order
+    rows.forEach(row => draggedRow.parentNode.appendChild(row));
+
+    // Update the database via AJAX
+    updateDatabaseOrder();
+}
+}
+
+function updateDatabaseOrder() {
+const dataTable = $('#example1').DataTable();
+    const allData = dataTable.rows().data().toArray();
+
+const orderArray = Array.from(document.querySelectorAll('#example1 tbody tr')).map((tr, index) => {
+    const rowId = tr.id.replace('user_box', ''); 
+    const orderValue = index + 1;
+
+    // Update the order displayed in the actual table cell
+    $(`#user_box${rowId} td:first-child`).text(orderValue);
+
+    return { id: rowId, order: orderValue };
+}); 
+
+// Make an AJAX request to update the database
+$.ajax({
+    type: 'POST',
+    url: 'action/update_portfolio_sl.php', 
+    data: { order: JSON.stringify(orderArray) },
+    success: function(response) {
+    
+    },
+}); 
+
+}
+
+
+//===================== next page tabl er example  ================//
+ $html .= '<tr id="user_box'.$row['id'].'" draggable="true"  ondragstart="drag_it(event)" ondragover="dragover(event)">
+    <td>'.$sl.'</td>
+    <td>'.$row['title'].'</td>
+    <td>'.$row['client_name'].'</td>
+    <td>'.date('m-d-Y H:i:s',strtotime($row['added_on'])).'</td>
+    <td>
+    <div class="user_action"><div>';
+
+    if($_SESSION['ADMIN_TYPE'] != "Technician")
+    {
+
+    if($row['status']=="1")
+    {
+        $html .='<label class="user_switch" draggable="false">
+        <input type="checkbox" data-val="0" class="status_toggle" id="status_toggle" data-id="'.$row['id'].'" checked>
+        <span class="slider round"></span>
+        <span class="status_text_on">ON</span>
+            <span class="status_text_off" style="display: none">OFF</span>
+        </label>';
+    }
+    else 
+    {
+        $html .='<label class="user_switch" draggable="false">
+        <input type="checkbox" class="status_toggle" id="status_toggle" data-id="'.$row['id'].'" data-val="1">
+        <span class="slider round"></span>
+        <span class="status_text_on"  style="display: none">ON</span>
+        <span class="status_text_off">OFF</span>
+        </label>';
+    }
+
+    }
+    $html .='</div>';
+
+    $html .='<div>
+        <a href="update_portfolio.php?id='.$row['id'].'" class="product_edit_btn" draggable="false">Edit</a>
+        </div>';
+
+    if($_SESSION['ADMIN_TYPE'] != "Technician")
+    {
+    $html .='<div>
+        <a href="javascript:void(0)" data-did="'.$row['id'].'" class="user_delete_btn" draggable="false">Delete</a>
+        </div>';
+    }
+
+
+//===================== sobar nice JS, r keep mind sob data ek page ey show korate hobe   ================//
+
+<script>
+  $(function () {
+    $("#example1")
+      .DataTable({
+        responsive: true,
+        lengthChange: false,
+        autoWidth: false,
+        paging: false,
+        buttons: ["colvis"],
+      })
+      .buttons()
+      .container()
+      .appendTo("#example1_wrapper .col-md-6:eq(0)");
+    $("#example2").DataTable({
+      paging: true,
+      lengthChange: false,
+      searching: false,
+      ordering: true,
+      info: true,
+      autoWidth: false,
+      responsive: true,
+    });
+  });
+</script>

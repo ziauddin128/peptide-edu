@@ -98,8 +98,7 @@ require "../top.php";
 
                             <p>This comprehensive guide covers everything you need to know about HGH 191AA: how it works, the difference between 191AA and 192AA, research-backed benefits, dosage protocols, side effects, proper storage, and frequently asked questions. Whether you're exploring HGH for medical purposes or research, this guide provides the scientific foundation you need.</p>
                         </div>
-
-                          <div class="details-item">
+                        <div class="details-item">
                             <div class="title">
                                 <h1>Introduction</h1>
                             </div>
@@ -112,7 +111,6 @@ require "../top.php";
                 </div>
             </div>
         </section>
-
 
     </div>
 </section>
