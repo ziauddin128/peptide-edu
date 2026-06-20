@@ -77,7 +77,7 @@
     });
 
     //language session set
-    function change_lang(lang) {
+    /* function change_lang(lang) {
         $.ajax({
             url: `${domain_name}api/changeLanguage.php`,
             type: "POST",
@@ -88,7 +88,10 @@
                 window.location.reload();
             }
         })
-    }
+    } */
+
+
+
 
     // Light & Dark Mode
     const html = document.documentElement;
@@ -119,6 +122,34 @@
     if (saved) applyTheme(saved);
 </script>
 
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: "en"
+        }, 'google_translate_element');
+    }
+
+    function change_lang(lang) {
+
+        var language = lang;
+        var selectField = document.querySelector("#google_translate_element select");
+        for (var i = 0; i < selectField.children.length; i++) {
+            var option = selectField.children[i];
+            if (option.value == language) {
+                selectField.selectedIndex = i;
+                selectField.dispatchEvent(new Event('change'));
+                break;
+            }
+        }
+
+        document.querySelectorAll('.menu-dropdown.dropdown-menu .dropdown-item').forEach(item => {
+            item.classList.remove('active');
+        });
+        event.currentTarget.classList.add('active');
+    }
+</script>
+
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

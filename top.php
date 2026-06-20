@@ -40,6 +40,10 @@ $activePage = basename($_SERVER['PHP_SELF']);
 </head>
 
 <body>
+
+  <!-- Google Translator -->
+  <div id="google_translate_element" style="display:none"></div>
+
   <!-- Navbar -->
   <div class="nav-bar">
     <div class="container">
@@ -86,11 +90,32 @@ $activePage = basename($_SERVER['PHP_SELF']);
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle shadow-none outline-none" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <?php echo ($s_lang == "en") ? "English" : "Spanish"  ?>
+                  <!-- <?php echo ($s_lang == "en") ? "English" : "Spanish"  ?> -->
+                  Language
                 </a>
                 <ul class="dropdown-menu menu-dropdown">
-                  <li><a class="dropdown-item <?= ($s_lang == "en") ? "active" : "" ?>" href="javascript:void(0)" onclick="change_lang('en')">English</a></li>
-                  <li><a class="dropdown-item <?= ($s_lang == "spa") ? "active" : "" ?>" href="javascript:void(0)" onclick="change_lang('spa')">Spanish</a></li>
+                  <!--   <li>
+                    <a class="dropdown-item <?= ($s_lang == "en") ? "active" : "" ?>" href="javascript:void(0)" onclick="change_lang('en')">
+                      <img src="assets/images/english.png" alt="">
+                      <span>English</span>
+                    </a>
+                  </li>
+                  <li><a class="dropdown-item <?= ($s_lang == "es") ? "active" : "" ?>" href="javascript:void(0)" onclick="change_lang('es')">
+                      <img src="assets/images/spanish.png" alt="">
+                      <span>Spanish</span>
+                    </a></li> -->
+
+
+                  <li>
+                    <a class="dropdown-item" href="javascript:void(0)" onclick="change_lang('en')">
+                      <img src="assets/images/english.png" alt="">
+                      <span>English</span>
+                    </a>
+                  </li>
+                  <li><a class="dropdown-item" href="javascript:void(0)" onclick="change_lang('es')">
+                      <img src="assets/images/spanish.png" alt="">
+                      <span>Spanish</span>
+                    </a></li>
                 </ul>
               </li>
             </ul>

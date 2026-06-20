@@ -161,6 +161,19 @@ body {
   color: var(--text-color);
 }
 
+.menu-dropdown.dropdown-menu li a 
+{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-dropdown.dropdown-menu li a img 
+{
+  width: 20px;
+}
+
+
 @media (max-width: 575px) {
   .logo {
     width: 120px;
@@ -3832,4 +3845,14 @@ body {
   font-weight: 400;
   font-size: 16px;
   color: var(--text-color);
+}
+
+/* Google Translator */
+
+body {
+	top: 0px !important;
+}
+
+body>.skiptranslate, .goog-logo-link, .gskiptranslate, .goog-te-gadget span, .goog-te-banner-frame, #goog-gt-tt, .goog-te-balloon-frame, div#goog-gt-tt {
+  display: none !important;
 }
