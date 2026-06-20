@@ -72,6 +72,15 @@ if (empty($_SESSION['USER_ID'])) {
                             </a>
                         </li>
 
+                        <li class="nav-item">
+                            <a href="case-studies" class="nav-link">
+                                <i class="nav-icon fa-solid fa-microscope"></i>
+                                <p>
+                                    Case Studies
+                                </p>
+                            </a>
+                        </li>
+
                          <li class="nav-item">
                             <a href="faq" class="nav-link">
                                 <i class="nav-icon fa-regular fa-circle-question"></i>

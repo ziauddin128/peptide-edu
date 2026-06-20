@@ -185,53 +185,33 @@ if (!isset($_SESSION['CONFIRM_TERMS']) || $_SESSION['CONFIRM_TERMS'] != "Yes") {
     </div>
 
     <div class="row mt-4">
-      <div class="col-sm-6">
-        <a href="#" class="case-studies-item">
-          <div class="img-wrapper">
-            <img src="assets/images/peptides.png" alt="Case Studies">
+      <?php
+      $caseStudySql = "SELECT * FROM `case-studies`";
+      $caseStudyRes = mysqli_query($conn, $caseStudySql);
+      if (mysqli_num_rows($caseStudyRes) > 0) {
+        while ($caseStudyRow = mysqli_fetch_assoc($caseStudyRes)) {
+      ?>
+          <div class="col-sm-6">
+            <a href="blog/<?= $caseStudyRow['slug'] ?>" class="case-studies-item">
+              <div class="img-wrapper">
+                <img src="admin/storage/<?= $caseStudyRow['thumbnail'] ?>" alt="Case Studies">
+              </div>
+              <div>
+                <h1><?= $caseStudyRow['title'] ?></h1>
+                <p>
+                <p>
+                  <?= (strlen($caseStudyRow['summary']) > 100)
+                    ? substr($caseStudyRow['summary'], 0, 100) . '...'
+                    : $caseStudyRow['summary']; ?>
+                </p>
+                </p>
+              </div>
+            </a>
           </div>
-          <div>
-            <h1>Does Shaking Damage Reconstituted Peptides?</h1>
-            <p>Standard vs extreme Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, libero.</p>
-          </div>
-        </a>
-      </div>
-
-      <div class="col-sm-6">
-        <a href="#" class="case-studies-item">
-          <div class="img-wrapper">
-            <img src="assets/images/peptides.png" alt="Case Studies">
-          </div>
-          <div>
-            <h1>Does Shaking Damage Reconstituted Peptides?</h1>
-            <p>Standard vs extreme Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, libero.</p>
-          </div>
-        </a>
-      </div>
-
-      <div class="col-sm-6">
-        <a href="#" class="case-studies-item">
-          <div class="img-wrapper">
-            <img src="assets/images/peptides.png" alt="Case Studies">
-          </div>
-          <div>
-            <h1>Does Shaking Damage Reconstituted Peptides?</h1>
-            <p>Standard vs extreme Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, libero.</p>
-          </div>
-        </a>
-      </div>
-
-      <div class="col-sm-6">
-        <a href="#" class="case-studies-item">
-          <div class="img-wrapper">
-            <img src="assets/images/peptides.png" alt="Case Studies">
-          </div>
-          <div>
-            <h1>Does Shaking Damage Reconstituted Peptides?</h1>
-            <p>Standard vs extreme Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, libero.</p>
-          </div>
-        </a>
-      </div>
+      <?php
+        }
+      }
+      ?>
 
     </div>
 

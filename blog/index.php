@@ -1,5 +1,24 @@
 <?php
 require "../top.php";
+
+if (isset($_GET['slug']) && $_GET['slug'] != "") {
+    $slug = $_GET['slug'];
+
+    $sql = "SELECT * FROM `case-studies` WHERE `slug` = ?";
+    $res = $conn->prepare($sql);
+    $res->bind_param('s', $slug);
+    $res->execute();
+    $result = $res->get_result();
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+    } else {
+        echo "<script>window.location.assign('../')</script>";
+    }
+} else {
+    echo "<script>window.location.assign('../')</script>";
+}
+
+
 ?>
 
 <!-- Blog Section -->
@@ -12,7 +31,7 @@ require "../top.php";
             <i class="fa-solid fa-chevron-right"></i>
             <a href="javascript:void(0)">Blog</a>
             <i class="fa-solid fa-chevron-right"></i>
-            <a href="details"><span>Blog Title</span></a>
+            <a href="<?= $row['slug'] ?>"><span><?= $row['title'] ?></span></a>
         </div>
 
         <!-- Blog Header -->
@@ -20,15 +39,15 @@ require "../top.php";
             <div class="row align-items-center">
                 <div class="col-md-5">
                     <div class="blog-header-left">
-                        <h1>HGH 191AA: The Complete Guide to Somatropin</h1>
+                        <h1><?= $row['title'] ?></h1>
                         <div>
                             <p>
                                 <i class="fa-regular fa-clock"></i>
-                                <span>15</span>
+                                <span><?= date('H:i:s', strtotime($row['research-date'])) ?></span>
                             </p>
                             <p>
                                 <i class="fa-regular fa-calendar"></i>
-                                <span>Dec 3, 2025</span>
+                                <span><?= date('M d, Y', strtotime($row['research-date'])) ?></span>
                             </p>
                         </div>
                     </div>
@@ -42,12 +61,12 @@ require "../top.php";
                                         <i class="fa-solid fa-chart-column"></i>
                                         <span>Summary</span>
                                     </h4>
-                                    <p>HGH 191AA (Human Growth Hormone 191 Amino Acid) is the bioidentical form of somatropin, the growth hormone naturally produced by your pituitary gland. Unlike older 192AA formulations that contained an extra methionine</p>
+                                    <p><?= $row['summary'] ?></p>
                                 </div>
                             </div>
                             <div class="col-md-5">
                                 <div class="blog-header-thumbnail p-2">
-                                    <img src="https://www.peptidedeck.com/_next/image?url=https%3A%2F%2Faqvvmmxyhkuogohcndbn.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fblog-images%2F1764849983986-hgh-191aa.png&w=640&q=75" alt="">
+                                    <img src="../admin/storage/<?= $row['thumbnail'] ?>" alt="">
                                 </div>
                             </div>
                         </div>
