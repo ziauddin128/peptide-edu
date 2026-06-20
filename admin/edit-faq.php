@@ -1,19 +1,25 @@
 <?php
 require "top.php";
 
-$user_id = $_SESSION['USER_ID'];
+if (!isset($_GET['id']) || $_GET['id'] == "") {
+    redirect('faq');
+}
+
+$id = $_GET['id'];
 
 // get peptides details
-$sql = "SELECT * FROM `admin` WHERE `id` = ?";
+$sql = "SELECT * FROM `faq` WHERE `id` = ?";
 $res = $conn->prepare($sql);
-$res->bind_Param('i', $user_id);
+$res->bind_Param('i', $id);
 $res->execute();
 $result = $res->get_result();
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
 } else {
-    redirect('peptides');
+    redirect('faq');
 }
+
+
 ?>
 
 <div class="content-wrapper">
@@ -22,7 +28,7 @@ if ($result->num_rows > 0) {
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Manage Profile</h1>
+                    <h1>Add FAQ</h1>
                 </div>
             </div>
         </div>
@@ -36,21 +42,21 @@ if ($result->num_rows > 0) {
                     <div class="card card-primary">
                         <form id="data-form">
 
-                            <input type="hidden" name="id" value="<?= $row['id'] ?>">
+                            <input type="hidden" value="<?= $id ?>" name="id">
 
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Email address</label>
-                                    <input type="email" name="email"
-                                        value="<?= $row['email'] ?>" class="form-control" required placeholder="Enter email">
+                                    <label>Question</label>
+                                    <input type="text" class="form-control" value="<?= $row['question'] ?>" required name="question" placeholder="Question">
                                 </div>
+
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Password</label>
-                                    <input type="password" name="password" class="form-control" required placeholder="Password">
+                                    <label>Answer</label>
+                                    <textarea class="form-control" required name="answer" placeholder="Answer"><?= $row['answer'] ?></textarea>
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Update</button>
+                                <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
                         </form>
                     </div>
@@ -60,21 +66,22 @@ if ($result->num_rows > 0) {
     </section>
 </div>
 
+
 <script>
-    //  Update Form
+    //  Add Form
     $("#data-form").submit(function(e) {
         e.preventDefault();
 
         let formData = new FormData(this);
         $.ajax({
-            url: "api/update-profile.php",
+            url: "api/update-faq.php",
             type: "POST",
             data: formData,
             processData: false,
             contentType: false,
             beforeSend: function() {
                 Swal.fire({
-                    title: "updating...",
+                    title: "Uploading...",
                     text: "Please wait",
                     allowOutsideClick: false,
                     didOpen: () => {
@@ -90,6 +97,7 @@ if ($result->num_rows > 0) {
                         text: data.message,
                         icon: "success"
                     });
+
                 } else {
                     Swal.fire({
                         title: "Failed",

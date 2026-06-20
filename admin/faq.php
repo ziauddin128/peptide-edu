@@ -8,7 +8,7 @@ require "top.php";
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Peptides</h1>
+                    <h1>FAQ</h1>
                 </div>
             </div>
         </div>
@@ -18,7 +18,7 @@ require "top.php";
     <section class="content">
         <div class="container-fluid">
 
-            <a href="add-peptide" class="btn btn-primary mb-3">+ Add Peptide</a>
+            <a href="add-faq" class="btn btn-primary mb-3">+ Add FAQ</a>
 
 
             <div class="row">
@@ -30,11 +30,8 @@ require "top.php";
                                 <thead>
                                     <tr>
                                         <th>SL #</th>
-                                        <th>Name</th>
-                                        <th>Category</th>
-                                        <th>Thumbnail</th>
-                                        <th>CoA</th>
-                                        <th>SDS</th>
+                                        <th>Question</th>
+                                        <th>Answer</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -54,7 +51,7 @@ require "top.php";
     // Get data
     function getData() {
         $.ajax({
-            url: "api/get-peptide.php",
+            url: "api/get-faq.php",
             type: "GET",
             success: function(res) {
                 $(".tableBody").html(res);
@@ -79,7 +76,7 @@ require "top.php";
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    url: "api/delete-peptide.php",
+                    url: "api/delete-faq.php",
                     type: "POST",
                     data: {
                         id

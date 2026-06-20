@@ -1,49 +1,38 @@
-</div>
-<!-- content-wrapper ends -->
-<!-- partial:../../partials/_footer.html -->
-<footer class="footer">
-  <div class="d-sm-flex justify-content-center justify-content-sm-between">
-    <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © <?= date('Y') ?> All rights reserved.</span>
   </div>
-</footer>
-<!-- partial -->
-</div>
-<!-- main-panel ends -->
-</div>
-<!-- page-body-wrapper ends -->
-</div>
-<!-- container-scroller -->
 
-<!-- plugins:js -->
-
-<?php
-$activePage = basename($_SERVER['PHP_SELF']);
-if ($activePage != "sds.php") {
-?>
-  <script src="assets/js/vendor.bundle.base.js"></script>
-<?php
-}
-?>
-
-
-<script src="assets/js/jquery.dataTables.js"></script>
-<script src="assets/js/dataTables.bootstrap4.js"></script>
-
-
-<script src="assets/js/Chart.min.js"></script>
-<script src="assets/js/bootstrap-datepicker.min.js"></script>
-
-
-<script src="assets/js/off-canvas.js"></script>
-<script src="assets/js/hoverable-collapse.js"></script>
-<script src="assets/js/template.js"></script>
-<script src="assets/js/settings.js"></script>
-<script src="assets/js/todolist.js"></script>
-
-
-<script src="assets/js/dashboard.js"></script>
-<script src="assets/js/data-table.js"></script>
-
+    <script src="asset/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="asset/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="asset/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="asset/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="asset/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="asset/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="asset/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="asset/plugins/jszip/jszip.min.js"></script>
+    <script src="asset/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="asset/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="asset/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="asset/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="asset/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <script src="asset/dist/js/adminlte.min.js"></script>
+    <script src="asset/dist/js/demo.js"></script>
+    <script>
+        $(function() {
+            $("#example1").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                "buttons": false,
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+    </script>
 </body>
-
 </html>

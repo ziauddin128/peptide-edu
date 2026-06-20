@@ -3,101 +3,103 @@ require "config.php";
 require "api/function.php";
 
 if (empty($_SESSION['USER_ID'])) {
-  redirect('index');
+    redirect('index');
 }
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>odbiolab | Admin</title>
-  <link rel="shortcut icon" href="../assets/images/logo.png" type="image/x-icon">
-  <link rel="stylesheet" href="assets/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="assets/css/vendor.bundle.base.css">
-  <link rel="stylesheet" href="assets/css/dataTables.bootstrap4.css">
-  <link rel="stylesheet" href="assets/css/bootstrap-datepicker.min.css">
-  <link rel="stylesheet" href="assets/css/bootstrap-datepicker.min.css">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>odbiolab | Admin</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="asset/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="asset/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="asset/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="asset/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" href="asset/dist/css/adminlte.min.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+    <link rel="stylesheet" href="asset/dist/css/style.css">
+    <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
-<body class="sidebar-light">
-  <div class="container-scroller">
-    <!-- Top bar -->
-    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-      <div class="navbar-menu-wrapper d-flex align-items-stretch justify-content-between">
-        <ul class="navbar-nav mr-lg-2 d-none d-lg-flex">
-          <li class="nav-item nav-toggler-item">
-            <button class="navbar-toggler align-self-center" type="button" data-toggle="minimize">
-              <span class="mdi mdi-menu"></span>
-            </button>
-          </li>
+<body class="hold-transition sidebar-mini">
 
-        </ul>
-        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-          <a class="navbar-brand brand-logo" href="peptides"><img src="../assets/images/logo.png" alt="logo" /></a>
-          <a class="navbar-brand brand-logo-mini" href="peptides"><img src="../assets/images/logo.png" alt="logo" /></a>
-        </div>
-        <ul class="navbar-nav navbar-nav-right">
+    <div class="wrapper">
+        <!-- Top Bar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </a>
+                </li>
 
-          <li class="nav-item nav-profile dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <span class="nav-profile-name">Admin</span>
+            </ul>
+        </nav>
+
+        <!-- Main Sidebar -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <div>
+                <a href="peptides" class="brand-link">
+                <img src="../assets/images/favicon.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <span class="brand-text font-weight-light">Admin Panel</span>
             </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <div class="dropdown-divider"></div>
-              <a href="logout" class="dropdown-item">
-                <i class="mdi mdi-logout text-primary"></i>
-                Logout
-              </a>
             </div>
-          </li>
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
-          <li class="nav-item nav-toggler-item-right d-lg-none">
-            <button class="navbar-toggler align-self-center" type="button" data-toggle="offcanvas">
-              <span class="mdi mdi-menu"></span>
-            </button>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <div class="container-fluid page-body-wrapper">
-      <!-- Side bar -->
-      <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link" href="peptides">
-              <i class="mdi mdi-view-quilt menu-icon"></i>
-              <span class="menu-title">Peptides</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="profile">
-              <i class="mdi mdi-account-settings menu-icon"></i>
-              <span class="menu-title">Profile</span>
-            </a>
-          </li>
-          <!-- 
-          <li class="nav-item">
-            <a class="nav-link" href="table.html">
-              <i class="mdi mdi-grid-large menu-icon"></i>
-              <span class="menu-title">Table</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="login.html">
-              <i class="mdi mdi-airplay menu-icon"></i>
-              <span class="menu-title">Login</span>
-            </a>
-          </li> -->
+                        <li class="nav-item">
+                            <a href="peptides" class="nav-link">
+                                <i class="nav-icon fa-solid fa-flask-vial"></i>
+                                <p>
+                                    Peptides
+                                </p>
+                            </a>
+                        </li>
 
-        </ul>
-      </nav>
-      <!-- Main Part -->
-      <div class="main-panel">
-        <div class="content-wrapper">
+                         <li class="nav-item">
+                            <a href="faq" class="nav-link">
+                                <i class="nav-icon fa-regular fa-circle-question"></i>
+                                <p>
+                                    FAQ
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="profile" class="nav-link">
+                                <i class="nav-icon fa-solid fa-user"></i>
+                                <p>
+                                    Profile
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="logout" class="nav-link bg-danger">
+                                <i class="nav-icon fa-solid fa-right-from-bracket"></i>
+                                <p>
+                                    Logout
+                                </p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+        </aside>

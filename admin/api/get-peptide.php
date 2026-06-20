@@ -4,8 +4,9 @@ require "../config.php";
 $sql = "SELECT * FROM `peptides` ORDER BY `id` DESC";
 $res = mysqli_query($conn, $sql);
 
+$html = "";
+
 if (mysqli_num_rows($res) > 0) {
-  $html = "";
   $sl = 1;
   while ($row = mysqli_fetch_assoc($res)) {
     $html .= '<tr id="data-row-' . $row['id'] . '">
@@ -30,6 +31,15 @@ if (mysqli_num_rows($res) > 0) {
               </tr>';
     $sl++;
   }
+} else {
+  $html .= '<tr>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>';
 }
-
 echo $html;
