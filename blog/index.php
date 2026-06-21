@@ -11,13 +11,13 @@ if (isset($_GET['slug']) && $_GET['slug'] != "") {
     $result = $res->get_result();
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
+        $detailsContent = json_decode($row['content'] ?? '{}', true) ?: [];
     } else {
         echo "<script>window.location.assign('../')</script>";
     }
 } else {
     echo "<script>window.location.assign('../')</script>";
 }
-
 
 ?>
 
@@ -108,24 +108,19 @@ if (isset($_GET['slug']) && $_GET['slug'] != "") {
                 </div>
                 <div class="col-md-9">
                     <div class="blog-details-right">
-                        <div class="details-item">
-                            <div class="title">
-                                <h1>Introduction</h1>
+                        <?php
+                        foreach ($detailsContent as $content) {
+                        ?>
+                            <div class="details-item">
+                                <div class="title">
+                                    <h1><?= $content['title'] ?></h1>
+                                </div>
+
+                                <?= $content['content'] ?>
                             </div>
-
-                            <p>HGH 191AA (Human Growth Hormone 191 Amino Acid) is the bioidentical form of somatropin, the growth hormone naturally produced by your pituitary gland. Unlike older 192AA formulations that contained an extra methionine amino acid, HGH 191AA is structurally identical to what your body produces, making it the gold standard in growth hormone research and therapy.</p>
-
-                            <p>This comprehensive guide covers everything you need to know about HGH 191AA: how it works, the difference between 191AA and 192AA, research-backed benefits, dosage protocols, side effects, proper storage, and frequently asked questions. Whether you're exploring HGH for medical purposes or research, this guide provides the scientific foundation you need.</p>
-                        </div>
-                        <div class="details-item">
-                            <div class="title">
-                                <h1>Introduction</h1>
-                            </div>
-
-                            <p>HGH 191AA (Human Growth Hormone 191 Amino Acid) is the bioidentical form of somatropin, the growth hormone naturally produced by your pituitary gland. Unlike older 192AA formulations that contained an extra methionine amino acid, HGH 191AA is structurally identical to what your body produces, making it the gold standard in growth hormone research and therapy.</p>
-
-                            <p>This comprehensive guide covers everything you need to know about HGH 191AA: how it works, the difference between 191AA and 192AA, research-backed benefits, dosage protocols, side effects, proper storage, and frequently asked questions. Whether you're exploring HGH for medical purposes or research, this guide provides the scientific foundation you need.</p>
-                        </div>
+                        <?php
+                        }
+                        ?>
                     </div>
                 </div>
             </div>

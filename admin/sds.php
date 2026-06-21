@@ -1,7 +1,6 @@
 <?php
 require "top.php";
 
-
 if (!isset($_GET['id']) || $_GET['id'] == "") {
     redirect('peptides');
 }
@@ -170,6 +169,7 @@ if (!empty($row['sds_data'])) {
 
                                 </div>
                             </div>
+                            
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">Update</button>
                             </div>
@@ -270,7 +270,7 @@ if (!empty($row['sds_data'])) {
                         if (result.isConfirmed) {
                             location.reload();
                         }
-                    });;
+                    });
                 } else {
                     Swal.fire({
                         title: "Failed",
