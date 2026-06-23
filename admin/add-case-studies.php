@@ -57,7 +57,7 @@ if (!empty($row['sds_data'])) {
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Title</label>
+                                            <label>Main Title</label>
                                             <input type="text" class="form-control" required name="title" placeholder="Title">
                                         </div>
                                     </div>
@@ -85,7 +85,7 @@ if (!empty($row['sds_data'])) {
 
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label>TItle</label>
+                                            <label>Title</label>
                                             <input type="text" class="form-control" required name="content-title">
                                             <br>
                                             <textarea class="form-control summernote" name="section_1"></textarea>
@@ -96,8 +96,6 @@ if (!empty($row['sds_data'])) {
                                     </div>
 
                                     <button class="btn btn-success" id="contentAddBtn">+ Add More</button>
-
-
                                 </div>
                             </div>
                             <div class="card-footer">
@@ -120,6 +118,7 @@ if (!empty($row['sds_data'])) {
                 ['style', ['bold', 'italic', 'underline']],
                 ['para', ['ul', 'ol']],
                 ['table', ['table']],
+                 ['insert', ['link']],
                 ['view', ['codeview']]
             ]
         });

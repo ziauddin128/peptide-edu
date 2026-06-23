@@ -12,6 +12,16 @@ if (isset($_GET['slug']) && $_GET['slug'] != "") {
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $detailsContent = json_decode($row['content'] ?? '{}', true) ?: [];
+
+
+        // get promotion product
+        $promoProductSql = "SELECT * FROM `promo-product` WHERE `productId` = " . $row['id'] . "";
+        $promoProductRes = mysqli_query($conn, $promoProductSql);
+        if (mysqli_num_rows($promoProductRes) > 0) {
+            $promoProductRow = mysqli_fetch_assoc($promoProductRes);
+        } else {
+            $promoProductRow = [];
+        }
     } else {
         echo "<script>window.location.assign('../')</script>";
     }
@@ -79,32 +89,39 @@ if (isset($_GET['slug']) && $_GET['slug'] != "") {
         <section class="blog-details">
             <div class="row">
                 <div class="col-md-3">
-                    <div class="blog-details-left">
-                        <h2>Procurement</h2>
-                        <div class="blog-product-promotion">
-                            <img src="https://www.peptidedeck.com/_next/image?url=https%3A%2F%2Ftryyucca.com%2Fsermorelin-peptide-injection-vial-muscle-recovery-yucca-health.avif&w=256&q=75" alt="">
-                        </div>
-                        <div class="blog-product-det">
-                            <div class="stock">
-                                <h3>
-                                    <i class="fa-solid fa-circle"></i>
-                                    <span>IN STOCK</span>
-                                </h3>
-                                <p>
-                                    <i class="fa-regular fa-truck"></i>
-                                    <span>Free $150+</span>
-                                </p>
+                    <?php
+                    if (!empty($promoProductRow)) {
+                    ?>
+                        <div class="blog-details-left">
+                            <h2>Procurement</h2>
+                            <div class="blog-product-promotion">
+                                <img src="../admin/storage/<?= $promoProductRow['image'] ?>" alt="">
                             </div>
-                            <div class="product-info">
-                                <h3>Yucca Health Sermorelin</h3>
-                                <p>Yucca Sermorelin via licensed US telehealth. $192/month. Provider consult + pharmacy-shipped vials included. 3-month protocol recommended.</p>
-                                <a href="#">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                    <span>START 3-MONTH SERMORELIN PROTOCOL</span>
-                                </a>
+                            <div class="blog-product-det">
+                                <div class="stock">
+                                    <h3>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <span>IN STOCK</span>
+                                    </h3>
+                                    <p>
+                                        <i class="fa-regular fa-truck"></i>
+                                        <span>Free $<?= $promoProductRow['deliveryFee']  ?>+</span>
+                                    </p>
+                                </div>
+                                <div class="product-info">
+                                    <h3><?= $promoProductRow['title']  ?></h3>
+                                    <p><?= $promoProductRow['description']  ?></p>
+                                    <a href="<?= $promoProductRow['refLink']  ?>" target="_blank">
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                        <span>START 3-MONTH SERMORELIN PROTOCOL</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    <?php
+                    }
+                    ?>
+
                 </div>
                 <div class="col-md-9">
                     <div class="blog-details-right">
