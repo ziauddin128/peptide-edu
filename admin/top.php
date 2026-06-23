@@ -5,6 +5,11 @@ require "api/function.php";
 if (empty($_SESSION['USER_ID'])) {
     redirect('index');
 }
+
+//page_name
+$page = basename($_SERVER['PHP_SELF']);
+
+
 ?>
 
 
@@ -54,9 +59,9 @@ if (empty($_SESSION['USER_ID'])) {
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <div>
                 <a href="peptides" class="brand-link">
-                <img src="../assets/images/favicon.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Admin Panel</span>
-            </a>
+                    <img src="../assets/images/favicon.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                    <span class="brand-text font-weight-light">Admin Panel</span>
+                </a>
             </div>
             <!-- Sidebar -->
             <div class="sidebar">
@@ -64,7 +69,9 @@ if (empty($_SESSION['USER_ID'])) {
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
                         <li class="nav-item">
-                            <a href="peptides" class="nav-link">
+                            <a href="peptides" class="nav-link <?php if ($page == "peptides.php" || $page == "add-peptide.php" || $page == "edit-peptide.php" || $page == "sds.php") {
+                                                                    echo "active";
+                                                                } ?>">
                                 <i class="nav-icon fa-solid fa-flask-vial"></i>
                                 <p>
                                     Peptides
@@ -73,7 +80,9 @@ if (empty($_SESSION['USER_ID'])) {
                         </li>
 
                         <li class="nav-item">
-                            <a href="case-studies" class="nav-link">
+                            <a href="case-studies" class="nav-link <?php if ($page == "case-studies.php" || $page == "add-case-studies.php" || $page == "edit-case-studies.php" || $page == "sds.php") {
+                                                                        echo "active";
+                                                                    } ?>">
                                 <i class="nav-icon fa-solid fa-microscope"></i>
                                 <p>
                                     Case Studies
@@ -81,8 +90,10 @@ if (empty($_SESSION['USER_ID'])) {
                             </a>
                         </li>
 
-                         <li class="nav-item">
-                            <a href="faq" class="nav-link">
+                        <li class="nav-item">
+                            <a href="faq" class="nav-link <?php if ($page == "faq.php" || $page == "add-faq.php" || $page == "edit-faq.php") {
+                                                                echo "active";
+                                                            } ?>">
                                 <i class="nav-icon fa-regular fa-circle-question"></i>
                                 <p>
                                     FAQ
@@ -91,7 +102,9 @@ if (empty($_SESSION['USER_ID'])) {
                         </li>
 
                         <li class="nav-item">
-                            <a href="profile" class="nav-link">
+                            <a href="profile" class="nav-link <?php if ($page == "profile.php") {
+                                                                    echo "active";
+                                                                } ?>">
                                 <i class="nav-icon fa-solid fa-user"></i>
                                 <p>
                                     Profile

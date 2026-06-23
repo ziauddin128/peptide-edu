@@ -29,7 +29,6 @@ if (!empty($row['sds_data'])) {
 ?>
 
 
-<script src="assets/js/vendor.bundle.base.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.js"></script>
 

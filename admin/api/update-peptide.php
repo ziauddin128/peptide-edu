@@ -187,6 +187,6 @@ if ($stmt->execute()) {
 } else {
     echo json_encode([
         "success" => false,
-        "message" => "Update failed!"
+        "message" => "No changes has been made!"
     ]);
 }
