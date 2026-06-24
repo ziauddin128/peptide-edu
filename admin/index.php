@@ -1,3 +1,12 @@
+<?php
+require "config.php";
+
+if (isset($_SESSION['USER_ID']) && $_SESSION['USER_ID'] != "") {
+  echo "<script>window.location.assign('peptides')</script>";
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +18,7 @@
   <link rel="stylesheet" href="asset/plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="asset/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <link rel="stylesheet" href="asset/dist/css/adminlte.min.css">
-  
+
   <link rel="stylesheet" href="asset/dist/css/style.css">
   <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
   <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
@@ -61,7 +70,6 @@
       </div>
     </div>
   </div>
-  <!-- <script src="asset/plugins/jquery/jquery.min.js"></script> -->
   <script src="asset/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="asset/dist/js/adminlte.min.js"></script>
 

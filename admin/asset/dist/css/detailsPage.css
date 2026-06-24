@@ -1,0 +1,473 @@
+:root {
+  --font-bebas: "Bebas Neue", sans-serif;
+  --body-bg: #fff;
+
+  --primary-color: #f5a623;
+  --primary-dark-variant: #d98e1a;
+  --soft-gold: #ffd166;
+  --burnt-orange: #c56a1a;
+
+  --text-color: #1c2128;
+  --text-color2: #1c2128;
+  --light-border-color: #d4d4d4;
+  --light-border-color2: #ebebeb;
+  --light-border-color3: #d4d4d4;
+
+  --redis-color: #cd3535;
+  --light-primary-bg: #eaf5f1;
+
+  --yellowish-bg: #f5f5ed;
+  --dark-bg: #d6d3d36d;
+  --off-dark-bg: #63636387;
+
+  --barrel-bg: #292f2226;
+  --barrel-border: #3a3d3533;
+  --fill-color: #4a5c1e;
+  --fill-line: #b8f048;
+  --plunger-bg: #222;
+  --plunger-border: #3a3d3533;
+  --tik-color: #0c0c0c38;
+}
+
+[data-theme="dark"] {
+  --body-bg: #030609;
+  --text-color: #fff;
+
+  --dark-border-color: #030609;
+  --light-border-color2: #cccccc32;
+  --light-border-color3: #cccccc32;
+
+  --dark-bg: #161616;
+
+  --barrel-bg: #1c1e1a;
+  --barrel-border: #3a3d35;
+  --plunger-border: #444;
+  --tik-color: rgba(255, 255, 255, 0.22);
+}
+
+/* Product details */
+.product-details {
+  padding: 50px 0 40px 0;
+  background-color: var(--body-bg);
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.breadcrumbs a {
+  color: var(--text-color-muted);
+  text-decoration: none;
+}
+
+[data-theme="dark"] .breadcrumbs a {
+  color: var(--text-color);
+}
+
+.breadcrumbs i {
+  color: var(--text-color-muted);
+  font-size: 12px;
+}
+
+[data-theme="dark"] .breadcrumbs i {
+  color: var(--text-color);
+}
+
+.breadcrumbs span {
+  color: var(--primary-color);
+}
+
+.product-det-left,
+.product-det-right {
+  margin: 10px 0;
+}
+
+.product-det-left {
+  border: 1px solid var(--light-border-color2);
+  border-radius: 10px;
+  height: 100%;
+}
+
+.product-det-left .owl-stage {
+  display: flex !important;
+  align-items: stretch !important;
+  margin: 10px 0;
+}
+
+.product-det-left .owl-theme .owl-dots .owl-dot.active span,
+.product-det-left .owl-theme .owl-dots .owl-dot:hover span {
+  background-color: var(--primary-color);
+}
+
+.product-det-left .owl-item {
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+.product-det-left .owl-item .item {
+  width: 100%;
+}
+
+.product-det-item {
+  height: 100%;
+  margin: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: white;
+  border: 1px solid var(--light-border-color);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-det-item img,
+.product-det-item video {
+  height: 400px;
+  width: 100%;
+  object-fit: contain;
+}
+
+.product-category-white {
+  padding: 5px 10px;
+  color: var(--text-color2);
+  border: 1px solid var(--primary-color);
+  background-color: var(--primary-color);
+  width: fit-content;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 30px;
+}
+
+.product-det-right {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.product-det-right h1 {
+  font-size: 45px;
+  margin: 0;
+  color: var(--text-color);
+  font-family: var(--font-bebas);
+}
+
+.product-det-right h4 {
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0;
+  color: var(--text-color);
+}
+
+.product-det-right > p {
+  font-size: 16px;
+  color: var(--text-color);
+}
+
+.product-point {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.product-point-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.product-point-item .icon {
+  height: 40px;
+  width: 40px;
+  min-width: 40px;
+  background-color: var(--light-primary-bg);
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.product-point-item .icon img {
+  width: 20px;
+}
+
+.product-point-item p b {
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.product-point-item p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-color);
+}
+
+.product-formate-item {
+  margin-top: 10px;
+  background-color: var(--body-bg);
+  border: 1px solid var(--light-border-color2);
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.product-formate-item i {
+  font-size: 16px;
+  color: var(--primary-color);
+}
+
+.product-formate-item p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-color);
+}
+
+.coa-btn {
+  padding: 14px 20px;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+  color: var(--text-color2);
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  text-decoration: none;
+  width: 100%;
+  margin-top: 20px;
+
+  &:hover {
+    background-color: var(--soft-gold);
+  }
+}
+
+@media (max-width: 575px) {
+  .product-det-item img,
+  .product-det-item video {
+    height: auto;
+  }
+}
+
+/* Lab Report  */
+.lab-report {
+  padding: 40px 0;
+  background-color: var(--body-bg);
+  border-top: 2px solid var(--light-border-color2);
+}
+
+.lab-report > .container > .row > div {
+  margin: 10px 0;
+}
+
+.lab-report-left,
+.lab-report-right {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: var(--body-bg);
+  border: 1px solid var(--light-border-color2);
+  padding: 20px;
+  border-radius: 10px;
+  height: 100%;
+}
+
+.lab-report-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--light-border-color2);
+  color: var(--text-color);
+}
+
+.chemical-report-wrapper {
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--light-border-color2);
+}
+
+.chemical-report-box {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chemical-report-box .icon {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #cccccc68;
+  border: 1px solid var(--light-border-color2);
+  border-radius: 5px;
+  color: var(--primary-color);
+}
+
+[data-theme="dark"] .chemical-report-box .icon {
+  border: 1px solid var(--primary-color);
+}
+
+.chemical-report-box h4 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-color);
+  text-transform: uppercase;
+}
+
+.chemical-report-box p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.chemical-structure-img-wrapper img {
+  max-width: 300px;
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+.chemical-structure-img-wrapper h3 {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-color);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.lab-report-purity {
+  padding: 10px;
+  border: 1px solid var(--primary-color);
+  background-color: var(--light-primary-bg);
+  color: var(--primary-color);
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+[data-theme="dark"] .lab-report-purity {
+  background-color: transparent;
+}
+
+.lab-report-purity h3 {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.lab-report-purity h2 {
+  margin: 10px 0 0 0;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.endoxin-report {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--light-border-color2);
+}
+
+.endoxin-report h3 {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-color);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.endoxin-report h2 {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+.endoxin-report img {
+  width: 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.previous-batch h1 {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--text-color);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.prev-batch-list {
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--light-border-color2);
+}
+
+.prev-batch-list h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.prev-batch-list p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-color);
+}
+
+/* safety-data-sheet */
+.safety-data-sheet
+{
+    padding-bottom: 30px;
+}
+.safety-data-sheet h2 
+{
+    font-size: 30px;
+    font-weight: 600;
+    margin: 0px;
+    background-color: var(--primary-color);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.safety-data-sheet p 
+{
+    font-size: 16px;
+    font-weight: 400;
+    margin: 10px;
+}

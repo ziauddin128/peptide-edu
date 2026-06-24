@@ -143,7 +143,7 @@ if ($result->num_rows > 0) {
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Thumbnail</label>
-                                            <input type="file" name="thumbnail" class="form-control">
+                                            <input type="file" accept="image/*"  name="thumbnail" class="form-control">
 
                                             <br>
                                             <input type="hidden" name="old-thumbnail" value="<?= $row['thumbnail'] ?>" class="form-control">
@@ -417,6 +417,10 @@ if ($result->num_rows > 0) {
                             </div>
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">Update</button>
+                                <button type="button" id="preview-btn" class="btn btn-success">
+                                    <i class="fas fa-eye"></i>
+                                    <span>Preview</span>
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -528,6 +532,31 @@ if ($result->num_rows > 0) {
             }
         })
     })
+
+
+    // Preview 
+    $("#preview-btn").click(function() {
+
+        let formData = new FormData($("#data-form")[0]);
+
+        $.ajax({
+            url: "api/save-preview.php",
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(res) {
+
+                let data = JSON.parse(res);
+
+                if (data.success) {
+                    window.open("preview.php", "_blank");
+                }
+
+            }
+        });
+
+    });
 </script>
 
 <?php

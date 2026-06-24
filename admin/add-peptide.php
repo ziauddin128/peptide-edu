@@ -123,7 +123,7 @@ require "top.php";
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Thumbnail</label>
-                                            <input type="file" name="thumbnail" required class="form-control">
+                                            <input type="file" accept="image/*" name="thumbnail" required class="form-control">
                                         </div>
                                     </div>
 
@@ -131,7 +131,7 @@ require "top.php";
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>CoA</label>
-                                            <input type="file" name="coa" required class="form-control">
+                                            <input type="file"  name="coa" required class="form-control">
                                         </div>
                                     </div>
 
@@ -291,6 +291,10 @@ require "top.php";
                             </div>
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="button" id="preview-btn" class="btn btn-success">
+                                    <i class="fas fa-eye"></i>
+                                    <span>Preview</span>
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -302,13 +306,13 @@ require "top.php";
 
 
 <script>
-// Previous batch er field dynamically baracci 
-function addBatchRow() {
-    const wrapper = document.querySelector('.prev_batch_wrapper_new');
+    // Previous batch er field dynamically baracci 
+    function addBatchRow() {
+        const wrapper = document.querySelector('.prev_batch_wrapper_new');
 
-    const newRow = document.createElement('div');
-    newRow.className = 'row align-items-center prev-batches-wrapper';
-    newRow.innerHTML = `
+        const newRow = document.createElement('div');
+        newRow.className = 'row align-items-center prev-batches-wrapper';
+        newRow.innerHTML = `
     <div class="col-md-4 col-lg-5">
         <div class="form-group">
         <label>Batch</label>
@@ -328,21 +332,21 @@ function addBatchRow() {
         </button>
     </div>
     `;
-    wrapper.appendChild(newRow);
-}
+        wrapper.appendChild(newRow);
+    }
 
-function removeBatchRow(btn) {
-    const wrapper = btn.closest('.prev-batches-wrapper').parentElement;
-    btn.closest('.prev-batches-wrapper').remove();
-}
+    function removeBatchRow(btn) {
+        const wrapper = btn.closest('.prev-batches-wrapper').parentElement;
+        btn.closest('.prev-batches-wrapper').remove();
+    }
 
-//  Media file dynamically add
-function addMediaRow() {
-    const wrapper = document.querySelector('.media_file_wrapper_new');
+    //  Media file dynamically add
+    function addMediaRow() {
+        const wrapper = document.querySelector('.media_file_wrapper_new');
 
-    const newRow = document.createElement('div');
-    newRow.className = 'row align-items-center media-file-wrapper';
-    newRow.innerHTML = `
+        const newRow = document.createElement('div');
+        newRow.className = 'row align-items-center media-file-wrapper';
+        newRow.innerHTML = `
     <div class="col-md-8 col-lg-10">
         <div class="form-group">
         <label>Image/Video</label>
@@ -355,55 +359,79 @@ function addMediaRow() {
         </button>
     </div>
     `;
-    wrapper.appendChild(newRow);
-}
-
-function removeMediaRow(btn) {
-    const wrapper = btn.closest('.media-file-wrapper').parentElement;
-    btn.closest('.media-file-wrapper').remove();
-}
-
-//  Add Form
-$("#data-form").submit(function(e) {
-    e.preventDefault();
-
-    let formData = new FormData(this);
-    $.ajax({
-    url: "api/add-peptide.php",
-    type: "POST",
-    data: formData,
-    processData: false,
-    contentType: false,
-    beforeSend: function() {
-        Swal.fire({
-        title: "Uploading...",
-        text: "Please wait",
-        allowOutsideClick: false,
-        didOpen: () => {
-            Swal.showLoading();
-        }
-        });
-    },
-    success: function(result) {
-        let data = JSON.parse(result);
-        if (data.success) {
-        Swal.fire({
-            title: "Success",
-            text: data.message,
-            icon: "success"
-        });
-
-        $("#data-form").trigger("reset");
-        } else {
-        Swal.fire({
-            title: "Failed",
-            text: data.message,
-            icon: "error"
-        });
-        }
+        wrapper.appendChild(newRow);
     }
+
+    function removeMediaRow(btn) {
+        const wrapper = btn.closest('.media-file-wrapper').parentElement;
+        btn.closest('.media-file-wrapper').remove();
+    }
+
+    //  Add Form
+    $("#data-form").submit(function(e) {
+        e.preventDefault();
+
+        let formData = new FormData(this);
+        $.ajax({
+            url: "api/add-peptide.php",
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            beforeSend: function() {
+                Swal.fire({
+                    title: "Uploading...",
+                    text: "Please wait",
+                    allowOutsideClick: false,
+                    didOpen: () => {
+                        Swal.showLoading();
+                    }
+                });
+            },
+            success: function(result) {
+                let data = JSON.parse(result);
+                if (data.success) {
+                    Swal.fire({
+                        title: "Success",
+                        text: data.message,
+                        icon: "success"
+                    });
+
+                    $("#data-form").trigger("reset");
+                } else {
+                    Swal.fire({
+                        title: "Failed",
+                        text: data.message,
+                        icon: "error"
+                    });
+                }
+            }
+        })
     })
-})
+
+    // Preview Peptide
+    $("#preview-btn").click(function() {
+        let formData = new FormData($("#data-form")[0]);
+        $.ajax({
+            url: "api/save-preview.php",
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(res) {
+
+                let data = JSON.parse(res);
+
+                if (data.success) {
+                    window.open("preview.php", "_blank");
+                } else {
+                    alert(data.message);
+                }
+
+            }
+        });
+
+    });
 </script>
 
 <?php
