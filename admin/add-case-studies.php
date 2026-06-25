@@ -118,9 +118,18 @@ if (!empty($row['sds_data'])) {
                 ['style', ['bold', 'italic', 'underline']],
                 ['para', ['ul', 'ol']],
                 ['table', ['table']],
-                 ['insert', ['link']],
+                ['insert', ['link']],
                 ['view', ['codeview']]
-            ]
+            ],
+            callbacks: {
+                onPaste: function(e) {
+                    e.preventDefault();
+
+                    var text = (e.originalEvent || e).clipboardData.getData('text/plain');
+
+                    document.execCommand('insertText', false, text);
+                }
+            }
         });
 
         // PHP → JS safe object

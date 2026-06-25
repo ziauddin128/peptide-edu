@@ -108,12 +108,12 @@ $activePage = basename($_SERVER['PHP_SELF']);
 
                   <li>
                     <a class="dropdown-item" href="javascript:void(0)" onclick="change_lang('en')">
-                      <img src="assets/images/english.png" alt="">
+                      <img src="<?= DOMAIN_NAME ?>assets/images/english.png" alt="">
                       <span>English</span>
                     </a>
                   </li>
                   <li><a class="dropdown-item" href="javascript:void(0)" onclick="change_lang('es')">
-                      <img src="assets/images/spanish.png" alt="">
+                      <img src="<?= DOMAIN_NAME ?>assets/images/spanish.png" alt="">
                       <span>Spanish</span>
                     </a></li>
                 </ul>

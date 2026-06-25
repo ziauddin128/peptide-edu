@@ -16,10 +16,17 @@ $res->execute();
 $result = $res->get_result();
 $row = $result->fetch_assoc() ?? [];
 
-$contents = json_decode($row['content'], true);
-if (!$contents) {
+
+if (empty($row['content'])) {
     $contents = [];
+} else {
+    $contents = json_decode($row['content'], true);
+    if (!$contents) {
+        $contents = [];
+    }
 }
+
+
 
 ?>
 
@@ -158,7 +165,16 @@ if (!$contents) {
                 ['table', ['table']],
                 ['insert', ['link']],
                 ['view', ['codeview']]
-            ]
+            ],
+            callbacks: {
+                onPaste: function(e) {
+                    e.preventDefault();
+
+                    var text = (e.originalEvent || e).clipboardData.getData('text/plain');
+
+                    document.execCommand('insertText', false, text);
+                }
+            }
         });
     });
 
